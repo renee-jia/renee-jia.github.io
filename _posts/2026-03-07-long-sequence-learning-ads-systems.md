@@ -36,7 +36,7 @@ The first generation of deep CTR models didn't bother with sequences. User histo
 
 - Click and conversion counts over time windows (7-day, 30-day, lifetime)
 - Category and advertiser frequency distributions
-- Recency features (time since last click in category $c$)
+- Recency features (time since last click in category $$c$$)
 - Cross-features between user segments and ad attributes
 
 These features fed into Wide & Deep architectures, where a linear "wide" component memorized sparse cross-features and a deep MLP learned dense generalizations.
@@ -61,11 +61,11 @@ The observation behind the next generation is straightforward: not all past beha
 
 Deep Interest Network (DIN) operationalized this idea: instead of encoding the entire user history into a single fixed-length vector, compute an attention-weighted sum where the *candidate ad* serves as the query.
 
-Given user behavior embeddings $\{e_1, e_2, \ldots, e_T\}$ and candidate ad embedding $e_a$:
+Given user behavior embeddings $$\{e_1, e_2, \ldots, e_T\}$$ and candidate ad embedding $$e_a$$:
 
 $$v_u = \sum_{t=1}^{T} \alpha(e_t, e_a) \cdot e_t$$
 
-where $\alpha(e_t, e_a)$ is a learned attention function (implemented as a small MLP over the concatenation and element-wise product of $e_t$ and $e_a$).
+where $$\alpha(e_t, e_a)$$ is a learned attention function (implemented as a small MLP over the concatenation and element-wise product of $$e_t$$ and $$e_a$$).
 
 This is target attention—the representation of the user *changes depending on what ad you're scoring*. A user who browsed both electronics and sportswear gets a different representation when you're ranking a phone case versus a yoga mat.
 
@@ -78,7 +78,7 @@ DIN treats user history as a set—it doesn't model the temporal evolution of in
 
 $$h_t' = \text{AUGRU}(h_{t-1}', e_t, \alpha_t)$$
 
-where AUGRU (Attention-based GRU) gates the update by the attention score $\alpha_t$ with respect to the target ad. This means the sequential encoder is *also* candidate-aware—it tracks the evolution of interest *relevant to the current candidate*.
+where AUGRU (Attention-based GRU) gates the update by the attention score $$\alpha_t$$ with respect to the target ad. This means the sequential encoder is *also* candidate-aware—it tracks the evolution of interest *relevant to the current candidate*.
 
 **Key paper:**
 - Zhou et al., ["Deep Interest Evolution Network for Click-Through Rate Prediction"](https://arxiv.org/abs/1809.03672) (Alibaba, 2019)
@@ -115,7 +115,7 @@ BST showed meaningful CTR improvements in Alibaba's production system, handling 
 
 ### The Quadratic Wall
 
-The problem everybody already knows: self-attention is $O(n^2)$ in sequence length, both in compute and memory. At 100 events, that's fine. At 1,000, it's expensive. At 10,000, it's not happening within a millisecond latency budget.
+The problem everybody already knows: self-attention is $$O(n^2)$$ in sequence length, both in compute and memory. At 100 events, that's fine. At 1,000, it's expensive. At 10,000, it's not happening within a millisecond latency budget.
 
 This is what motivated the next wave of work. The question stopped being "how do we model sequences?" and became "how do we model *long* sequences without blowing the serving budget?"
 
@@ -127,7 +127,7 @@ Production ads systems see thousands of user interactions per user. Alibaba repo
 
 ### 4.1 Truncation
 
-The simplest approach: just keep the most recent $N$ events (typically 50–200) and throw the rest away. This works better than you might expect, because recent behaviors tend to dominate CTR prediction. If you clicked on coffee makers five minutes ago, that's probably the strongest signal for ranking a coffee grinder ad.
+The simplest approach: just keep the most recent $$N$$ events (typically 50–200) and throw the rest away. This works better than you might expect, because recent behaviors tend to dominate CTR prediction. If you clicked on coffee makers five minutes ago, that's probably the strongest signal for ranking a coffee grinder ad.
 
 The obvious downside: long-term interest signals are gone. A user who researched cameras extensively three months ago but hasn't browsed any recently still has latent purchase intent, and truncation misses it. Most systems compensate with long-term aggregate features on the side—basically bringing back the feature engineering from the Wide & Deep era.
 
@@ -204,7 +204,7 @@ The Set Transformer introduced Pooling by Multihead Attention, which learns a fi
 
 $$\text{PMA}_k(X) = \text{MultiHead}(S, X, X)$$
 
-where $S \in \mathbb{R}^{k \times d}$ is a learnable matrix of $k$ seed vectors (queries), and $X \in \mathbb{R}^{n \times d}$ is the input set. The output is always $k \times d$ regardless of input size $n$.
+where $$S \in \mathbb{R}^{k \times d}$$ is a learnable matrix of $$k$$ seed vectors (queries), and $$X \in \mathbb{R}^{n \times d}$$ is the input set. The output is always $$k \times d$$ regardless of input size $$n$$.
 
 ```python
 class PMA(nn.Module):
@@ -220,7 +220,7 @@ class PMA(nn.Module):
         return out
 ```
 
-What makes this attractive for ads: model complexity depends on $k$ (typically 4–32), not on the sequence length. A user with 100 events and a user with 10,000 events produce the same-shaped output.
+What makes this attractive for ads: model complexity depends on $$k$$ (typically 4–32), not on the sequence length. A user with 100 events and a user with 10,000 events produce the same-shaped output.
 
 **Key paper:**
 - Lee et al., ["Set Transformer: A Framework for Attention-based Permutation-Invariant Input"](https://arxiv.org/abs/1810.00825) (ICML 2019)

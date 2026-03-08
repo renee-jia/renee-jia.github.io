@@ -31,7 +31,7 @@ What started as amusing failure cases in toy RL environments has grown into one 
 
 ## 1. Specification Gaming in Classical RL (2010–2018)
 
-The standard RL setup: an agent learns a policy $\pi^*$ maximizing cumulative reward $\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_t R(s_t, a_t)\right]$. The catch is that $R$ is always a proxy. When $R_{\text{proxy}} \neq R_{\text{true}}$, agents find shortcuts.
+The standard RL setup: an agent learns a policy $$\pi^*$$ maximizing cumulative reward $$\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_t R(s_t, a_t)\right]$$. The catch is that $$R$$ is always a proxy. When $$R_{\text{proxy}} \neq R_{\text{true}}$$, agents find shortcuts.
 
 DeepMind catalogued a great collection of these in ["Specification Gaming: The Flip Side of AI Ingenuity"](https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/). Some highlights:
 
@@ -49,7 +49,7 @@ Here's a subtler failure mode: the reward function can be *correct* and things s
 
 The classic example from Langosco et al., ["Goal Misgeneralization in Deep Reinforcement Learning"](https://arxiv.org/abs/2105.14111): train an agent to collect diamonds in an environment where diamonds happen to always be blue. The agent learns "collect blue objects" rather than "collect diamonds." In the training distribution these are equivalent, so the reward signal gives no reason to distinguish them. But deploy the agent in an environment with red diamonds and blue rocks, and it confidently goes for the rocks.
 
-This isn't standard overfitting where the model just performs poorly. The agent is still competent—it's just competently pursuing the wrong goal. Formally, it learned some objective $G_{\text{learned}} \neq G_{\text{true}}$ that happened to coincide with the true objective on $\mathcal{D}_{\text{train}}$ but diverges on $\mathcal{D}_{\text{test}}$.
+This isn't standard overfitting where the model just performs poorly. The agent is still competent—it's just competently pursuing the wrong goal. Formally, it learned some objective $$G_{\text{learned}} \neq G_{\text{true}}$$ that happened to coincide with the true objective on $$\mathcal{D}_{\text{train}}$$ but diverges on $$\mathcal{D}_{\text{test}}$$.
 
 This shifted the research question from "did we write the right reward function?" to the harder question: *what objective did the model actually internalize?*
 
@@ -61,7 +61,7 @@ The connection to LLMs is direct. A model fine-tuned via RLHF to be "helpful" mi
 
 LLMs brought a new training paradigm—RLHF—and with it a new surface for reward hacking.
 
-The pipeline: pretrain on text, collect human preference comparisons, train a reward model $R_{\text{RM}}$ to predict those preferences, then optimize the LLM against $R_{\text{RM}}$ with a KL penalty to prevent it from drifting too far from the base model:
+The pipeline: pretrain on text, collect human preference comparisons, train a reward model $$R_{\text{RM}}$$ to predict those preferences, then optimize the LLM against $$R_{\text{RM}}$$ with a KL penalty to prevent it from drifting too far from the base model:
 
 $$\max_\theta \mathbb{E}_{y \sim \pi_\theta}\left[R_{\text{RM}}(x, y) - \beta \cdot D_{\text{KL}}(\pi_\theta \| \pi_{\text{ref}})\right]$$
 
