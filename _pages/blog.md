@@ -11,6 +11,31 @@ Welcome to my blog! Here I share my thoughts, research insights, and experiences
 
 ## Generative AI and LLM
 
+### Reward Hacking & Jailbreak Research
+{% assign reward_hacking_post = site.posts | where_exp: "post", "post.title contains 'Reward Hacking'" | first %}
+{% if reward_hacking_post %}
+<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
+  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
+    <a href="{{ reward_hacking_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ reward_hacking_post.title }}</a>
+  </h4>
+  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
+    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
+    {{ reward_hacking_post.date | date: "%B %d, %Y" }}
+    {% if reward_hacking_post.read_time %}
+    <span style="margin-left: 1em;">
+      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
+      {{ reward_hacking_post.read_time }}
+    </span>
+    {% endif %}
+  </p>
+  {% if reward_hacking_post.excerpt %}
+  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
+    {{ reward_hacking_post.excerpt | strip_html | truncatewords: 25 }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
 ### LLM Reasoning
 {% assign llm_reasoning_post = site.posts | where_exp: "post", "post.title contains 'Reasoning in Large Language Models'" | first %}
 {% if llm_reasoning_post %}
@@ -38,51 +63,51 @@ Welcome to my blog! Here I share my thoughts, research insights, and experiences
 
 ## Featured Series: Ranking & Recommendation Systems
 
-### Classic Foundations Recommendation Systems
-{% assign foundational_post = site.posts | where_exp: "post", "post.title contains 'Foundational Papers'" | first %}
-{% if foundational_post %}
+### Long Sequence User Modeling in Ads Ranking
+{% assign long_seq_post = site.posts | where_exp: "post", "post.title contains 'Long User Histories'" | first %}
+{% if long_seq_post %}
 <div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
   <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ foundational_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ foundational_post.title }}</a>
+    <a href="{{ long_seq_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ long_seq_post.title }}</a>
   </h4>
   <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
     <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ foundational_post.date | date: "%B %d, %Y" }}
-    {% if foundational_post.read_time %}
+    {{ long_seq_post.date | date: "%B %d, %Y" }}
+    {% if long_seq_post.read_time %}
     <span style="margin-left: 1em;">
       <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ foundational_post.read_time }}
+      {{ long_seq_post.read_time }}
     </span>
     {% endif %}
   </p>
-  {% if foundational_post.excerpt %}
+  {% if long_seq_post.excerpt %}
   <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ foundational_post.excerpt | strip_html | truncatewords: 25 }}
+    {{ long_seq_post.excerpt | strip_html | truncatewords: 25 }}
   </p>
   {% endif %}
 </div>
 {% endif %}
 
-### Deep Learning Era in Recommendation Systems
-{% assign deeplearning_post = site.posts | where_exp: "post", "post.title contains 'Deep Learning Era'" | first %}
-{% if deeplearning_post %}
+### Sequential Learning in Ranking AI
+{% assign sequential_post = site.posts | where_exp: "post", "post.title contains 'Sequential Learning'" | first %}
+{% if sequential_post %}
 <div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
   <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ deeplearning_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ deeplearning_post.title }}</a>
+    <a href="{{ sequential_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ sequential_post.title }}</a>
   </h4>
   <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
     <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ deeplearning_post.date | date: "%B %d, %Y" }}
-    {% if deeplearning_post.read_time %}
+    {{ sequential_post.date | date: "%B %d, %Y" }}
+    {% if sequential_post.read_time %}
     <span style="margin-left: 1em;">
       <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ deeplearning_post.read_time }}
+      {{ sequential_post.read_time }}
     </span>
     {% endif %}
   </p>
-  {% if deeplearning_post.excerpt %}
+  {% if sequential_post.excerpt %}
   <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ deeplearning_post.excerpt | strip_html | truncatewords: 25 }}
+    {{ sequential_post.excerpt | strip_html | truncatewords: 25 }}
   </p>
   {% endif %}
 </div>
@@ -113,26 +138,51 @@ Welcome to my blog! Here I share my thoughts, research insights, and experiences
 </div>
 {% endif %}
 
-### Sequential Learning in Ranking AI
-{% assign sequential_post = site.posts | where_exp: "post", "post.title contains 'Sequential Learning'" | first %}
-{% if sequential_post %}
+### Deep Learning Era in Recommendation Systems
+{% assign deeplearning_post = site.posts | where_exp: "post", "post.title contains 'Deep Learning Era'" | first %}
+{% if deeplearning_post %}
 <div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
   <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ sequential_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ sequential_post.title }}</a>
+    <a href="{{ deeplearning_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ deeplearning_post.title }}</a>
   </h4>
   <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
     <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ sequential_post.date | date: "%B %d, %Y" }}
-    {% if sequential_post.read_time %}
+    {{ deeplearning_post.date | date: "%B %d, %Y" }}
+    {% if deeplearning_post.read_time %}
     <span style="margin-left: 1em;">
       <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ sequential_post.read_time }}
+      {{ deeplearning_post.read_time }}
     </span>
     {% endif %}
   </p>
-  {% if sequential_post.excerpt %}
+  {% if deeplearning_post.excerpt %}
   <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ sequential_post.excerpt | strip_html | truncatewords: 25 }}
+    {{ deeplearning_post.excerpt | strip_html | truncatewords: 25 }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
+### Classic Foundations Recommendation Systems
+{% assign foundational_post = site.posts | where_exp: "post", "post.title contains 'Foundational Papers'" | first %}
+{% if foundational_post %}
+<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
+  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
+    <a href="{{ foundational_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ foundational_post.title }}</a>
+  </h4>
+  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
+    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
+    {{ foundational_post.date | date: "%B %d, %Y" }}
+    {% if foundational_post.read_time %}
+    <span style="margin-left: 1em;">
+      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
+      {{ foundational_post.read_time }}
+    </span>
+    {% endif %}
+  </p>
+  {% if foundational_post.excerpt %}
+  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
+    {{ foundational_post.excerpt | strip_html | truncatewords: 25 }}
   </p>
   {% endif %}
 </div>
