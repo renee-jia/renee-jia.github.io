@@ -18,6 +18,8 @@ toc: false
 last_modified_at: 2026-03-15T08:00:00-08:00
 ---
 
+# The Web Is Not a Neutral Environment for Agents
+
 Browser agents are getting better fast. OpenAI has been pushing this direction with Operator and ChatGPT agent. Anthropic has been doing something similar with computer-use systems. Open-source tools like Browser Use are also making it easier to build agents that can navigate websites and complete tasks online.
 
 So this is no longer just a fun demo idea. More and more, people are building systems that are supposed to actually operate on the web.

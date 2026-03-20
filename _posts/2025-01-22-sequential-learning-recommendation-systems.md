@@ -18,6 +18,8 @@ toc: true
 toc_sticky: true
 ---
 
+# Sequential Learning in Recommendation Systems: From Markov Chains to Transformers
+
 *A comprehensive guide to sequence-based recommendation techniques and key research papers*
 
 ## Introduction

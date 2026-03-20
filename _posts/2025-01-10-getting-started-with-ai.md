@@ -8,6 +8,8 @@ read_time: "7-10 min read"
 layout: posts
 ---
 
+# AI Beginner's Guide: Learning Artificial Intelligence from Scratch
+
 Artificial Intelligence (AI) is one of the most exciting technology fields today. This article will provide you with a comprehensive guide to getting started with AI.
 
 ## What is Artificial Intelligence?

@@ -8,6 +8,8 @@ read_time: "< 5 min read"
 layout: posts
 ---
 
+# Welcome to My Blog
+
 Hey there! I'm Renee Jia, an AI Research Engineer working on Large Language Models and Large-Scale User Sequence Modeling.
 
 ![Renee Jia]({{ site.url }}{{ site.baseurl }}/assets/images/bio-photo.jpg){: .align-right width="200px"}

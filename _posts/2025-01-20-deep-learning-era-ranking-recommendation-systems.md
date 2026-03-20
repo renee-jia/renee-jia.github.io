@@ -18,6 +18,8 @@ toc: true
 toc_sticky: true
 ---
 
+# Deep Learning Era of Ranking & Recommendation Systems: Must-Read Papers (2016–2020)
+
 The deep learning revolution fundamentally transformed how we build ranking and recommendation systems. Between 2016 and 2020, neural networks moved from research labs to production systems, enabling platforms like YouTube, Facebook, and Amazon to deliver personalized experiences at unprecedented scale. This post explores the key papers that defined this era, from Google's Wide & Deep architecture to the transformer-based sequential models that still power today's recommendation engines.  
 
 ---

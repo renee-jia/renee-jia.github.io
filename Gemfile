@@ -24,3 +24,6 @@ gem "sass", "~> 3.4"
 
 # 添加缺失的依赖
 gem "kramdown-parser-gfm"
+gem "csv"
+gem "base64"
+gem "bigdecimal"

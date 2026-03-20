@@ -8,6 +8,8 @@ main:
     url: /publications/
   - title: "AI Learning Guide"
     url: /ai-learning-guide/
+  - title: "Paper Readings"
+    url: /paper-readings/
   - title: "Poker"
     url: /poker/
   # - title: "Sample Collections"

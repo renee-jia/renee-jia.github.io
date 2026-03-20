@@ -20,6 +20,8 @@ read_time: "20-30 min read"
 toc: false
 ---
 
+# Modeling Long User Histories for Ads Ranking
+
 ## Introduction
 
 Ads ranking systems predict user responses—click-through rate (CTR), conversion rate (CVR), engagement—and the strongest signal is usually the user's own behavioral history: what they clicked, browsed, purchased, and ignored.

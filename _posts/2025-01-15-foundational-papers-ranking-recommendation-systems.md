@@ -10,6 +10,8 @@ toc: true
 toc_sticky: true
 ---
 
+# Classic Foundational Papers on Ranking & Recommendation Systems
+
 Ranking and recommendation systems power everything from **Google Search** to **Netflix suggestions**. While today's systems use **deep learning and large language models (LLMs)**, their foundations were laid decades earlier — with ideas that are still relevant in production today.
 
 This post curates the **classic works (1970s–2010s)** that every AI engineer working in ranking / recommendation systems should know before diving into modern architectures.

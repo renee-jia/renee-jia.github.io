@@ -19,6 +19,8 @@ read_time: "25-30 min read"
 toc: false
 ---
 
+# The Evolution of Reward Hacking and Jailbreak Research in AI
+
 ## Introduction
 
 Most modern AI systems are trained by optimizing a proxy objective—a reward signal that *approximates* what we actually want. In RL this is the reward function; in RLHF it's a learned reward model trained on human comparisons. The gap between the proxy and the true objective is where things go wrong.

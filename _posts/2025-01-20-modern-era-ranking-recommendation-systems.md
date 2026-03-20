@@ -17,7 +17,9 @@ tags:
 read_time: "15-25 min read"
 ---
 
-**Contemporary RecSys: Industry-Scale Architectures & Multimodal Systems (2020–2025)** represents a pivotal shift toward production-ready, billion-scale architectures that power today's major platforms. This comprehensive guide covers the essential papers that define contemporary RecSys, from industry-standard models like DLRM and DCN v2 to cutting-edge advances in multitask learning, transformers, and multimodal recommendation.
+# Contemporary RecSys: Industry-Scale Architectures & Multimodal Systems (2020–2025)
+
+This era represents a pivotal shift toward production-ready, billion-scale architectures that power today's major platforms. This comprehensive guide covers the essential papers that define contemporary RecSys, from industry-standard models like DLRM and DCN v2 to cutting-edge advances in multitask learning, transformers, and multimodal recommendation.
 
 This era is defined by:  
 - **Industry-scale recommendation architectures** (DLRM, DCN v2).  
