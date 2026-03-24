@@ -14,11 +14,8 @@ tags:
   - sequential modeling
 last_modified_at: 2025-01-20T08:00:00-05:00
 read_time: "15-25 min read"
-toc: true
-toc_sticky: true
+layout: distill
 ---
-
-# Deep Learning Era of Ranking & Recommendation Systems: Must-Read Papers (2016–2020)
 
 The deep learning revolution fundamentally transformed how we build ranking and recommendation systems. Between 2016 and 2020, neural networks moved from research labs to production systems, enabling platforms like YouTube, Facebook, and Amazon to deliver personalized experiences at unprecedented scale. This post explores the key papers that defined this era, from Google's Wide & Deep architecture to the transformer-based sequential models that still power today's recommendation engines.  
 

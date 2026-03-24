@@ -17,10 +17,8 @@ tags:
   - recommendation systems
 last_modified_at: 2026-03-07T08:00:00-08:00
 read_time: "20-30 min read"
-toc: false
+layout: distill
 ---
-
-# Modeling Long User Histories for Ads Ranking
 
 ## Introduction
 

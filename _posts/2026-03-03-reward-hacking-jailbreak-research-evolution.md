@@ -16,10 +16,8 @@ tags:
   - large language models
 last_modified_at: 2026-03-03T08:00:00-08:00
 read_time: "25-30 min read"
-toc: false
+layout: distill
 ---
-
-# The Evolution of Reward Hacking and Jailbreak Research in AI
 
 ## Introduction
 

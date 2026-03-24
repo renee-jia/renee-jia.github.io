@@ -12,14 +12,12 @@ tags:
   - training stability
   - Kimi
 excerpt: "This paper addresses a fundamental problem in training deep transformer models: uncontrolled hidden-state magnitude growth as model depth increases. The authors propose Attention Residuals (AttnRes), which replaces standard fixed-weight residual connections with learned, input-dependent attention-based aggregation."
-author_profile: false
 read_time: "15-20 min read"
-layout: single
+layout: distill
 toc: false
 last_modified_at: 2026-03-19T08:00:00-08:00
 ---
 
-# Attention Residuals: A Comprehensive Understanding
 **Paper**: Attention Residuals<br>
 **Authors**: Guangyu Chen, Yu Zhang, Jianlin Su, and team (Kimi AI)<br>
 **Date**: 2026<br>
@@ -29,7 +27,7 @@ last_modified_at: 2026-03-19T08:00:00-08:00
 ## Overview
 
 - **Problem**: Deep transformers suffer from uncontrolled hidden-state magnitude growth with depth, destabilizing training.
-- **Solution**: Replace fixed residual weights with learned attention: instead of **h_l + f(h_l)**, use **softmax(α)^T · [h_0, ..., h_{l-1}] + f(h_l)** to learn which past layers matter.
+- **Solution**: Replace fixed residual weights with learned attention: instead of $h_l + f(h_l)$, use $\text{softmax}(\alpha)^T \cdot [h_0, \ldots, h_{l-1}] + f(h_l)$ to learn which past layers matter.
 - **Result**: 2-3x more stable gradients, bounded magnitudes, +1.8% to +5.9% performance gains (scales with model size), practical Block variant with 8-10x less compute.
 
 ---
@@ -65,7 +63,7 @@ last_modified_at: 2026-03-19T08:00:00-08:00
 
 In standard transformer architectures with residual connections and layer normalization:
 
-***h_{l+1} = h_l + Attention(LayerNorm(h_l))***
+$$h_{l+1} = h_l + \text{Attention}(\text{LayerNorm}(h_l))$$
 
 As layers deepen, the hidden states accumulate residually. Even though layer normalization helps stabilize training, the underlying issue persists: each layer adds information on top of the previous layer's output, causing magnitudes to grow.
 
@@ -97,9 +95,9 @@ Previous attempts (DeepNorm, SiameseNorm, depth-scaled initialization) help but 
 ### Core I
 Instead of a **fixed residual connection** that always weights past layers equally (implicitly with weight 1.0), use **learned attention** to dynamically select which past layers to aggregate:
 
-**Instead of:** *h_{l+1} = h_l + f(h_l)*
+**Instead of:** $h_{l+1} = h_l + f(h_l)$
 
-**Do:** *h_{l+1} = Attention(h_0, h_1, ..., h_{l-1}) + f(h_l)*
+**Do:** $h_{l+1} = \text{Attention}(h_0, h_1, \ldots, h_{l-1}) + f(h_l)$
 
 The attention here works as a learnable gating mechanism over past layer outputs.
 
@@ -142,23 +140,24 @@ The paper provides a comprehensive architectural comparison:
 
 **Full Attention Residuals:**
 
-*AttnRes(h_0, h_1, ..., h_{l-1}) = Σ_{i=0}^{l-1} w_i · h_i*
+$$\text{AttnRes}(h_0, h_1, \ldots, h_{l-1}) = \sum_{i=0}^{l-1} w_i \cdot h_i$$
 
-*where: w = softmax(α), α = [α_0, α_1, ..., α_{l-1}] (learnable parameters)*
+where $w = \text{softmax}(\alpha)$, $\alpha = [\alpha_0, \alpha_1, \ldots, \alpha_{l-1}]$ (learnable parameters).
 
-More formally, at each layer l:
+More formally, at each layer $l$:
 
-*z_l = softmax(α_l)^T · [h_0, h_1, ..., h_{l-1}]*
+$$z_l = \text{softmax}(\alpha_l)^T \cdot [h_0, h_1, \ldots, h_{l-1}]$$
 
-*h_{l+1} = z_l + FFN(Attention(LayerNorm(h_l)))*
+$$h_{l+1} = z_l + \text{FFN}(\text{Attention}(\text{LayerNorm}(h_l)))$$
 
 ### Why This Works
 
 **1. Bounded Aggregation**
 The softmax ensures that weights sum to 1, preventing unbounded growth:
-*Σ w_i = 1 (always)*
 
-*Therefore: ||z_l|| ≤ max(||h_i||) (magnitude bounded by max input)*
+$$\sum w_i = 1 \quad \text{(always)}$$
+
+Therefore: $\|z_l\| \leq \max(\|h_i\|)$ (magnitude bounded by max input).
 
 This is fundamentally different from the accumulation in standard residuals where magnitudes can grow monot. Learned Information Routing**
 The model learns *which layers matter* for different computations:
@@ -196,9 +195,9 @@ To make AttnRes practical for large models, the paper introduces **Block AttnRes
 
 **Block AttnRes Formulation:**
 
-*z_l = softmax(α_l)^T · [h_{block_start}, ..., h_{block_end}]*
+$$z_l = \text{softmax}(\alpha_l)^T \cdot [h_{\text{block\_start}}, \ldots, h_{\text{block\_end}}]$$
 
-*where block_size = ~12 layers*
+where block_size $\approx$ 12 layers.
 
 **Computational Efficiency & Implementation:**
 

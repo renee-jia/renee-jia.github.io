@@ -6,7 +6,6 @@
   <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 {% endunless %}
 
-{%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -21,559 +20,39 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
-<!-- Custom font size adjustments for page content only -->
-<style>
-  /* Import modern tech fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Roboto:wght@300;400;500;700&display=swap');
-  
-  /* Global font size reset - force 14px fonts everywhere */
-  body, html {
-    font-size: 14px !important;
-  }
-  
-  /* Reset all content areas to 14px fonts */
-  .page__content,
-  .post__content,
-  .archive,
-  .posts,
-  .single,
-  .entry-content,
-  .post-content,
-  .article-content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Only adjust page content fonts, keep navigation and titles as original */
-  
-  /* Page content specific adjustments with Roboto font */
-  .page__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.01em !important;
-    color: #2c3e50 !important;
-  }
-  
-  /* Page content headings with Roboto styling */
-  .page__content h1 {
-    font-size: 1.3em !important;
-    margin-bottom: 0.6em !important;
-    margin-top: 0.8em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
-    color: #1a1a1a !important;
-    border-bottom: 2px solid #1e3a8a !important;
-    padding-bottom: 0.3em !important;
-  }
-  
-  .page__content h2 {
-    font-size: 1.1em !important;
-    margin-bottom: 0.5em !important;
-    margin-top: 1.2em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 600 !important;
-    letter-spacing: -0.01em !important;
-    color: #2c3e50 !important;
-    border-left: 3px solid #1e3a8a !important;
-    padding-left: 0.8em !important;
-  }
-  
-  .page__content h3 {
-    font-size: 1em !important;
-    margin-bottom: 0.4em !important;
-    margin-top: 1em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 600 !important;
-    letter-spacing: 0em !important;
-    color: #34495e !important;
-  }
-  
-  .page__content h4, .page__content h5, .page__content h6 {
-    font-size: 0.95em !important;
-    margin-bottom: 0.3em !important;
-    margin-top: 0.8em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 500 !important;
-    color: #5a6c7d !important;
-  }
-  
-  /* Ensure all blog posts use consistent styling */
-  .archive .page__content,
-  .archive .post__content,
-  .posts .page__content,
-  .posts .post__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  /* Archive and posts specific styling */
-  .archive h1, .posts h1,
-  .archive h2, .posts h2,
-  .archive h3, .posts h3 {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  .archive h1, .posts h1 {
-    font-size: 1.5em !important;
-    font-weight: 700 !important;
-    color: #1a1a1a !important;
-    border-bottom: 2px solid #1e3a8a !important;
-    padding-bottom: 0.2em !important;
-  }
-  
-  .archive h2, .posts h2 {
-    font-size: 1.2em !important;
-    font-weight: 600 !important;
-    color: #2c3e50 !important;
-    border-left: 2px solid #1e3a8a !important;
-    padding-left: 0.6em !important;
-  }
-  
-  .archive h3, .posts h3 {
-    font-size: 1.1em !important;
-    font-weight: 600 !important;
-    color: #34495e !important;
-  }
-  
-  .archive p, .posts p {
-    font-size: 1em !important;
-    line-height: 1.6 !important;
-    color: #2c3e50 !important;
-    margin-bottom: 0.8em !important;
-  }
-  
-  .archive ul, .posts ul,
-  .archive ol, .posts ol {
-    font-size: 1em !important;
-    margin-left: 1.2em !important;
-    margin-bottom: 0.8em !important;
-  }
-  
-  .archive li, .posts li {
-    font-size: 1em !important;
-    line-height: 1.5 !important;
-    color: #34495e !important;
-    margin-bottom: 0.3em !important;
-  }
-  
-  /* AI Learning Guide specific styling */
-  .ai-learning-guide .page__content,
-  .ai-learning-guide .post__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Ensure all content in posts layout uses consistent styling */
-  .layout-posts .page__content,
-  .layout-posts .post__content,
-  .layout-archive .page__content,
-  .layout-archive .post__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  /* Override any default Jekyll styles */
-  .entry-content,
-  .post-content,
-  .article-content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  /* Force all content to use small fonts */
-  .page__content *,
-  .post__content *,
-  .archive *,
-  .posts * {
-    font-size: inherit !important;
-  }
-  
-  /* Specific overrides for common elements */
-  .page__content p,
-  .post__content p,
-  .archive p,
-  .posts p {
-    font-size: 1em !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  /* Ensure headings are properly sized */
-  .page__content h1, .post__content h1, .archive h1, .posts h1 {
-    font-size: 1.5em !important;
-  }
-  
-  .page__content h2, .post__content h2, .archive h2, .posts h2 {
-    font-size: 1.2em !important;
-  }
-  
-  .page__content h3, .post__content h3, .archive h3, .posts h3 {
-    font-size: 1.1em !important;
-  }
-  
-  /* Override any theme defaults */
-  .single .page__content,
-  .single .post__content,
-  .archive .page__content,
-  .archive .post__content,
-  .posts .page__content,
-  .posts .post__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Page content paragraphs and text with modern styling */
-  .page__content p {
-    font-size: 1em !important;
-    margin-bottom: 1em !important;
-    line-height: 1.7 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 400 !important;
-    color: #2c3e50 !important;
-    text-rendering: optimizeLegibility !important;
-  }
-  
-  /* Page content lists with tech styling */
-  .page__content ul, .page__content ol {
-    font-size: 1em !important;
-    margin-bottom: 1em !important;
-    margin-left: 1.5em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  .page__content li {
-    font-size: 1em !important;
-    margin-bottom: 0.4em !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #34495e !important;
-    position: relative !important;
-  }
-  
-  .page__content ul li::before {
-    content: "•" !important;
-    color: #3498db !important;
-    font-weight: bold !important;
-    position: absolute !important;
-    left: -1.2em !important;
-  }
-  
-  /* Page content tables with modern styling */
-  .page__content table {
-    font-size: 0.85em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  .page__content th, .page__content td {
-    font-size: 0.85em !important;
-    padding: 0.3em 0.5em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Page content links with modern styling */
-  .page__content a {
-    color: #3498db !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid transparent !important;
-    transition: all 0.3s ease !important;
-  }
-  
-  .page__content a:hover {
-    color: #2980b9 !important;
-    border-bottom-color: #3498db !important;
-  }
-  
-    /* Page content code blocks with JetBrains Mono */
-  .page__content code {
-    font-size: 0.9em !important;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-    font-weight: 400 !important;
-    background-color: #2b2b2b !important;
-    padding: 0.3em 0.6em !important;
-    border-radius: 4px !important;
-    color: #7dd3fc !important;
-    border: none !important;
-  }
-
-  .page__content pre {
-    font-size: 0.85em !important;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-    background: #2b2b2b !important;
-    border-radius: 8px !important;
-    padding: 1.2em !important;
-    border: none !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-    color: #7dd3fc !important;
-  }
-  
-  /* Page content blockquotes with modern styling */
-  .page__content blockquote {
-    font-size: 0.95em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-style: italic !important;
-    border-left: 4px solid #3498db !important;
-    padding: 1.2em 1.5em !important;
-    margin: 1.5em 0 !important;
-    color: #34495e !important;
-    background: linear-gradient(135deg, #f8f9fa, #ecf0f1) !important;
-    border-radius: 0 8px 8px 0 !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-  }
-  
-  /* Post content specific adjustments with tech fonts */
-  .post__content {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  .post__content p {
-    font-size: 1em !important;
-    margin-bottom: 0.8em !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #2c3e50 !important;
-  }
-  
-  .post__content ul, .post__content ol {
-    font-size: 1em !important;
-    margin-bottom: 0.8em !important;
-    margin-left: 1.2em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  .post__content li {
-    font-size: 1em !important;
-    margin-bottom: 0.3em !important;
-    line-height: 1.5 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #34495e !important;
-  }
-  
-  .post__content h1 {
-    font-size: 1.5em !important;
-    margin-bottom: 0.5em !important;
-    margin-top: 0.6em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 700 !important;
-    color: #1a1a1a !important;
-    border-bottom: 2px solid #1e3a8a !important;
-    padding-bottom: 0.2em !important;
-  }
-  
-  .post__content h2 {
-    font-size: 1.2em !important;
-    margin-bottom: 0.4em !important;
-    margin-top: 0.8em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 600 !important;
-    color: #2c3e50 !important;
-    border-left: 2px solid #1e3a8a !important;
-    padding-left: 0.6em !important;
-  }
-  
-  .post__content h3 {
-    font-size: 1.1em !important;
-    margin-bottom: 0.3em !important;
-    margin-top: 0.7em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 600 !important;
-    color: #34495e !important;
-  }
-  
-  /* Archive and list page content with tech styling */
-  .archive__item-excerpt {
-    font-size: 0.9em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    color: #5a6c7d !important;
-    line-height: 1.5 !important;
-  }
-  
-  .archive__item-title {
-    font-size: 1em !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-    font-weight: 600 !important;
-    color: #2c3e50 !important;
-    line-height: 1.3 !important;
-  }
-  
-  /* Enhanced tech styling for links */
-  .page__content a, .post__content a {
-    color: #1e40af !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid transparent !important;
-    transition: all 0.2s ease !important;
-  }
-  
-  .page__content a:hover, .post__content a:hover {
-    color: #1d4ed8 !important;
-    border-bottom-color: #1e40af !important;
-  }
-  
-  /* Enhanced styling for strong and emphasis */
-  .page__content strong, .post__content strong {
-    font-weight: 600 !important;
-    color: #1a1a1a !important;
-  }
-  
-  .page__content em, .post__content em {
-    font-style: italic !important;
-    color: #555555 !important;
-  }
-  
-  /* FINAL OVERRIDE - Force small fonts everywhere */
-  * {
-    font-size: inherit !important;
-  }
-  
-  /* Specific element overrides */
-  p, div, span, li, td, th {
-    font-size: 1em !important;
-  }
-  
-  /* Override any remaining large fonts */
-  .page__content,
-  .post__content,
-  .archive,
-  .posts,
-  .single,
-  [class*="content"],
-  [class*="post"],
-  [class*="article"] {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
-  }
-  
-  /* Force all text to be small */
-  .page__content *,
-  .post__content *,
-  .archive *,
-  .posts *,
-  .single * {
-    font-size: inherit !important;
-  }
-  
-  /* Override citation styles to use 10px */
-  .citation-header {
-    font-size: 10px !important;
-    background: transparent !important;
-  }
-  
-  .citation-bibtex {
-    background: transparent !important;
-  }
-  
-  .citation-bibtex code {
-    font-size: 10px !important;
-    background: transparent !important;
-  }
-  
-  .citation-actions .btn {
-    font-size: 12px !important;
-  }
-</style>
-
-<!--
-  The <head> of the document
-  ===========================
-  No file should be added to the head section of this document.
-  The head section of the document is built from these files:
-    * _config.yml
-    * title.html
-    * meta.html
-    * links.html
-    * favicons.html
-    * feed.html
-    * stylesheets.html
-    * scripts.html
--->
-
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Custom Styles -->
+<!-- MathJax for math rendering -->
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
 <style>
-  /* Global Font Settings */
-  body, html {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 300;
-    line-height: 1.6;
+  /* Force white background everywhere */
+  html, body, .initial-content, #main, .page, .archive {
+    background: #fff !important;
   }
 
-  /* Typography Improvements */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-  }
-
-  h1 { font-size: 2.2em; margin-bottom: 0.8em; }
-  h2 { font-size: 1.8em; margin-bottom: 0.7em; }
-  h3 { font-size: 1.5em; margin-bottom: 0.6em; }
-  h4 { font-size: 1.3em; margin-bottom: 0.5em; }
-  h5 { font-size: 1.1em; margin-bottom: 0.4em; }
-  h6 { font-size: 1em; margin-bottom: 0.3em; }
-
-
-
-  /* Content Styling */
-  .page__content, .post__content {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #333;
-  }
-
-  .page__content p, .post__content p {
-    margin-bottom: 1.2em;
-    text-align: justify;
-  }
-
-  /* Navigation Improvements - Complete Redesign */
+  /* Navigation */
   .masthead {
-    background: #1e3a8a !important;
-    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+    background: none !important;
     border: none !important;
-    padding: 1em 0;
-    position: relative;
+    border-bottom: 2px solid #1a1a1a !important;
+    box-shadow: none !important;
+    padding: 2.2em 0;
   }
 
-  /* Add decorative line below navigation */
-  .masthead::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #6b7280;
-    box-shadow: 0 2px 8px rgba(107, 114, 128, 0.4);
-  }
-
-  /* Remove ALL border lines, boxes, and gradients */
+  .masthead::after,
   .masthead::before,
   .masthead__inner-wrap::before,
-  .masthead__inner-wrap::after,
-  .masthead__title::before,
-  .masthead__title::after {
+  .masthead__inner-wrap::after {
     display: none !important;
     content: none !important;
   }
@@ -582,231 +61,56 @@
     border: none !important;
     background: none !important;
     box-shadow: none !important;
+    max-width: 1100px;
   }
 
-  /* Remove any theme default borders and backgrounds */
-  .masthead,
-  .masthead__inner-wrap,
-  .masthead__menu,
-  .masthead__menu-item,
-  .masthead__title,
-  .masthead__title a {
+  .masthead, .masthead__inner-wrap, .masthead__menu,
+  .masthead__menu-item, .masthead__title, .masthead__title a {
     border: none !important;
-    border-bottom: none !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
     background: none !important;
-    box-shadow: none !important;
   }
 
-  /* Site title styling - no white box */
   .masthead__title {
     font-weight: 700;
-    font-size: 3.0em;
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    background: none !important;
+    font-size: 2em;
+    color: #1a1a1a !important;
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  /* Override site-title styles with higher priority */
-  .site-title {
-    font-weight: 700 !important;
-    font-size: 1.4em !important;
-    color: #374151 !important;
-    text-shadow: none !important;
-    background: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-decoration: none !important;
   }
 
   .masthead__title a {
-    color: white !important;
+    color: #1a1a1a !important;
     text-decoration: none;
-    background: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
   }
 
-  /* Navigation menu items */
   .masthead__menu-item {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    font-size: 1.1em;
-    color: rgba(255,255,255,0.9) !important;
-    transition: all 0.3s ease;
-    padding: 0.5em 1em;
-    border-radius: 6px;
-    margin: 0 0.2em;
-    border: none !important;
-    background: none !important;
+    font-weight: 400;
+    font-size: 1.2em;
+    color: rgba(0,0,0,0.55) !important;
+    transition: color 0.2s ease;
+    padding: 0.3em 0.6em;
+    margin: 0;
   }
 
   .masthead__menu-item:hover {
-    color: #1e40af !important;
-    background: rgba(255,255,255,0.1) !important;
-    transform: translateY(-2px);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    color: #1a1a1a !important;
   }
 
-  /* Active menu item */
-  .masthead__menu-item--lg.is--active {
-    color: #1e40af !important;
-    background: rgba(255,255,255,0.15) !important;
-    border-radius: 6px;
-  }
-
-  /* Button Styling */
-  .btn, .btn--primary, .btn--success, .btn--warning, .btn--danger, .btn--info {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 500;
-    border-radius: 8px;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  /* Card-like Elements */
-  .notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger {
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 1.5em;
-    margin: 1.5em 0;
-  }
-
-  /* Link Styling */
-  a {
-    color: #1e3a8a;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
-  }
-
-  a:hover {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
-  }
-
-  /* Code Blocks */
-  code, pre {
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    background: #f8f9fa;
-    border-radius: 6px;
-    padding: 0.2em 0.4em;
-  }
-
-  pre {
-    background: #1e293b;
-    color: #e2e8f0;
-    padding: 1em;
-    border-radius: 8px;
-    overflow-x: auto;
-  }
-
-  /* Table Styling */
-  table {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  th {
-    background: #f8f9fa !important;
-    background-color: #f8f9fa !important;
-    background-image: none !important;
-    color: #495057 !important;
-    font-weight: 600 !important;
-    padding: 12px !important;
-    border: 1px solid #dee2e6 !important;
-  }
-
-  td {
-    padding: 12px;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  tr:hover {
-    background-color: #f8f9fa;
-  }
-
-  /* Footer Improvements */
+  /* Footer - clean white */
   .page__footer {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: white;
-    padding: 2em 0;
-    margin-top: 3em;
+    background: #fff !important;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    color: rgba(0,0,0,0.4);
+    padding: 1.5em 0;
+    margin-top: 0;
   }
 
-  .page__footer a {
-    color: #3b82f6;
-  }
+  .page__footer a { color: #004276; }
+  .page__footer a:hover { color: #0068b7; }
 
-  .page__footer a:hover {
-    color: #60a5fa;
-  }
-
-  /* Sidebar Improvements */
-  .sidebar {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 1.5em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-
-  /* Archive and List Styling */
-  .archive__item-title {
-    font-weight: 500;
-    color: #1e293b;
-  }
-
-  .archive__item-title:hover {
-    color: #2563eb;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .page__content, .post__content {
-      font-size: 15px;
-    }
-    
-    h1 { font-size: 1.8em; }
-    h2 { font-size: 1.5em; }
-    h3 { font-size: 1.3em; }
-  }
-
-  /* Custom Animations */
-  .fade-in {
-    animation: fadeIn 0.6s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Enhanced Focus States */
-  button:focus, input:focus, textarea:focus, select:focus {
-    outline: 2px solid #1e3a8a;
-    outline-offset: 2px;
-  }
-
-  /* Hide auto-generated page titles to avoid duplication */
-  .page__title {
-    display: none !important;
-  }
-  
-  /* Hide the entire header section that contains auto-generated titles */
-  .page header {
+  /* Hide auto-generated page titles for distill layout */
+  .layout--distill .page__title,
+  .layout--distill .page header {
     display: none !important;
   }
 </style>

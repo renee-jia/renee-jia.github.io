@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<article class="distill-post" itemscope itemtype="https://schema.org/ScholarlyArticle">
+  {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+  {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+
+  <!-- Title Block -->
+  <header class="d-title">
+    <div class="d-title-inner">
+      {% if page.categories.size > 0 %}
+        <div class="d-category">
+          {% for cat in page.categories limit:1 %}{{ cat }}{% endfor %}
+        </div>
+      {% endif %}
+      <h1 itemprop="name">{{ page.title }}</h1>
+      {% if page.excerpt %}
+        <p class="d-description">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+      {% endif %}
+      <div class="d-byline">
+        <div class="d-byline-author">
+          <span class="d-author" itemprop="author">{{ site.author.name }}</span>
+        </div>
+        <div class="d-byline-meta">
+          <span class="d-date">{{ page.date | date: "%B %-d, %Y" }}</span>
+          {% if page.read_time %}
+            <span class="d-separator">&middot;</span>
+            <span class="d-read-time">{{ page.read_time }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area with Optional TOC -->
+  <div class="d-content-wrapper">
+    <!-- Table of Contents (sticky sidebar on wide screens) -->
+    <aside class="d-toc" id="d-toc">
+      <nav class="d-toc-nav">
+        <h4 class="d-toc-title">Contents</h4>
+        {% include toc.html sanitize=true html=content h_min=1 h_max=3 class="d-toc-list" skip_no_ids=true %}
+      </nav>
+    </aside>
+
+    <!-- Article Body -->
+    <div class="d-article" itemprop="articleBody">
+      {{ content }}
+    </div>
+  </div>
+
+  <!-- Appendix / Footer -->
+  <footer class="d-appendix">
+    {% if page.tags.size > 0 %}
+      <div class="d-tags">
+        <h4>Tags</h4>
+        <div class="d-tag-list">
+          {% for tag in page.tags %}
+            <span class="d-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if page.last_modified_at %}
+      <div class="d-updated">
+        Last updated: {{ page.last_modified_at | date: "%B %-d, %Y" }}
+      </div>
+    {% endif %}
+
+    {% include post_pagination.html %}
+  </footer>
+</article>

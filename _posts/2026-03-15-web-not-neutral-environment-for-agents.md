@@ -11,14 +11,10 @@ tags:
   - goal fidelity
   - web agents
 excerpt: "Browser agents are getting better fast, but the web is full of things that try to steer behavior. If that already works on humans, why would agents be immune?"
-author_profile: true
 read_time: "5-10 min read"
-layout: single
-toc: false
+layout: distill
 last_modified_at: 2026-03-15T08:00:00-08:00
 ---
-
-# The Web Is Not a Neutral Environment for Agents
 
 Browser agents are getting better fast. OpenAI has been pushing this direction with Operator and ChatGPT agent. Anthropic has been doing something similar with computer-use systems. Open-source tools like Browser Use are also making it easier to build agents that can navigate websites and complete tasks online.
 

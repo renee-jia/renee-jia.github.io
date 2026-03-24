@@ -3,12 +3,9 @@ title: "Welcome to My Blog"
 date: 2025-01-05
 categories: [Blog]
 tags: [welcome, introduction]
-author_profile: true
 read_time: "< 5 min read"
-layout: posts
+layout: distill
 ---
-
-# Welcome to My Blog
 
 Hey there! I'm Renee Jia, an AI Research Engineer working on Large Language Models and Large-Scale User Sequence Modeling.
 

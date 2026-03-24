@@ -1,276 +1,157 @@
-/* Custom Styles */
-/* Add your custom styles here */
+/* ==========================================================================
+   Custom Styles — non-distill pages (home, archive, about, etc.)
+   ========================================================================== */
 
-/* Override font sizes for better readability */
-body {
-  font-size: 14px !important;
+/* ---------- White background everywhere ---------- */
+html, body, .initial-content, #main, .page, .archive,
+.layout--home, .layout--archive, .layout--single, .layout--posts {
+  background: #fff !important;
 }
 
-.page__content {
-  p, li, dl {
-    font-size: 14px !important;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-size: inherit !important;
-  }
+/* ---------- Widen layout ---------- */
+#main {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  float: none !important;
+  width: auto !important;
 }
 
-/* Ensure main content area has proper font size */
-.entry__content,
-.post__content,
-.page__content {
-  font-size: 14px !important;
-  
-  p, li, dl, blockquote {
-    font-size: 14px !important;
-  }
-}
+.initial-content { max-width: 100%; }
 
-/* Override theme's default font size for page content */
-.page__content {
-  p, li, dl {
-    font-size: 14px !important;
-  }
-}
-
-/* Additional specificity to ensure font size is applied */
-.page__content p,
-.page__content li,
-.page__content dl,
-.page__content blockquote {
-  font-size: 14px !important;
-}
-
-
-
-/* Citation block styles */
-.citation-block {
-  margin: 1.5rem 0;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
-  background: inherit;
-  overflow: hidden;
-}
-
-.citation-header {
-  background: transparent;
-  color: rgba(0, 0, 0, 0.6);
-  padding: 0.3rem 0.6rem;
-  font-size: 10px;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.citation-content {
-  padding: 0.6rem;
-  background: inherit;
-}
-
-.citation-bibtex {
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-  padding: 0.6rem;
-  margin-bottom: 0.5rem;
-  overflow-x: auto;
-}
-
-.citation-bibtex code {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  font-size: 10px;
-  line-height: 1.4;
-  color: #495057 !important; /* Dark grey color instead of red */
-  white-space: pre;
-  display: block;
-}
-
-.citation-actions {
-  display: flex;
-  gap: 0.3rem;
-  flex-wrap: wrap;
-}
-
-.citation-actions .btn {
-  font-size: 12px;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.citation-actions .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.btn--gray {
-  background-color: rgba(108, 117, 125, 0.8);
-  border-color: rgba(108, 117, 125, 0.6);
-  color: white;
-}
-
-.btn--gray:hover {
-  background-color: rgba(73, 80, 87, 0.9);
-  border-color: rgba(73, 80, 87, 0.7);
-}
-
-.btn--success {
-  background-color: rgba(40, 167, 69, 0.9);
-  border-color: rgba(40, 167, 69, 0.8);
-  color: white;
-}
-
-/* Override any potential red colors in citations to use dark grey */
-.citation-block,
-.citation-block *,
-.citation-bibtex,
-.citation-bibtex * {
-  color: #495057 !important; /* Dark grey (#495057) instead of red */
-}
-
-.citation-bibtex code {
-  color: #495057 !important; /* Ensure code text is dark grey */
-}
-
-/* More specific overrides to force dark grey */
-.citation-bibtex code,
-.citation-bibtex code *,
-.citation-bibtex pre,
-.citation-bibtex pre * {
-  color: #495057 !important;
-}
-
-/* Override any theme-specific code styling */
-.citation-block code,
-.citation-block pre,
-.citation-block .highlight,
-.citation-block .highlight * {
-  color: #495057 !important;
-  background-color: transparent !important;
-}
-
-/* Force override for any red colors */
-.citation-block *[style*="color: red"],
-.citation-block *[style*="color:red"],
-.citation-block *[style*="color: #ff0000"],
-.citation-block *[style*="color:#ff0000"] {
-  color: #495057 !important;
-}
-
-@media (max-width: 768px) {
-  .citation-content {
-    padding: 0.5rem;
-  }
-  
-  .citation-bibtex {
-    padding: 0.5rem;
-  }
-  
-  .citation-bibtex code {
-    font-size: 12px;
-  }
-  
-  .citation-actions {
-    flex-direction: column;
-  }
-  
-  .citation-actions .btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Terminal-style dark code blocks - Force override */
-.page__content pre, 
-.page__content code, 
-.page__content .highlight, 
-.page__content .highlight pre,
-.post__content pre,
-.post__content code,
-.post__content .highlight,
-.post__content .highlight pre,
-pre, code, .highlight, .highlight pre {
-  background-color: #2b2b2b !important;
-  color: #7dd3fc !important;
-  border: none !important;
-  border-radius: 8px !important;
-  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-  font-size: 0.9em !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
-}
-
-/* Code blocks - Force override */
-.page__content pre, 
-.page__content .highlight pre,
-.post__content pre,
-.post__content .highlight pre,
-pre, .highlight pre {
-  padding: 1.5rem !important;
-  margin: 1.5rem 0 !important;
-  overflow-x: auto !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Inline code - Force override */
-.page__content p code, 
-.page__content li code, 
-.page__content td code, 
-.page__content th code,
-.post__content p code,
-.post__content li code,
-.post__content td code,
-.post__content th code,
-p code, li code, td code, th code {
-  background-color: #2b2b2b !important;
-  color: #7dd3fc !important;
-  padding: 0.3em 0.6em !important;
-  border-radius: 4px !important;
-  font-size: 0.85em !important;
-  border: none !important;
-}
-
-/* Remove borders from nested elements */
-.highlight pre {
-  border: none !important;
-  margin: 0 !important;
+.page, .archive {
+  max-width: 100% !important;
   padding: 0 !important;
+  float: none !important;
+  width: 100% !important;
 }
 
-/* Simple gray table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.9em;
+/* Remove sidebar float constraint */
+.sidebar { display: none; }
+.page__content, .archive__item { width: 100% !important; }
+
+/* ---------- Global font ---------- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  color: #333;
+  background: #fff;
 }
 
-table th {
-  background-color: #f8f9fa !important;
-  color: #495057 !important;
-  padding: 0.8rem 1rem;
-  text-align: left;
+/* ---------- Archive / Home listing ---------- */
+.archive__subtitle {
+  font-family: inherit;
+  font-size: 12px !important;
   font-weight: 600;
-  border: 1px solid #dee2e6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-bottom: 6px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
-table td {
-  padding: 0.8rem 1rem;
-  border: 1px solid #ddd;
-  background-color: #fff;
+.archive__item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 
-table tr:nth-child(even) td {
-  background-color: #fafafa;
+.archive__item-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 2px !important;
+
+  a {
+    color: #1a1a1a !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    &:hover { color: #004276 !important; }
+  }
 }
 
-table tr:hover td {
-  background-color: #f0f0f0;
+.archive__item-excerpt {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  color: rgba(0,0,0,0.5) !important;
+  margin-top: 4px !important;
 }
 
-/* Example:
-.custom-class {
-  color: #your-color;
+.page__meta {
+  font-size: 12px !important;
+  color: rgba(0,0,0,0.35) !important;
 }
-*/
+
+/* ---------- Non-distill page content ---------- */
+body:not(.layout--distill) {
+  .page__content {
+    font-size: 15px;
+    line-height: 1.6;
+    p, li, dl { font-size: 15px; }
+  }
+}
+
+/* ---------- Code blocks (non-distill) ---------- */
+body:not(.layout--distill) {
+  .page__content pre,
+  .page__content code,
+  .page__content .highlight,
+  .page__content .highlight pre {
+    background-color: #f6f6f3 !important;
+    color: #333 !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 4px !important;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+    font-size: 0.88em !important;
+  }
+
+  .page__content pre,
+  .page__content .highlight pre {
+    padding: 1rem !important;
+    margin: 0.8rem 0 !important;
+    overflow-x: auto !important;
+    box-shadow: none !important;
+  }
+
+  .page__content p code,
+  .page__content li code,
+  .page__content td code {
+    padding: 0.15em 0.4em !important;
+    border-radius: 3px !important;
+    font-size: 0.85em !important;
+  }
+}
+
+/* ---------- Tables (non-distill) ---------- */
+body:not(.layout--distill) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 13px;
+    box-shadow: none;
+  }
+  table th {
+    background-color: #fafafa !important;
+    color: #333 !important;
+    padding: 7px 10px;
+    font-weight: 600;
+    border: 1px solid #e5e5e5;
+  }
+  table td {
+    padding: 7px 10px;
+    border: 1px solid #eee;
+  }
+  table tr:nth-child(even) td { background-color: #fafafa; }
+}
+
+/* ---------- Hide auto-generated page titles ---------- */
+.page__title { display: none !important; }
+.page header { display: none !important; }
+
+/* ---------- Sidebar on home page ---------- */
+.sidebar {
+  font-size: 14px;
+}

@@ -13,9 +13,8 @@ tags:
   - research overview
   - transformers
 read_time: "15-25 min read"
+layout: distill
 ---
-
-# Reasoning in Large Language Models: A Research-Centric Overview
 
 "Can LLMs reason?" is one of those questions that generates more heat than light, mostly because people mean very different things by "reasoning." This post tries to cut through that by grounding the discussion in concrete technical definitions, drawing heavily from a CS25 lecture by Denny Zhou (Google DeepMind) ([YouTube](https://www.youtube.com/watch?v=ebnX5Ur1hBk)) and the surrounding research literature.
 

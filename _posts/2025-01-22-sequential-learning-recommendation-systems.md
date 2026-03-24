@@ -14,11 +14,8 @@ tags:
   - deep learning
 last_modified_at: 2025-01-22T08:00:00-05:00
 read_time: "20-30 min read"
-toc: true
-toc_sticky: true
+layout: distill
 ---
-
-# Sequential Learning in Recommendation Systems: From Markov Chains to Transformers
 
 *A comprehensive guide to sequence-based recommendation techniques and key research papers*
 
