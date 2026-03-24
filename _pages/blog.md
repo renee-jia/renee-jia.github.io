@@ -11,6 +11,56 @@ Welcome to my blog! Here I share my thoughts, research insights, and experiences
 
 ## Generative AI and LLM
 
+### What If AI Was Never Meant to Learn From Us
+{% assign turkey_en_post = site.posts | where_exp: "post", "post.title contains 'What If AI Was Never Meant'" | first %}
+{% if turkey_en_post %}
+<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
+  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
+    <a href="{{ turkey_en_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ turkey_en_post.title }}</a>
+  </h4>
+  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
+    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
+    {{ turkey_en_post.date | date: "%B %d, %Y" }}
+    {% if turkey_en_post.read_time %}
+    <span style="margin-left: 1em;">
+      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
+      {{ turkey_en_post.read_time }}
+    </span>
+    {% endif %}
+  </p>
+  {% if turkey_en_post.excerpt %}
+  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
+    {{ turkey_en_post.excerpt | strip_html | truncatewords: 25 }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
+### 地基没人查过，楼已经一百层了
+{% assign turkey_cn_post = site.posts | where_exp: "post", "post.title contains '地基没人查过'" | first %}
+{% if turkey_cn_post %}
+<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
+  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
+    <a href="{{ turkey_cn_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ turkey_cn_post.title }}</a>
+  </h4>
+  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
+    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
+    {{ turkey_cn_post.date | date: "%B %d, %Y" }}
+    {% if turkey_cn_post.read_time %}
+    <span style="margin-left: 1em;">
+      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
+      {{ turkey_cn_post.read_time }}
+    </span>
+    {% endif %}
+  </p>
+  {% if turkey_cn_post.excerpt %}
+  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
+    {{ turkey_cn_post.excerpt | strip_html | truncatewords: 25 }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
 ### Reward Hacking & Jailbreak Research
 {% assign reward_hacking_post = site.posts | where_exp: "post", "post.title contains 'Reward Hacking'" | first %}
 {% if reward_hacking_post %}
