@@ -1,5 +1,5 @@
 ---
-title: "What If AI Was Never Meant to Learn From Us (ENG)"
+title: "What If AI Was Never Meant to Learn From Us"
 date: 2026-03-23
 categories:
   - AI Research
