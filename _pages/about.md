@@ -23,6 +23,8 @@ I'm passionate about **AI research** and work on:
 - **Reinforcement Learning**: multi-agent systems, procedural content generation
 - **Recommendation Systems**: personalization and CTR prediction
 
+More generally, I'm deeply interested in **AI alignment**, **long-horizon agents**, and **interpretability** — understanding how models reason, stay aligned with human intent, and behave reliably over extended tasks.
+
 I love exploring how AI can understand and model human behavior through massive amounts of data. There's something incredibly exciting about building models that can learn complex patterns and make sense of user sequences.
 
 ## Background
