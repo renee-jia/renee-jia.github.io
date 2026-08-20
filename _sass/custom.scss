@@ -2,17 +2,17 @@
    Custom Styles — non-distill pages (home, archive, about, etc.)
    ========================================================================== */
 
-/* ---------- White background everywhere ---------- */
 html, body, .initial-content, #main, .page, .archive,
-.layout--home, .layout--archive, .layout--single, .layout--posts {
-  background: #fff !important;
+.layout--home, .layout--archive, .layout--single, .layout--posts,
+.layout--thoughts {
+  background: $paper !important;
 }
 
-/* ---------- Widen layout ---------- */
+/* ---------- Page shell ---------- */
 #main {
-  max-width: 1100px !important;
+  max-width: 720px !important;
   margin: 0 auto !important;
-  padding: 0 40px !important;
+  padding: 0 28px !important;
   float: none !important;
   width: auto !important;
 }
@@ -30,23 +30,148 @@ html, body, .initial-content, #main, .page, .archive,
 .sidebar { display: none; }
 .page__content, .archive__item { width: 100% !important; }
 
-/* ---------- Global font ---------- */
+/* ---------- Global type ---------- */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 15px;
-  color: #333;
-  background: #fff;
+  font-family: $font-serif;
+  font-size: $fs;
+  line-height: 1.65;
+  color: $ink;
+  background: $paper;
+}
+
+body:not(.layout--distill) {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-serif;
+    font-weight: 500;
+    color: $ink-strong;
+  }
+
+  .page__content {
+    font-size: $fs;
+    line-height: 1.65;
+    color: $ink;
+    max-width: $measure;
+
+    .header-link {
+      display: none !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $font-serif;
+      font-weight: 500;
+      color: $ink-strong;
+    }
+
+    h1 {
+      font-size: $fs-h1;
+      line-height: 1.25;
+      margin: 0 0 0.55em;
+    }
+
+    h2 {
+      font-size: $fs-h2;
+      line-height: 1.35;
+      padding-bottom: 0.35em;
+      border-bottom: 1px solid $rule;
+      margin: 1.7em 0 0.7em;
+    }
+
+    h3 { font-size: 16px; }
+
+    p, li, dl {
+      font-size: $fs;
+      line-height: 1.65;
+      color: $ink;
+    }
+
+    .pub-list li {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    strong {
+      font-family: inherit;
+      font-weight: 600;
+    }
+  }
+}
+
+body.about .page__content {
+  p, li, dl {
+    font-size: 15px !important;
+    line-height: 1.65;
+  }
+}
+
+/* ---------- Masthead: no gray strip, no leftover hamburger, softer type ---------- */
+.greedy-nav {
+  background: transparent !important;
+  font-family: $font-sans;
+  justify-content: center;
+
+  a {
+    margin: 0 0.72rem !important;
+  }
+}
+
+.greedy-nav .visible-links {
+  justify-content: center !important;
+  gap: 0.15rem;
+}
+
+.greedy-nav .visible-links a:before {
+  display: none !important;
+}
+
+.navicon,
+.navicon:before,
+.navicon:after {
+  background: $ink-muted !important;
+  height: 1.5px !important;
+}
+
+.greedy-nav__toggle:hover {
+  .navicon,
+  .navicon:before,
+  .navicon:after {
+    background: $ink-strong !important;
+  }
+}
+
+.greedy-nav .hidden-links {
+  background: $paper !important;
+  border-color: $rule !important;
+  box-shadow: 0 8px 24px rgba(90, 72, 55, 0.08);
+}
+
+/* ---------- Links & headings (leave masthead to head.html) ---------- */
+body:not(.layout--distill) {
+  .page__content,
+  .page__footer {
+    a {
+      color: $accent;
+      &:hover { color: $accent-hover; }
+    }
+  }
+
+  .page__content {
+    h1, h2, h3, h4, h5, h6 { color: $ink-strong; }
+  }
 }
 
 /* ---------- Archive / Home listing ---------- */
 .archive__subtitle {
-  font-family: inherit;
+  font-family: $font-sans;
   font-size: 12px !important;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(0,0,0,0.4);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  color: $ink-faint;
+  border-bottom: 1px solid $rule;
   padding-bottom: 6px;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -55,43 +180,40 @@ body {
 .archive__item {
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(212, 196, 174, 0.45);
 }
 
 .archive__item-title {
-  font-size: 16px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
   margin-bottom: 2px !important;
 
   a {
-    color: #1a1a1a !important;
+    color: $ink-strong !important;
     text-decoration: none !important;
     border-bottom: none !important;
-    &:hover { color: #004276 !important; }
+    &:hover { color: $accent !important; }
   }
 }
 
 .archive__item-excerpt {
   font-size: 13px !important;
   line-height: 1.5 !important;
-  color: rgba(0,0,0,0.5) !important;
+  color: $ink-muted !important;
   margin-top: 4px !important;
 }
 
 .page__meta {
+  font-family: $font-sans;
   font-size: 12px !important;
-  color: rgba(0,0,0,0.35) !important;
+  color: $ink-faint !important;
 }
 
-/* ---------- Non-distill page content ---------- */
-body:not(.layout--distill) {
-  .page__content {
-    font-size: 15px;
-    line-height: 1.6;
-    p, li, dl { font-size: 15px; }
-  }
+.page__footer {
+  font-family: $font-sans;
 }
+
 
 /* ---------- Code blocks (non-distill) ---------- */
 body:not(.layout--distill) {
@@ -99,9 +221,9 @@ body:not(.layout--distill) {
   .page__content code,
   .page__content .highlight,
   .page__content .highlight pre {
-    background-color: #f6f6f3 !important;
-    color: #333 !important;
-    border: 1px solid rgba(0,0,0,0.08) !important;
+    background-color: $paper-2 !important;
+    color: $ink !important;
+    border: 1px solid $rule !important;
     border-radius: 4px !important;
     font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
     font-size: 0.88em !important;
@@ -134,17 +256,18 @@ body:not(.layout--distill) {
     box-shadow: none;
   }
   table th {
-    background-color: #fafafa !important;
-    color: #333 !important;
+    background-color: $paper-2 !important;
+    color: $ink-strong !important;
     padding: 7px 10px;
     font-weight: 600;
-    border: 1px solid #e5e5e5;
+    border: 1px solid $rule;
   }
   table td {
     padding: 7px 10px;
-    border: 1px solid #eee;
+    border: 1px solid $rule;
+    color: $ink;
   }
-  table tr:nth-child(even) td { background-color: #fafafa; }
+  table tr:nth-child(even) td { background-color: rgba(243, 235, 224, 0.45); }
 }
 
 /* ---------- Hide auto-generated page titles ---------- */
@@ -154,4 +277,578 @@ body:not(.layout--distill) {
 /* ---------- Sidebar on home page ---------- */
 .sidebar {
   font-size: 14px;
+}
+
+/* ---------- Faculty-style publication list ---------- */
+.layout--single .page__content h2#publications {
+  font-size: $fs-h2 !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.55em !important;
+}
+
+.layout--single .page__content .pub-list {
+  margin: 0.1rem 0 0.8rem;
+  font-family: $font-serif;
+  font-size: 15px !important;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.15rem;
+  }
+
+  li {
+    margin: 0 0 0.85rem !important;
+    padding: 0;
+    line-height: 1.45 !important;
+    font-family: $font-serif !important;
+    font-size: 15px !important;
+  }
+
+  strong {
+    font-family: $font-serif;
+    font-weight: 600;
+  }
+}
+
+.layout--single .page__content p.pub-year {
+  font-family: $font-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $ink-faint !important;
+  margin: 1.1rem 0 0.55rem !important;
+  padding-bottom: 0.25rem !important;
+  border-bottom: 1px solid $rule;
+  line-height: 1.3 !important;
+}
+
+.layout--single .page__content .pub-title,
+.layout--single .page__content .pub-authors,
+.layout--single .page__content .pub-venue {
+  display: block;
+  font-family: $font-serif !important;
+}
+
+.layout--single .page__content .pub-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: $ink-strong;
+  margin-bottom: 0.1rem;
+  line-height: 1.45 !important;
+}
+
+.layout--single .page__content .pub-authors {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: $ink;
+  margin-bottom: 0.05rem;
+  line-height: 1.45 !important;
+}
+
+.layout--single .page__content .pub-venue {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  color: $ink-muted;
+  line-height: 1.45 !important;
+}
+
+.layout--single .page__content p.pub-note {
+  font-family: $font-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: $ink-muted;
+  margin-top: 0.2rem !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------- Listing pages: quieter section labels, same body as the rest ---------- */
+body.listing .page__content {
+  h1 {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    margin: 0 0 0.4em !important;
+  }
+
+  h1 + p {
+    font-size: 15px !important;
+    color: $ink-muted !important;
+    line-height: 1.6;
+    margin: 0 0 1.5em !important;
+  }
+
+  h2 {
+    font-family: $font-serif !important;
+    font-size: $fs-xs !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $ink-faint !important;
+    border-bottom: 1px solid $rule !important;
+    padding-bottom: 0.3rem;
+    margin: 2rem 0 1rem !important;
+  }
+}
+
+.listing-note {
+  font-family: $font-serif;
+  font-style: italic;
+  color: $ink-muted;
+  font-size: $fs-sm;
+  margin-top: 0.4rem;
+}
+
+/* ---------- Cards used on Blog / Paper Readings / Learning Guide ---------- */
+.blog-post-preview {
+  background-color: $paper-2 !important;
+  border: 1px solid $rule !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  padding: 1.15em 1.25em 1.2em !important;
+  margin-bottom: 2em !important;
+
+  h3, h4 {
+    margin: 0 0 0.2em !important;
+    font-family: $font-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+  }
+
+  h3 a, h4 a {
+    color: $ink-strong !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    font-family: $font-serif !important;
+    background: none !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+  }
+
+  h3 a:hover, h4 a:hover {
+    color: $accent !important;
+  }
+
+  .preview-excerpt {
+    color: $ink-muted !important;
+    font-family: $font-serif !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    margin: 0.35em 0 0 !important;
+  }
+
+  .preview-meta,
+  .preview-meta time,
+  .preview-meta span {
+    font-family: $font-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: $ink-faint !important;
+    letter-spacing: 0;
+    margin: 0 !important;
+  }
+
+  .preview-sep {
+    margin: 0 0.4em;
+    color: $ink-faint;
+  }
+}
+
+/* ---------- About / post social chips ---------- */
+.page__content .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px !important;
+    border-radius: 5px;
+    text-decoration: none;
+    color: $accent !important;
+    background-color: $paper-2 !important;
+    border: 1px solid $rule !important;
+    font-family: $font-serif;
+    line-height: 1;
+  }
+
+  a:hover {
+    color: $accent-hover !important;
+    background-color: $paper-3 !important;
+  }
+
+  i {
+    font-size: 11px !important;
+    width: auto;
+  }
+
+  span {
+    font-size: 12px !important;
+  }
+}
+
+/* ---------- Soft button (poker, etc.) ---------- */
+.soft-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: $accent !important;
+  color: $paper !important;
+  text-decoration: none !important;
+  border-radius: 8px;
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(154, 112, 72, 0.18);
+}
+
+.soft-btn:hover {
+  background: $accent-hover !important;
+  color: $paper !important;
+}
+
+/* ==========================================================================
+   Random Thoughts — late-night messages
+   Nested under .page__content so these win over the body type rules.
+   ========================================================================== */
+
+.layout--thoughts {
+  #main {
+    max-width: 720px !important;
+    padding: 0 28px !important;
+  }
+
+  .page__meta,
+  .page footer {
+    display: none !important;
+  }
+}
+
+.layout--thoughts .page__content {
+  .thoughts-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0 88px;
+  }
+
+  .thoughts-header {
+    text-align: center;
+    margin-bottom: 2.4rem;
+    padding-bottom: 1.8rem;
+  }
+
+  .thoughts-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 1.55rem;
+    letter-spacing: 0.06em;
+    color: $ink-muted;
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+
+  p.thoughts-lede {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $ink-faint;
+    margin: 0;
+  }
+
+  .thoughts-thread {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thought-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 1.9rem 0 1.25rem;
+  }
+
+  .thought-day::before,
+  .thought-day::after {
+    content: "";
+    height: 1px;
+    width: 28px;
+    background: rgba(181, 165, 148, 0.35);
+  }
+
+  .thought-day span {
+    font-family: $font-sans;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $ink-faint;
+  }
+
+  .thought-entry {
+    margin-bottom: 1.45rem;
+    animation: thoughtIn 0.7s ease both;
+    animation-delay: calc(var(--i, 1) * 0.07s);
+  }
+
+  .thought-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thought-row--prompt {
+    align-items: flex-start;
+    margin-bottom: 0.55rem;
+  }
+
+  .thought-row--me {
+    align-items: flex-end;
+  }
+
+  .thought-bubble {
+    max-width: 92%;
+    padding: 0.62rem 0.95rem 0.68rem;
+    line-height: 1.65;
+    word-wrap: break-word;
+
+    p {
+      margin: 0 0 0.6em;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.65;
+      &:last-child { margin-bottom: 0; }
+    }
+
+    a {
+      color: $accent;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+  }
+
+  .thought-bubble--prompt {
+    background: transparent;
+    color: $ink-muted;
+    padding: 0.15rem 0.35rem 0.2rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+
+    p {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: $ink-muted;
+    }
+  }
+
+  .thought-bubble--me {
+    background: $paper-2;
+    color: $ink;
+    border-radius: 22px 22px 6px 22px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    box-shadow: 0 6px 20px rgba(90, 72, 55, 0.05);
+
+    p {
+      font-size: 0.98rem;
+      color: $ink;
+    }
+  }
+
+  .thought-time {
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: $ink-faint;
+    font-family: $font-sans;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .thought-row--me .thought-time { padding-right: 6px; }
+  .thought-row--prompt .thought-time { padding-left: 4px; }
+
+  p.thoughts-empty {
+    text-align: center;
+    padding: 3.2rem 1rem 1rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    color: $ink-faint;
+    font-size: 0.98rem;
+  }
+}
+
+@keyframes thoughtIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout--thoughts .thought-entry { animation: none; }
+}
+
+/* ==========================================================================
+   Poker — looser bubbles, same paper
+   ========================================================================== */
+
+body.poker {
+  #main {
+    max-width: 720px !important;
+    padding: 0 28px !important;
+  }
+
+  .page__meta,
+  .page footer {
+    display: none !important;
+  }
+}
+
+body.poker .page__content {
+  .poker-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0 88px;
+  }
+
+  .poker-header {
+    text-align: center;
+    margin-bottom: 2.2rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .poker-header h1 {
+    font-family: $font-serif !important;
+    font-weight: 500 !important;
+    font-size: 1.563em !important;
+    letter-spacing: 0;
+    color: $ink-strong !important;
+    margin: 0 0 8px;
+    line-height: 1.2;
+    border: none;
+  }
+
+  p.poker-lede {
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: $fs;
+    line-height: 1.65;
+    color: $ink-muted;
+    margin: 0;
+  }
+
+  .poker-thread {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .poker-entry {
+    margin-bottom: 1.7rem;
+    animation: thoughtIn 0.7s ease both;
+    animation-delay: calc(var(--i, 1) * 0.08s);
+  }
+
+  .poker-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .poker-row--prompt {
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .poker-row--me {
+    align-items: flex-end;
+  }
+
+  .poker-bubble {
+    max-width: 92%;
+    word-wrap: break-word;
+
+    p {
+      margin: 0 0 0.65em;
+      font-family: $font-serif;
+      line-height: 1.65;
+      &:last-child { margin-bottom: 0; }
+    }
+
+    a {
+      color: $accent;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    strong {
+      font-family: inherit;
+      font-weight: 600;
+      color: $ink-strong;
+    }
+  }
+
+  .poker-bubble--prompt {
+    background: transparent;
+    padding: 0.15rem 0.35rem 0.2rem;
+    font-family: $font-serif;
+    font-style: italic;
+
+    p {
+      font-size: $fs;
+      font-style: italic;
+      color: $ink-muted;
+      margin: 0;
+    }
+  }
+
+  .poker-bubble--me {
+    background: $paper-2;
+    color: $ink;
+    border-radius: 22px 22px 6px 22px;
+    padding: 0.85rem 1.1rem 0.95rem;
+    box-shadow: 0 6px 20px rgba(90, 72, 55, 0.05);
+
+    p {
+      font-size: $fs;
+      color: $ink;
+    }
+  }
+
+  .poker-quote {
+    margin: 0.85em 0 0.15em;
+    padding: 0 0 0 0.85em;
+    border: none;
+    border-left: 1px solid rgba(181, 165, 148, 0.45);
+    background: none;
+
+    p {
+      font-size: $fs !important;
+      font-style: italic;
+      color: $ink-muted;
+      margin: 0 0 0.2em !important;
+    }
+
+    cite {
+      display: block;
+      font-family: $font-sans;
+      font-style: normal;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $ink-faint;
+    }
+  }
+
+  .poker-quote + .poker-quote {
+    margin-top: 0.7em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.poker .poker-entry { animation: none; }
 }

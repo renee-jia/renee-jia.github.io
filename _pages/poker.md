@@ -3,56 +3,86 @@ title: "Poker"
 permalink: /poker/
 layout: single
 author_profile: false
+classes:
+  - poker
 ---
 
-# Tournament Poker
+<div class="poker-wrap">
+  <div class="poker-header">
+    <h1>Poker</h1>
+    <p class="poker-lede">tables, a little alcohol, and walking the strip a little too late.</p>
+  </div>
 
-When I'm not working on AI research, you might find me at the poker tables! I'm a part-time tournament poker player with a passion for the strategic and mathematical aspects of the game.
+  <div class="poker-thread">
+    <article class="poker-entry" style="--i: 1;">
+      <div class="poker-row poker-row--prompt">
+        <div class="poker-bubble poker-bubble--prompt">
+          <p>Tournament Poker</p>
+        </div>
+      </div>
+      <div class="poker-row poker-row--me">
+        <div class="poker-bubble poker-bubble--me">
+          <p>When I'm not at a desk, I'm probably in a tournament somewhere, waiting for the blinds to go up, drinking something lukewarm, trying not to look at my phone.</p>
+          <p>Part-time, still hooked. The dry version, if you want it, lives on <a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327" target="_blank" rel="noopener">Hendon Mob</a>.</p>
+        </div>
+      </div>
+    </article>
 
-## Tournament Results
+    <article class="poker-entry" style="--i: 2;">
+      <div class="poker-row poker-row--prompt">
+        <div class="poker-bubble poker-bubble--prompt">
+          <p>Why Poker?</p>
+        </div>
+      </div>
+      <div class="poker-row poker-row--me">
+        <div class="poker-bubble poker-bubble--me">
+          <p>Because it asks you to sit still with incomplete information, and then make a decision anyway.</p>
+          <p>The math is there, the people are there, and every so often someone does something that makes you rewrite the whole table. Also, it's fun, which I keep forgetting to say out loud.</p>
+        </div>
+      </div>
+    </article>
 
-I've been fortunate to achieve some notable results in various tournaments. You can view my complete tournament history and statistics at:
+    <article class="poker-entry" style="--i: 3;">
+      <div class="poker-row poker-row--prompt">
+        <div class="poker-bubble poker-bubble--prompt">
+          <p>My Vegas Tours</p>
+        </div>
+      </div>
+      <div class="poker-row poker-row--me">
+        <div class="poker-bubble poker-bubble--me">
+          <p>I like Aria the most. The room just sits right, and I always end up staying later than I meant to.</p>
+          <p>Venetian has the best beverage bar, I will die on this hill. Long walks between properties, too much AC, and the usual promise that tonight I'll go to bed early.</p>
+        </div>
+      </div>
+    </article>
 
-<div style="text-align: center; margin: 2em 0;">
-  <a href="https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327" target="_blank" style="display: inline-block; padding: 10px 20px; background: #d1d5db; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 13px; font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(209, 213, 219, 0.3); border: 2px solid #d1d5db; letter-spacing: 0.5px;">
-    <i class="fas fa-external-link-alt" style="margin-right: 8px; font-size: 11px;"></i>
-    View My Hendon Mob Profile
-  </a>
+    <article class="poker-entry" style="--i: 4;">
+      <div class="poker-row poker-row--prompt">
+        <div class="poker-bubble poker-bubble--prompt">
+          <p>My favorite players</p>
+        </div>
+      </div>
+      <div class="poker-row poker-row--me">
+        <div class="poker-bubble poker-bubble--me">
+          <p><strong>Xuan Liu</strong>, because she makes it look quiet. And <strong>Daniel Negreanu</strong>, because he never stops talking to the table, and somehow that's part of the point.</p>
+          <blockquote class="poker-quote">
+            <p>“Poker is a hard way to make easy money.”</p>
+            <cite>Xuan Liu</cite>
+          </blockquote>
+          <blockquote class="poker-quote">
+            <p>“You can be competitive without compromising your integrity — taking chips doesn’t make you a bad person.”</p>
+            <cite>Xuan Liu</cite>
+          </blockquote>
+          <blockquote class="poker-quote">
+            <p>“The majority of players are looking for reasons to fold. I am looking for reasons to play.”</p>
+            <cite>Daniel Negreanu</cite>
+          </blockquote>
+          <blockquote class="poker-quote">
+            <p>“Everything that’s said at a poker table is worth listening to.”</p>
+            <cite>Daniel Negreanu</cite>
+          </blockquote>
+        </div>
+      </div>
+    </article>
+  </div>
 </div>
-
-## Why Poker?
-
-Poker combines several elements that I find fascinating:
-
-- **Strategic Thinking**: Every decision requires careful analysis of probabilities and opponent behavior
-- **Mathematical Modeling**: Understanding odds, pot odds, and expected value calculations
-- **Psychology**: Reading opponents and managing your own emotional state
-- **Risk Management**: Balancing aggression with caution in high-pressure situations
-
-## Tournament Highlights
-
-Some of my most memorable tournament experiences include:
-
-- **Deep runs** in major tournament series
-- **Final table appearances** in various events
-- **Competing against** some of the best players in the world
-- **Learning from** every session, win or lose
-
-## Poker and AI
-
-Interestingly, there are many parallels between poker and AI research:
-
-- **Game Theory**: Both involve strategic decision-making under uncertainty
-- **Pattern Recognition**: Identifying patterns in opponent behavior vs. data patterns
-- **Optimization**: Finding the best strategies given available information
-- **Continuous Learning**: Improving through experience and analysis
-
-## Contact
-
-If you're interested in discussing poker strategy, tournament experiences, or just want to connect over a shared interest, feel free to reach out! I'm always happy to talk about both poker and AI research.
-
----
-
-*"Poker is a game of skill disguised as a game of chance." - Unknown*
-
-*Note: All poker activities are conducted responsibly and in accordance with local regulations.*

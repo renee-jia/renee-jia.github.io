@@ -1,0 +1,52 @@
+{% comment %}
+  Random thoughts thread.
+  Add a file in _thoughts/ with:
+
+    ---
+    date: 2026-08-19 23:14:00 -0700
+    prompt: "optional — renders as the other side of the dialog"
+    ---
+
+    The thought itself (markdown is fine).
+{% endcomment %}
+
+{% assign thoughts = site.thoughts | sort: "date" | reverse %}
+
+{% if thoughts.size == 0 %}
+  <p class="thoughts-empty">the thread is quiet.</p>
+{% else %}
+  <div class="thoughts-thread" role="log" aria-label="Random thoughts">
+    {% assign prev_day = "" %}
+    {% for thought in thoughts %}
+      {% assign this_day = thought.date | date: "%Y-%m-%d" %}
+      {% if this_day != prev_day %}
+        <div class="thought-day">
+          <span>{{ thought.date | date: "%B %d, %Y" }}</span>
+        </div>
+        {% assign prev_day = this_day %}
+      {% endif %}
+
+      <article class="thought-entry" style="--i: {{ forloop.index }};">
+        {% if thought.prompt %}
+          <div class="thought-row thought-row--prompt">
+            <div class="thought-bubble thought-bubble--prompt">
+              <p>{{ thought.prompt | escape | newline_to_br }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+        {% assign thought_text = thought.content | strip %}
+        {% if thought_text != "" %}
+          <div class="thought-row thought-row--me">
+            <div class="thought-bubble thought-bubble--me">
+              {{ thought.content }}
+            </div>
+            <time class="thought-time" datetime="{{ thought.date | date_to_xmlschema }}">
+              {{ thought.date | date: "%I:%M %p" }}
+            </time>
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -3,268 +3,43 @@ title: "Blog"
 permalink: /blog/
 layout: single
 author_profile: false
+classes:
+  - listing
 ---
 
-# Blog Posts
+# Blog
 
-Welcome to my blog! Here I share my thoughts, research insights, and experiences in AI and machine learning.
+Notes on models, ranking, and the slightly uncomfortable question of what a system is actually doing.
 
-## Generative AI and LLM
+## Generative AI and language models
 
-### What If AI Was Never Meant to Learn From Us
 {% assign turkey_en_post = site.posts | where_exp: "post", "post.title contains 'What If AI Was Never Meant'" | first %}
-{% if turkey_en_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ turkey_en_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ turkey_en_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ turkey_en_post.date | date: "%B %d, %Y" }}
-    {% if turkey_en_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ turkey_en_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if turkey_en_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ turkey_en_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=turkey_en_post %}
 
-### 地基没人查过，楼已经一百层了
-{% assign turkey_cn_post = site.posts | where_exp: "post", "post.title contains '地基没人查过'" | first %}
-{% if turkey_cn_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ turkey_cn_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ turkey_cn_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ turkey_cn_post.date | date: "%B %d, %Y" }}
-    {% if turkey_cn_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ turkey_cn_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if turkey_cn_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ turkey_cn_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
-
-### Reward Hacking & Jailbreak Research
 {% assign reward_hacking_post = site.posts | where_exp: "post", "post.title contains 'Reward Hacking'" | first %}
-{% if reward_hacking_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ reward_hacking_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ reward_hacking_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ reward_hacking_post.date | date: "%B %d, %Y" }}
-    {% if reward_hacking_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ reward_hacking_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if reward_hacking_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ reward_hacking_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=reward_hacking_post %}
 
-### LLM Reasoning
 {% assign llm_reasoning_post = site.posts | where_exp: "post", "post.title contains 'Reasoning in Large Language Models'" | first %}
-{% if llm_reasoning_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ llm_reasoning_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ llm_reasoning_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ llm_reasoning_post.date | date: "%B %d, %Y" }}
-    {% if llm_reasoning_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ llm_reasoning_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if llm_reasoning_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ llm_reasoning_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=llm_reasoning_post %}
 
-## AI Agents
+## Agents
 
-### The Web Is Not a Neutral Environment for Agents
 {% assign web_agents_post = site.posts | where_exp: "post", "post.title contains 'Web Is Not a Neutral Environment'" | first %}
-{% if web_agents_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ web_agents_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ web_agents_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ web_agents_post.date | date: "%B %d, %Y" }}
-    {% if web_agents_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ web_agents_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if web_agents_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ web_agents_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=web_agents_post %}
 
-## Featured Series: Ranking & Recommendation Systems
+## Ranking and recommendation
 
-### Long Sequence User Modeling in Ads Ranking
 {% assign long_seq_post = site.posts | where_exp: "post", "post.title contains 'Long User Histories'" | first %}
-{% if long_seq_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ long_seq_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ long_seq_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ long_seq_post.date | date: "%B %d, %Y" }}
-    {% if long_seq_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ long_seq_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if long_seq_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ long_seq_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=long_seq_post %}
 
-### Sequential Learning in Ranking AI
 {% assign sequential_post = site.posts | where_exp: "post", "post.title contains 'Sequential Learning'" | first %}
-{% if sequential_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ sequential_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ sequential_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ sequential_post.date | date: "%B %d, %Y" }}
-    {% if sequential_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ sequential_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if sequential_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ sequential_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=sequential_post %}
 
-### Contemporary Recommendation Systems
 {% assign contemporary_post = site.posts | where_exp: "post", "post.title contains 'Contemporary RecSys'" | first %}
-{% if contemporary_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ contemporary_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ contemporary_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ contemporary_post.date | date: "%B %d, %Y" }}
-    {% if contemporary_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ contemporary_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if contemporary_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ contemporary_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=contemporary_post %}
 
-### Deep Learning Era in Recommendation Systems
 {% assign deeplearning_post = site.posts | where_exp: "post", "post.title contains 'Deep Learning Era'" | first %}
-{% if deeplearning_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ deeplearning_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ deeplearning_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ deeplearning_post.date | date: "%B %d, %Y" }}
-    {% if deeplearning_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ deeplearning_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if deeplearning_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ deeplearning_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
+{% include post-preview.html post=deeplearning_post %}
 
-### Classic Foundations Recommendation Systems
 {% assign foundational_post = site.posts | where_exp: "post", "post.title contains 'Foundational Papers'" | first %}
-{% if foundational_post %}
-<div class="blog-post-preview" style="margin-bottom: 1.5em; padding: 1.2em; border: 1px solid #e9ecef; border-radius: 8px; background-color: #f8f9fa;">
-  <h4 style="margin-top: 0; margin-bottom: 0.5em; font-size: 1.1em; font-weight: 600;">
-    <a href="{{ foundational_post.url }}" style="color: #1e3a8a; text-decoration: none;">{{ foundational_post.title }}</a>
-  </h4>
-  <p style="margin: 0.5em 0; color: #666; font-size: 0.9em; text-align: left;">
-    <i class="fas fa-calendar-alt" style="margin-right: 0.5em;"></i>
-    {{ foundational_post.date | date: "%B %d, %Y" }}
-    {% if foundational_post.read_time %}
-    <span style="margin-left: 1em;">
-      <i class="fas fa-clock" style="margin-right: 0.5em;"></i>
-      {{ foundational_post.read_time }}
-    </span>
-    {% endif %}
-  </p>
-  {% if foundational_post.excerpt %}
-  <p style="margin: 0.5em 0; line-height: 1.4; font-size: 0.9em; text-align: left;">
-    {{ foundational_post.excerpt | strip_html | truncatewords: 25 }}
-  </p>
-  {% endif %}
-</div>
-{% endif %}
-
----
-
-*More posts coming soon! Feel free to reach out if you have any questions or suggestions.*
+{% include post-preview.html post=foundational_post %}

@@ -1,0 +1,41 @@
+// Warm ochre paper — site-wide
+$paper:        #faf6ef;
+$paper-2:      #f3ebe0;
+$paper-3:      #e9ddd0;
+$ink:          #4e4338;
+$ink-strong:   #3d342b;
+$ink-muted:    #8a7b6b;
+$ink-faint:    #b5a594;
+$rule:         #e4d5c4;
+$accent:       #9a7048;
+$accent-hover: #7d5836;
+$masthead-rule:#d4c4ae;
+
+$font-sans:    'Source Sans 3', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
+$font-display: 'Cormorant Garamond', 'Source Serif 4', Georgia, serif;
+
+// Comfortable reading scale
+$fs:           16px;
+$fs-sm:        14px;
+$fs-xs:        12px;
+$fs-h1:        22px;
+$fs-h2:        17px;
+$measure:      40rem;
+
+:root {
+  --paper: #{$paper};
+  --paper-2: #{$paper-2};
+  --paper-3: #{$paper-3};
+  --ink: #{$ink};
+  --ink-strong: #{$ink-strong};
+  --ink-muted: #{$ink-muted};
+  --ink-faint: #{$ink-faint};
+  --rule: #{$rule};
+  --accent: #{$accent};
+  --accent-hover: #{$accent-hover};
+  --masthead-rule: #{$masthead-rule};
+  --font-sans: #{$font-sans};
+  --font-serif: #{$font-serif};
+  --font-display: #{$font-display};
+}

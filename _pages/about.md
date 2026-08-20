@@ -4,6 +4,8 @@ permalink: /about/index.html
 toc: false
 layout: single
 author_profile: false
+classes:
+  - about
 sidebar:
   nav: "main"
 ---
@@ -12,51 +14,85 @@ sidebar:
 
 ![Renee Jia]({{ site.url }}{{ site.baseurl }}/assets/images/bio-photo.jpg){: .align-right width="200px"}
 
-Hey there! I'm Renee, a Research Engineer at Meta working on Large Language Models and Large-Scale User Sequence Modeling.
+Hey there! I'm Renee. I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.
 
 ## What I Do
 
-I'm passionate about **AI research** and work on:
-- **Large Language Models**: pretraining, fine-tuning, distillation, large-scale user behavior modeling
-- **Natural Language Processing**: dialogue systems, information retrieval
-- **Graph Neural Networks**: user representation learning
-- **Reinforcement Learning**: multi-agent systems, procedural content generation
-- **Recommendation Systems**: personalization and CTR prediction
+Most of my work sits somewhere between memory, personalization, and the slightly uncomfortable question of whether a model is doing what we think it's doing.
 
-More generally, I'm deeply interested in **AI alignment**, **long-horizon agents**, and **interpretability** — understanding how models reason, stay aligned with human intent, and behave reliably over extended tasks.
+- **Long-horizon memory**: how a system keeps anything useful from a long stretch of interaction — architectures, long-context modeling, compression and retrieval, representations that don't evaporate
+- **Personalization & recommendation**: sequence learning, self-supervised user modeling, graphs, and the practical problem of doing this at scale
+- **Reasoning & model behavior**: chain-of-thought, faithfulness, reward hacking, shortcut learning, and trying to evaluate what models are actually up to
+- **Post-training & agents**: reinforcement learning, reward modeling, adaptation, and how agents behave when the task doesn't end in one turn
 
-I love exploring how AI can understand and model human behavior through massive amounts of data. There's something incredibly exciting about building models that can learn complex patterns and make sense of user sequences.
+Underneath all of that, I want systems that can accumulate experience, know someone a little, reason somewhat reliably, and adapt through interaction. I also care about the jump from a clean research question to something that has to live in a large production system — same ideas, just with more users and less patience.
 
 ## Background
 
-Previously worked at Google and Amazon Alexa AI on natural language understanding and recommendation systems. I was also a Visiting Scholar at Harvard University and University of Waterloo, where I had the opportunity to collaborate with leading researchers in AI and machine learning. It's been quite a journey seeing how AI has evolved over the years!
+I'm currently a Research Engineer at Meta, working on long-horizon user memory, personalization, and large-scale sequence modeling.
+
+Before that I worked at Google, on personalization and getting models into production. Even earlier, I was at Amazon Alexa AI. I've also spent time on research at Georgia Tech, the Allen Institute for AI, Waterloo, and Harvard.
+
+## Publications
+
+<div class="pub-list">
+  <p class="pub-year">2026</p>
+  <ul>
+    <li>
+      <span class="pub-title">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</span>
+      <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
+      <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 08/2026</span>
+    </li>
+    <li>
+      <span class="pub-title">Correct Labels Are Not Enough: Reliable Metadata Can Silently Control Model Behavior</span>
+      <span class="pub-authors"><strong>Renee Jia</strong>, Jinzhou Wu</span>
+      <span class="pub-venue">NeurIPS 2026 Workshop &nbsp;·&nbsp; under review</span>
+    </li>
+  </ul>
+
+  <p class="pub-year">2023</p>
+  <ul>
+    <li>
+      <span class="pub-title">Story Shaping: Teaching Agents Human-like Behavior with Stories</span>
+      <span class="pub-authors">X. Peng, C. Cui, W. Zhou, <strong>Renee Jia</strong>, M. Riedl</span>
+      <span class="pub-venue">AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE)</span>
+    </li>
+  </ul>
+
+  <p class="pub-year">2022</p>
+  <ul>
+    <li>
+      <span class="pub-title">Situated Dialogue Learning through Procedural Environment Generation</span>
+      <span class="pub-authors">P. Ammanabrolu, <strong>Renee Jia</strong>, M. Riedl</span>
+      <span class="pub-venue">Association for Computational Linguistics (ACL)</span>
+    </li>
+  </ul>
+</div>
+
+<p class="pub-note">Reviewer: ACL, EMNLP, EACL, NAACL, CoNLL.</p>
 
 ## Let's Connect!
 
-<div class="social-icons" style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap;">
-  <a href="mailto:reneejia368@gmail.com" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #007acc; transition: all 0.2s ease; padding: 8px 12px; border-radius: 6px; background-color: #f8f9fa; border: 1px solid #e9ecef;">
-    <i class="fas fa-fw fa-envelope-square" style="font-size: 12px;"></i>
-    <span style="font-size: 14px;">Email</span>
+<div class="social-icons">
+  <a href="mailto:reneejia368@gmail.com">
+    <i class="fas fa-fw fa-envelope-square"></i>
+    <span>Email</span>
   </a>
-  
-  <a href="https://x.com/reneejjj?s=11&t=4-OvvSbKKF1hsJPSGnsoAA" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #007acc; transition: all 0.2s ease; padding: 8px 12px; border-radius: 6px; background-color: #f8f9fa; border: 1px solid #e9ecef;">
-    <i class="fas fa-fw fa-xmark" style="font-size: 12px;"></i>
-    <span style="font-size: 14px;">X</span>
+  <a href="https://x.com/reneejjj?s=11&t=4-OvvSbKKF1hsJPSGnsoAA">
+    <i class="fas fa-fw fa-xmark"></i>
+    <span>X</span>
   </a>
-  
-  <a href="https://github.com/renee-jia" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #007acc; transition: all 0.2s ease; padding: 8px 12px; border-radius: 6px; background-color: #f8f9fa; border: 1px solid #e9ecef;">
-    <i class="fab fa-fw fa-github" style="font-size: 12px;"></i>
-    <span style="font-size: 14px;">GitHub</span>
+  <a href="https://github.com/renee-jia">
+    <i class="fab fa-fw fa-github"></i>
+    <span>GitHub</span>
   </a>
-  
-  <a href="https://linkedin.com/in/renee-jia/" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #007acc; transition: all 0.2s ease; padding: 8px 12px; border-radius: 6px; background-color: #f8f9fa; border: 1px solid #e9ecef;">
-    <i class="fab fa-fw fa-linkedin" style="font-size: 12px;"></i>
-    <span style="font-size: 14px;">LinkedIn</span>
+  <a href="https://linkedin.com/in/renee-jia/">
+    <i class="fab fa-fw fa-linkedin"></i>
+    <span>LinkedIn</span>
   </a>
-  
-  <a href="https://renee-jia.github.io" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #007acc; transition: all 0.2s ease; padding: 8px 12px; border-radius: 6px; background-color: #f8f9fa; border: 1px solid #e9ecef;">
-    <i class="fas fa-fw fa-link" style="font-size: 12px;"></i>
-    <span style="font-size: 14px;">Website</span>
+  <a href="https://renee-jia.github.io">
+    <i class="fas fa-fw fa-link"></i>
+    <span>Website</span>
   </a>
 </div>
 

@@ -4,12 +4,12 @@ main:
     url: /about/
   - title: "Blogs"
     url: /blog/
-  - title: "Publications"
-    url: /publications/
   - title: "AI Learning Guide"
     url: /ai-learning-guide/
   - title: "Paper Readings"
     url: /paper-readings/
+  - title: "Thoughts"
+    url: /thoughts/
   - title: "Poker"
     url: /poker/
   # - title: "Sample Collections"

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    {% if page.title %}
+      <meta itemprop="headline" content="{{ page.title | escape }}">
+    {% endif %}
+    {% if page.excerpt %}
+      <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% endif %}
+
+    <div class="page__inner-wrap">
+      <section class="page__content" itemprop="text">
+        <div class="thoughts-wrap">
+          <div class="thoughts-header">
+            <h1>{{ page.title | default: "Random Thoughts" }}</h1>
+            <p class="thoughts-lede">unsent messages. leftover attention.</p>
+          </div>
+
+          {{ content }}
+
+          {% include thoughts-thread.html %}
+        </div>
+      </section>
+    </div>
+  </article>
+</div>

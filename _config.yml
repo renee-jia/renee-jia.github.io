@@ -314,6 +314,12 @@ compress_html:
     envs: development
 
 
+# Collections
+collections:
+  thoughts:
+    output: false
+
+
 # Defaults
 defaults:
   # _posts
@@ -327,3 +333,9 @@ defaults:
       comments: false
       share: false
       related: false
+  # _thoughts (random thoughts tab)
+  - scope:
+      path: ""
+      type: thoughts
+    values:
+      hidden: true

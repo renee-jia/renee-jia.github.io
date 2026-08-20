@@ -1,0 +1,19 @@
+{% if include.post %}
+<div class="blog-post-preview">
+  <h3>
+    <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+  </h3>
+  <p class="preview-meta">
+    <time datetime="{{ include.post.date | date: '%Y-%m-%d' }}">{{ include.post.date | date: "%B %-d, %Y" }}</time>
+    {% if include.post.read_time %}
+    <span class="preview-sep">·</span>
+    <span>{{ include.post.read_time }}</span>
+    {% endif %}
+  </p>
+  {% if include.post.excerpt %}
+  <p class="preview-excerpt">
+    {{ include.post.excerpt | strip_html | truncatewords: 28 }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
