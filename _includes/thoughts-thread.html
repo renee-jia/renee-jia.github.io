@@ -15,7 +15,7 @@
 {% if thoughts.size == 0 %}
   <p class="thoughts-empty">the thread is quiet.</p>
 {% else %}
-  <div class="thoughts-thread" role="log" aria-label="Random thoughts">
+  <div class="thoughts-thread" role="log" aria-label="Random walk">
     {% assign prev_day = "" %}
     {% for thought in thoughts %}
       {% assign this_day = thought.date | date: "%Y-%m-%d" %}

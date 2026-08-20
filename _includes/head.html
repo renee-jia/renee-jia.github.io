@@ -35,8 +35,16 @@
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 <style>
-  html, body, .initial-content, #main, .page, .archive {
-    background: var(--paper, #faf6ef) !important;
+  html {
+    background-color: var(--paper, #faf6ef) !important;
+    background-image: var(--paper-grad, linear-gradient(180deg, #fbf8f3 0%, #faf6ef 50%, #f8f3ea 100%)) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    min-height: 100%;
+  }
+
+  body, .initial-content, #main, .page, .archive {
+    background: transparent !important;
   }
 
   /* Navigation */
@@ -103,7 +111,7 @@
 
   /* Footer */
   .page__footer {
-    background: var(--paper, #faf6ef) !important;
+    background: transparent !important;
     border-top: 1px solid var(--rule, #e4d5c4);
     color: var(--ink-faint, #b5a594);
     padding: 1.5em 0;

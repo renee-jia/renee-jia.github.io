@@ -20,13 +20,13 @@ $d-toc-bp: 1200px;
 
 /* ---------- Warm paper background on distill pages ---------- */
 .layout--distill {
-  background: $d-color-bg !important;
+  background: transparent !important;
 
   .initial-content,
   #main,
   .page,
   .distill-post {
-    background: $d-color-bg !important;
+    background: transparent !important;
     max-width: 100% !important;
     margin: 0;
     padding: 0;
@@ -36,7 +36,7 @@ $d-toc-bp: 1200px;
   .page__title, .page header { display: none !important; }
 
   .page__footer {
-    background: $d-color-bg !important;
+    background: transparent !important;
     border-top: 1px solid $d-color-border;
     color: $d-color-text-light;
     padding: 20px 0;

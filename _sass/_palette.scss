@@ -2,6 +2,7 @@
 $paper:        #faf6ef;
 $paper-2:      #f3ebe0;
 $paper-3:      #e9ddd0;
+$paper-grad:   linear-gradient(180deg, #fbf8f3 0%, #faf6ef 50%, #f8f3ea 100%);
 $ink:          #4e4338;
 $ink-strong:   #3d342b;
 $ink-muted:    #8a7b6b;
@@ -27,6 +28,7 @@ $measure:      40rem;
   --paper: #{$paper};
   --paper-2: #{$paper-2};
   --paper-3: #{$paper-3};
+  --paper-grad: #{$paper-grad};
   --ink: #{$ink};
   --ink-strong: #{$ink-strong};
   --ink-muted: #{$ink-muted};
