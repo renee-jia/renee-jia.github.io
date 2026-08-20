@@ -31,7 +31,7 @@ Underneath all of that, I want systems that can accumulate experience, know some
 
 I'm currently a Research Engineer at Meta, working on long-horizon user memory, personalization, and large-scale sequence modeling.
 
-Before that I worked at Google, on personalization and getting models into production. Even earlier, I was at Amazon Alexa AI. I've also spent time on research at Georgia Tech, the Allen Institute for AI, Waterloo, and Harvard.
+Before that I worked at Google, on personalization and getting models into production. Even earlier, I was at Amazon Alexa AI. I've also spent time on research at Georgia Tech, Waterloo, and Harvard.
 
 ## Publications
 
@@ -41,7 +41,7 @@ Before that I worked at Google, on personalization and getting models into produ
     <li>
       <span class="pub-title">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
-      <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 08/2026</span>
+      <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 08/2026 &nbsp;·&nbsp; accepted</span>
     </li>
     <li>
       <span class="pub-title">Correct Labels Are Not Enough: Reliable Metadata Can Silently Control Model Behavior</span>

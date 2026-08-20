@@ -41,9 +41,6 @@
             <div class="thought-bubble thought-bubble--me">
               {{ thought.content }}
             </div>
-            <time class="thought-time" datetime="{{ thought.date | date_to_xmlschema }}">
-              {{ thought.date | date: "%I:%M %p" }}
-            </time>
           </div>
         {% endif %}
       </article>

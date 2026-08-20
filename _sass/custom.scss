@@ -670,18 +670,6 @@ body.listing .page__content {
     }
   }
 
-  .thought-time {
-    margin-top: 4px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: $ink-faint;
-    font-family: $font-sans;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .thought-row--me .thought-time { padding-right: 6px; }
-  .thought-row--prompt .thought-time { padding-left: 4px; }
-
   p.thoughts-empty {
     text-align: center;
     padding: 3.2rem 1rem 1rem;
