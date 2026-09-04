@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "Renee Jia"
-  avatar           : "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/avatar.jpg"
   bio              : "AI Research Engineer.."
   location         : "Sunnyvale, CA"
   email            :

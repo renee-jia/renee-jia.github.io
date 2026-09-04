@@ -16,4 +16,4 @@ Notes from papers I actually sat with — architecture, training tricks, and the
 {% assign attn_res_post = site.posts | where_exp: "post", "post.title contains 'Attention Residuals'" | first %}
 {% include post-preview.html post=attn_res_post %}
 
-<p class="listing-note">More notes as I finish them.</p>
+<p class="listing-note">More to come.</p>

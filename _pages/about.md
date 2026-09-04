@@ -12,7 +12,7 @@ sidebar:
 
 # Renee Jia
 
-![Renee Jia]({{ site.url }}{{ site.baseurl }}/assets/images/bio-photo.jpg){: .align-right width="200px"}
+![Renee Jia]({{ site.url }}{{ site.baseurl }}/assets/images/avatar.jpg){: .about-avatar}
 
 Hey there! I'm Renee. I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.
 

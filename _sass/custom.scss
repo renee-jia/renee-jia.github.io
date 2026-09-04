@@ -851,3 +851,30 @@ body.poker .page__content {
 @media (prefers-reduced-motion: reduce) {
   body.poker .poker-entry { animation: none; }
 }
+
+/* ---------- About page: circular avatar ---------- */
+.about-avatar {
+  float: right;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+  /* pulled up to sit beside the name, and sized to clear the next heading rule */
+  margin: -2.6rem 0 1.1rem 1.75rem;
+  /* ring is drawn outside the circle so the photo is never clipped square */
+  box-shadow:
+    0 0 0 5px $paper,
+    0 0 0 6px $rule,
+    0 8px 22px rgba(90, 72, 55, 0.14);
+}
+
+@media (max-width: 640px) {
+  .about-avatar {
+    float: none;
+    width: 148px;
+    height: 148px;
+    margin: 0 auto 1.5rem;
+  }
+}
