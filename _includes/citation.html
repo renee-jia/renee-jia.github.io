@@ -15,38 +15,22 @@
 
 {% if include.title and include.author %}
 <div class="citation-block">
-  <div class="citation-header">
-    <h2>Cited as:</h2>
-  </div>
-  
-  <div class="citation-content">
-    <div class="citation-bibtex">
-      <code style="color: #495057 !important;">
-@article{reneejia{{ include.year }}{{ include.title | slugify }},
-  title   = "{{ include.title }}",
-  author  = "{{ include.author }}",
-{% if include.journal %}  journal = "{{ include.journal }}",{% endif %}
-  year    = "{{ include.year }}",
-{% if include.url %}  url     = "{{ include.url }}"{% endif %}{% if include.doi %},{% endif %}
-{% if include.doi %}  doi     = "{{ include.doi }}"{% endif %}
-}
-      </code>
-    </div>
-    
-    <div class="citation-actions">
-      <button class="btn btn--small btn--gray copy-bibtex" 
-              data-clipboard-target=".citation-bibtex code"
-              title="Copy BibTeX">
-        <i class="fas fa-copy"></i> Copy BibTeX
-      </button>
-      
-      {% if include.url %}
-      <a href="{{ include.url }}" class="btn btn--small btn--gray" target="_blank" rel="noopener">
-        <i class="fas fa-external-link-alt"></i> View Article
-      </a>
-      {% endif %}
-    </div>
-  </div>
+  <div class="citation-label">Cite this post</div>
+  <div class="citation-bibtex"><code>@article{% raw %}{{% endraw %}{% if include.bibtex_key %}{{ include.bibtex_key }}{% else %}reneejia{{ include.year }}{{ include.title | slugify }}{% endif %},
+  title   = {% raw %}{{% endraw %}{{ include.title }}},
+  author  = {% raw %}{{% endraw %}{{ include.author }}},
+{%- if include.journal %}
+  journal = {% raw %}{{% endraw %}{{ include.journal }}},
+{%- endif %}
+  year    = {% raw %}{{% endraw %}{{ include.year }}},
+{%- if include.url %}
+  url     = {% raw %}{{% endraw %}{{ include.url }}}
+{%- endif %}
+{%- if include.doi %},
+  doi     = {% raw %}{{% endraw %}{{ include.doi }}}
+{%- endif %}
+}</code></div>
+  <button class="citation-copy copy-bibtex" data-clipboard-target=".citation-bibtex code" title="Copy BibTeX">Copy BibTeX</button>
 </div>
 
 <script>
@@ -64,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Copy to clipboard
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(text).then(() => {
-            this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            this.textContent = 'Copied';
             this.classList.add('btn--success');
             
             setTimeout(() => {
-              this.innerHTML = '<i class="fas fa-copy"></i> Copy BibTeX';
+              this.textContent = 'Copy BibTeX';
               this.classList.remove('btn--success');
             }, 2000);
           });
@@ -81,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
           
           try {
             document.execCommand('copy');
-            this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            this.textContent = 'Copied';
             this.classList.add('btn--success');
             
             setTimeout(() => {
-              this.innerHTML = '<i class="fas fa-copy"></i> Copy BibTeX';
+              this.textContent = 'Copy BibTeX';
               this.classList.remove('btn--success');
             }, 2000);
           } catch (err) {

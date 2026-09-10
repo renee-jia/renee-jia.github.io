@@ -344,3 +344,14 @@ References:
 - Li, Yang, Hazarika, Mehta & Onoue, *When Reasoning Traces Become Performative: Step-Level Evidence that Chain-of-Thought Is an Imperfect Oversight Channel*, 2026 — [arXiv:2605.11746](https://arxiv.org/abs/2605.11746)
 
 Two papers share the AgentPRM name; they're separate pieces of work and both are listed above.
+
+---
+
+{% include citation.html
+  title="Why Final-Outcome Rewards Are Not Enough for AI Agents"
+  author="Renee Jia"
+  journal="renee-jia.github.io"
+  year="2026"
+  url="https://renee-jia.github.io/research%20blog/ai%20research/why-final-outcome-rewards-are-not-enough/"
+  bibtex_key="reneejia2026finaloutcomerewards"
+%}
