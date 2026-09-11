@@ -512,3 +512,15 @@ $d-toc-bp: 1200px;
   &:hover { color: $d-color-link; border-bottom-color: $d-color-link; }
   &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
 }
+
+/* ---------- Hand-drawn figures on personal posts ---------- */
+.d-article figure.post-figure--doodle {
+  svg { max-width: 560px; }
+  figcaption {
+    max-width: 560px;
+    font-family: 'Caveat', $font-display, cursive;
+    font-size: 17px;
+    color: $ink-muted;
+    text-align: center;
+  }
+}
