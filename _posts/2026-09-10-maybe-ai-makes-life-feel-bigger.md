@@ -7,7 +7,7 @@ tags:
   - personal
   - journal
   - random thoughts
-excerpt: "Some of the anxiety about AI is practical. Some of it, I suspect, is about ego. And underneath both, a quieter question I keep coming back to: what if I stopped measuring my life by how hard I am to replace?"
+excerpt: "Some of the anxiety about AI is practical. Some of it, I suspect, is about ego. And underneath both, a quieter question I keep coming back to: what if I stopped measuring my life by how fast I can run, or how hard I am to catch?"
 read_time: "5 min read"
 layout: distill
 toc: false
@@ -134,7 +134,7 @@ There is something humbling in that. I also find it strangely freeing. If intell
 
 ## What if life is about how much I get to experience?
 
-That is the thought that loosened the anxiety a little for me. What if I don't need to measure my life by how hard I am to replace? What if life is, at least partly, **about how much I get to experience?**
+That is the thought that loosened the anxiety a little for me. What if I don't need to measure my life by how fast I can run, or how hard I am to catch? What if life is, at least partly, **about how much I get to experience?**
 
 Before, entering a completely new field was expensive. Not in money so much as in time and energy. You had to find the right books, learn the vocabulary, figure out which questions were stupid and which ones were actually interesting, and spend hours stuck on things an expert could have explained in five minutes. Often the friction alone was enough to stop you.
 
