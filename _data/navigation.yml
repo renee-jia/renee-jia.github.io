@@ -2,8 +2,6 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Blogs"
-    url: /blog/
   - title: "Research Blog"
     url: /research-blog/
   - title: "AI Learning Guide"

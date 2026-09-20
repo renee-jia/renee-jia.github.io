@@ -2,6 +2,7 @@
 title: "What If AI Was Never Meant to Learn From Us"
 date: 2026-03-23
 categories:
+  - Research Blog
   - AI Research
   - Large Language Models
 tags:

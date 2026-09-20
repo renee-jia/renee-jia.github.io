@@ -2,6 +2,7 @@
 title: "What If the Model Has Already Made Up Its Mind?"
 date: 2026-04-10
 categories:
+  - Research Blog
   - AI Research
   - AI Safety
 tags:

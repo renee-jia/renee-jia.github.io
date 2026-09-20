@@ -2,6 +2,7 @@
 title: "The Web Is Not a Neutral Environment for Agents"
 date: 2026-03-15
 categories:
+  - Research Blog
   - AI Agents
   - AI Research
 tags:
