@@ -30,22 +30,18 @@ Most of my work sits somewhere between memory, personalization, and the slightly
 
 Underneath all of that, I want systems that can accumulate experience, know someone a little, reason somewhat reliably, and adapt through interaction. I also care about the jump from a clean research question to something that has to live in a large production system — same ideas, just with more users and less patience.
 
-In practice that's been long-horizon user memory and large-scale sequence modeling at Meta, and user sequence representation, teacher modeling, and distillation at Google before that. Earlier research at Georgia Tech, Waterloo, and Harvard.
+My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to user sequence representation, teacher modeling, and distillation at Google, and now long-horizon user memory and large-scale sequence modeling at Meta.
 
 ## Publications
 
 <div class="pub-list">
-  <p class="pub-year">2027</p>
+  <p class="pub-year">2026</p>
   <ul>
     <li>
       <span class="pub-title">Where Can a Language Model Change a Trade? A Decision-Transmission Audit of a Hybrid Quantitative Trading System</span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu, Y. Yu, T. Liu</span>
-      <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI) 2027 &nbsp;·&nbsp; under review</span>
+      <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI) 2026 &nbsp;·&nbsp; under review</span>
     </li>
-  </ul>
-
-  <p class="pub-year">2026</p>
-  <ul>
     <li>
       <span class="pub-title"><a href="https://openreview.net/pdf?id=TiZQnKDIHq">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</a></span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>

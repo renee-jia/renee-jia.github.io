@@ -913,6 +913,14 @@ body.poker .page__content {
     0 8px 22px rgba(90, 72, 55, 0.14);
 }
 
+/* The portrait moves out into the right margin as the window grows, so the
+   intro keeps the same measure as every paragraph below it instead of being
+   squeezed to two thirds of one. It only ever borrows gutter that exists,
+   so it can never push the page sideways. */
+.about-head {
+  margin-right: calc(-1 * clamp(0px, (100vw - 780px) / 2, 200px));
+}
+
 @media (max-width: 640px) {
   .about-head {
     flex-direction: column-reverse;
