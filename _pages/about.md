@@ -13,7 +13,7 @@ sidebar:
 <div class="about-head">
   <div class="about-head__text">
     <h1>Renee Jia</h1>
-    <p class="about-role">Research Engineer at Meta</p>
+    <p class="about-role">AI Research Engineer at Meta &nbsp;|&nbsp; ex-Google</p>
     <p class="about-intro">I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.</p>
   </div>
   <img class="about-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/images/avatar.jpg" alt="Renee Jia">
@@ -34,17 +34,26 @@ Underneath all of that, I want systems that can accumulate experience, know some
 
 I'm currently a Research Engineer at Meta, working on long-horizon user memory, personalization, and large-scale sequence modeling.
 
-Before that I worked at Google, on personalization and getting models into production. Even earlier, I was at Amazon Alexa AI. I've also spent time on research at Georgia Tech, Waterloo, and Harvard.
+Before that I worked at Google, on user sequence representation, teacher modeling, and distillation. I've also spent time on research at Georgia Tech, Waterloo, and Harvard.
 
 ## Publications
 
 <div class="pub-list">
+  <p class="pub-year">2027</p>
+  <ul>
+    <li>
+      <span class="pub-title">Where Can a Language Model Change a Trade? A Decision-Transmission Audit of a Hybrid Quantitative Trading System</span>
+      <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu, Y. Yu, T. Liu</span>
+      <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI) 2027 &nbsp;·&nbsp; under review</span>
+    </li>
+  </ul>
+
   <p class="pub-year">2026</p>
   <ul>
     <li>
       <span class="pub-title"><a href="https://openreview.net/pdf?id=TiZQnKDIHq">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</a></span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
-      <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 08/2026 &nbsp;·&nbsp; accepted</span>
+      <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 09/2026</span>
     </li>
     <li>
       <span class="pub-title">Correct Labels Are Not Enough: Reliable Metadata Can Silently Control Model Behavior</span>
