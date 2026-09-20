@@ -9,7 +9,7 @@ classes:
 
 # Research Blog
 
-Things I haven't finished thinking about.
+Writing to figure out what I think.
 
 {% assign research_posts = site.posts | where_exp: "post", "post.categories contains 'Research Blog'" %}
 
