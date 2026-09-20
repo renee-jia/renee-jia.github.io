@@ -9,25 +9,25 @@ classes:
 
 # Research Blog
 
-Where I try to work something out properly — a problem I think is underspecified, the formalism it needs, and the part I still can't answer. Some of these I got to the end of. Some I'm still circling.
+Things I haven't finished thinking about.
 
 {% assign research_posts = site.posts | where_exp: "post", "post.categories contains 'Research Blog'" %}
 
-## Worked through
+## Open problems
 
-{% assign worked_posts = research_posts | where: "research_stage", "worked-through" %}
-{% for post in worked_posts %}
+{% assign problem_posts = research_posts | where: "research_kind", "open-problem" %}
+{% for post in problem_posts %}
 {% include post-preview.html post=post %}
 {% endfor %}
 
-## Still open
+## How I think about AI
 
-{% assign open_posts = research_posts | where: "research_stage", "still-open" %}
-{% for post in open_posts %}
+{% assign perspective_posts = research_posts | where: "research_kind", "perspective" %}
+{% for post in perspective_posts %}
 {% include post-preview.html post=post %}
 {% endfor %}
 
-{% capture unfiled %}{% for post in research_posts %}{% unless post.research_stage %}{% include post-preview.html post=post %}{% endunless %}{% endfor %}{% endcapture %}
+{% capture unfiled %}{% for post in research_posts %}{% unless post.research_kind %}{% include post-preview.html post=post %}{% endunless %}{% endfor %}{% endcapture %}
 {% assign unfiled_trimmed = unfiled | strip %}
 {% if unfiled_trimmed.size > 0 %}
 ## Elsewhere

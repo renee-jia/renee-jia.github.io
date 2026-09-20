@@ -1,7 +1,7 @@
 ---
 title: "From Memory to Learning: What Continual Learning for LLM Agents Would Actually Look Like"
 date: 2026-09-09
-research_stage: worked-through
+research_kind: open-problem
 categories:
   - Research Blog
   - AI Research

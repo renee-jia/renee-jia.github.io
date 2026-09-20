@@ -1,7 +1,7 @@
 ---
 title: "What If the Model Has Already Made Up Its Mind?"
 date: 2026-04-10
-research_stage: still-open
+research_kind: open-problem
 categories:
   - Research Blog
   - AI Research

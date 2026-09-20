@@ -1,7 +1,7 @@
 ---
 title: "Why Final-Outcome Rewards Are Not Enough for AI Agents"
 date: 2026-09-04
-research_stage: worked-through
+research_kind: open-problem
 categories:
   - Research Blog
   - AI Research
