@@ -10,11 +10,14 @@ sidebar:
   nav: "main"
 ---
 
-# Renee Jia
-
-![Renee Jia]({{ site.url }}{{ site.baseurl }}/assets/images/avatar.jpg){: .about-avatar}
-
-Hey there! I'm Renee. I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.
+<div class="about-head">
+  <div class="about-head__text">
+    <h1>Renee Jia</h1>
+    <p class="about-role">Research Engineer at Meta</p>
+    <p class="about-intro">I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.</p>
+  </div>
+  <img class="about-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/images/avatar.jpg" alt="Renee Jia">
+</div>
 
 ## What I Do
 
@@ -71,7 +74,13 @@ Before that I worked at Google, on personalization and getting models into produ
 
 <p class="pub-note">Reviewer: NeurIPS, ACL, EMNLP, EACL, NAACL, CoNLL.</p>
 
-## Let's Connect!
+## Elsewhere
+
+When I'm not thinking about AI models, you might find me:
+- **Teaching snowboarding** as a PSIA-AASI Level 1 instructor
+- **Playing tournament poker** (check out my results at [Hendon Mob](https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327))
+
+## Contact
 
 <div class="social-icons">
   <a href="mailto:reneejia368@gmail.com">
@@ -95,13 +104,3 @@ Before that I worked at Google, on personalization and getting models into produ
     <span>Website</span>
   </a>
 </div>
-
-## Beyond the Code
-
-When I'm not thinking about AI models, you might find me:
-- **Teaching snowboarding** as a PSIA-AASI Level 1 instructor
-- **Playing tournament poker** (check out my results at [Hendon Mob](https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327))
-
----
-
-*Always excited to chat about AI research and share ideas! Feel free to reach out.*

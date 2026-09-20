@@ -88,7 +88,7 @@ body:not(.layout--distill) {
       margin: 1.7em 0 0.7em;
     }
 
-    h3 { font-size: 16px; }
+    h3 { font-size: $fs-h3; font-weight: 600; }
 
     p, li, dl {
       font-size: $fs;
@@ -110,9 +110,12 @@ body:not(.layout--distill) {
 
 body.about .page__content {
   p, li, dl {
-    font-size: 15px !important;
-    line-height: 1.65;
+    font-size: $fs !important;
+    line-height: 1.7;
   }
+
+  /* the publication list keeps its own tighter setting */
+  .pub-list p, .pub-list li { font-size: 15px !important; }
 }
 
 /* ---------- Masthead: no gray strip, no leftover hamburger, softer type ---------- */
@@ -565,19 +568,19 @@ body.listing .page__content {
   }
 
   .thoughts-header h1 {
-    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-family: $font-serif;
     font-weight: 400;
-    font-size: 1.55rem;
-    letter-spacing: 0.06em;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
     color: $ink-muted;
     margin: 0 0 8px;
     line-height: 1.25;
   }
 
   p.thoughts-lede {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     line-height: 1.6;
     color: $ink-faint;
     margin: 0;
@@ -641,7 +644,7 @@ body.listing .page__content {
 
     p {
       margin: 0 0 0.6em;
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: $font-serif;
       line-height: 1.65;
       &:last-child { margin-bottom: 0; }
     }
@@ -658,11 +661,11 @@ body.listing .page__content {
     background: transparent;
     color: $ink-muted;
     padding: 0.15rem 0.35rem 0.2rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-style: italic;
 
     p {
-      font-size: 0.86rem;
+      font-size: 0.79rem;
       font-style: italic;
       color: $ink-muted;
     }
@@ -672,12 +675,12 @@ body.listing .page__content {
     background: $paper-2;
     color: $ink;
     border-radius: 22px 22px 6px 22px;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-weight: 400;
     box-shadow: 0 6px 20px rgba(90, 72, 55, 0.05);
 
     p {
-      font-size: 0.90rem;
+      font-size: 0.82rem;
       color: $ink;
     }
   }
@@ -685,10 +688,10 @@ body.listing .page__content {
   p.thoughts-empty {
     text-align: center;
     padding: 3.2rem 1rem 1rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-style: italic;
     color: $ink-faint;
-    font-size: 0.90rem;
+    font-size: 0.83rem;
   }
 }
 
@@ -781,7 +784,7 @@ body.poker .page__content {
 
     p {
       margin: 0 0 0.65em;
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: $font-serif;
       line-height: 1.65;
       &:last-child { margin-bottom: 0; }
     }
@@ -803,11 +806,11 @@ body.poker .page__content {
   .poker-bubble--prompt {
     background: transparent;
     padding: 0.15rem 0.35rem 0.2rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-style: italic;
 
     p {
-      font-size: 0.84rem;
+      font-size: 0.78rem;
       font-style: italic;
       color: $ink-muted;
       margin: 0;
@@ -819,12 +822,12 @@ body.poker .page__content {
     color: $ink;
     border-radius: 22px 22px 6px 22px;
     padding: 0.85rem 1.1rem 0.95rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: $font-serif;
     font-weight: 400;
     box-shadow: 0 6px 20px rgba(90, 72, 55, 0.05);
 
     p {
-      font-size: 0.88rem;
+      font-size: 0.81rem;
       color: $ink;
     }
   }
@@ -837,8 +840,8 @@ body.poker .page__content {
     background: none;
 
     p {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: 0.88rem !important;
+      font-family: $font-serif !important;
+      font-size: 0.81rem !important;
       font-style: italic;
       color: $ink-muted;
       margin: 0 0 0.2em !important;
@@ -864,18 +867,46 @@ body.poker .page__content {
   body.poker .poker-entry { animation: none; }
 }
 
-/* ---------- About page: circular avatar ---------- */
+/* ---------- About page: header ---------- */
+.about-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.2rem;
+  margin: 0 0 2rem;
+}
+
+.about-head__text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.page__content .about-head h1 {
+  margin: 0 0 0.3rem !important;
+}
+
+.page__content p.about-role {
+  font-family: $font-sans !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: $ink-muted !important;
+  margin: 0 0 0.9rem !important;
+  line-height: 1.4;
+}
+
+.page__content p.about-intro {
+  margin: 0 !important;
+}
+
 .about-avatar {
-  float: right;
-  width: 168px;
-  height: 168px;
+  flex: 0 0 auto;
+  width: 156px;
+  height: 156px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 50%;
   display: block;
-  /* pulled up to sit beside the name, and sized to clear the next heading rule */
-  margin: -2.6rem 0 1.1rem 1.75rem;
-  /* ring is drawn outside the circle so the photo is never clipped square */
+  /* ring drawn outside the circle so the photo is never clipped square */
   box-shadow:
     0 0 0 5px $paper,
     0 0 0 6px $rule,
@@ -883,10 +914,15 @@ body.poker .page__content {
 }
 
 @media (max-width: 640px) {
+  .about-head {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1.4rem;
+  }
+
   .about-avatar {
-    float: none;
-    width: 148px;
-    height: 148px;
-    margin: 0 auto 1.5rem;
+    width: 132px;
+    height: 132px;
   }
 }

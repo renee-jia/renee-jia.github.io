@@ -14,14 +14,15 @@ $masthead-rule:#d4c4ae;
 
 $font-sans:    'Source Sans 3', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 $font-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
-$font-display: 'Cormorant Garamond', 'Source Serif 4', Georgia, serif;
+$font-display: $font-serif;  // was Cormorant Garamond — one serif, site-wide
 
 // Comfortable reading scale
-$fs:           16px;
+$fs:           17px;
 $fs-sm:        14px;
 $fs-xs:        12px;
-$fs-h1:        22px;
-$fs-h2:        17px;
+$fs-h1:        30px;
+$fs-h2:        22px;
+$fs-h3:        19px;
 $measure:      40rem;
 
 :root {
