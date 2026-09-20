@@ -109,13 +109,21 @@ body:not(.layout--distill) {
 }
 
 body.about .page__content {
+  /* Body copy is ONE size across the page. "What I Do" and "Elsewhere" are the
+     same kind of block (h2 + bullet list) and must never render at different
+     sizes — Elsewhere used to snap back up to the page's largest body text
+     right after the 14-15px publication list. */
   p, li, dl {
-    font-size: $fs !important;
+    font-size: $fs-body !important;
     line-height: 1.68;
   }
 
-  /* the publication list keeps its own tighter setting */
-  .pub-list p, .pub-list li { font-size: 15px !important; }
+  /* the lead paragraph is the one deliberate step up */
+  p.about-intro { font-size: $fs !important; }
+
+  /* p.pub-year is a 12px uppercase label, not body copy — exclude it or this
+     rule outruns .layout--single .page__content p.pub-year on specificity. */
+  .pub-list p:not(.pub-year), .pub-list li { font-size: $fs-body !important; }
 }
 
 /* ---------- Masthead: no gray strip, no leftover hamburger, softer type ---------- */
@@ -300,7 +308,7 @@ body:not(.layout--distill) {
 .layout--single .page__content .pub-list {
   margin: 0.1rem 0 0.8rem;
   font-family: $font-serif;
-  font-size: 15px !important;
+  font-size: $fs-body !important;
 
   ul {
     list-style: none;
@@ -313,7 +321,7 @@ body:not(.layout--distill) {
     padding: 0;
     line-height: 1.45 !important;
     font-family: $font-serif !important;
-    font-size: 15px !important;
+    font-size: $fs-body !important;
   }
 
   strong {
@@ -324,7 +332,7 @@ body:not(.layout--distill) {
 
 .layout--single .page__content p.pub-year {
   font-family: $font-serif !important;
-  font-size: 13px !important;
+  font-size: $fs-xs !important;
   font-weight: 500 !important;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -343,7 +351,7 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-title {
-  font-size: 15px !important;
+  font-size: $fs-body !important;
   font-weight: 600 !important;
   color: $ink-strong;
   margin-bottom: 0.1rem;
@@ -363,7 +371,7 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-authors {
-  font-size: 14px !important;
+  font-size: $fs-meta !important;
   font-weight: 400 !important;
   color: $ink;
   margin-bottom: 0.05rem;
@@ -371,7 +379,7 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-venue {
-  font-size: 14px !important;
+  font-size: $fs-meta !important;
   font-weight: 400 !important;
   font-style: italic;
   color: $ink-muted;
@@ -380,7 +388,7 @@ body:not(.layout--distill) {
 
 .layout--single .page__content p.pub-note {
   font-family: $font-serif !important;
-  font-size: 14px !important;
+  font-size: $fs-meta !important;
   font-weight: 400 !important;
   color: $ink-muted;
   margin-top: 1.4rem !important;
@@ -507,12 +515,12 @@ body.listing .page__content {
   }
 
   i {
-    font-size: 11px !important;
+    font-size: $fs-xs !important;
     width: auto;
   }
 
   span {
-    font-size: 12px !important;
+    font-size: $fs-xs !important;
   }
 }
 
@@ -886,7 +894,7 @@ body.poker .page__content {
 
 .page__content p.about-role {
   font-family: $font-sans !important;
-  font-size: 14px !important;
+  font-size: $fs-meta !important;
   font-weight: 500;
   letter-spacing: 0.03em;
   color: $ink-muted !important;

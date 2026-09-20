@@ -38,14 +38,14 @@ My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to use
   <p class="pub-year">2026</p>
   <ul>
     <li>
-      <span class="pub-title">Where Can a Language Model Change a Trade? A Decision-Transmission Audit of a Hybrid Quantitative Trading System</span>
-      <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu, Y. Yu, T. Liu</span>
-      <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI) 2026 &nbsp;·&nbsp; under review</span>
-    </li>
-    <li>
       <span class="pub-title"><a href="https://openreview.net/pdf?id=TiZQnKDIHq">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</a></span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
       <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 09/2026</span>
+    </li>
+    <li>
+      <span class="pub-title">Where Can a Language Model Change a Trade? A Decision-Transmission Audit of a Hybrid Quantitative Trading System</span>
+      <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu, Y. Yu, T. Liu</span>
+      <span class="pub-venue">AAAI Conference on Artificial Intelligence (AAAI) 2026 &nbsp;·&nbsp; under review</span>
     </li>
     <li>
       <span class="pub-title">Correct Labels Are Not Enough: Reliable Metadata Can Silently Control Model Behavior</span>

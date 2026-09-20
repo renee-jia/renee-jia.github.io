@@ -17,9 +17,12 @@ $font-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
 $font-display: $font-serif;  // was Cormorant Garamond — one serif, site-wide
 
 // Comfortable reading scale
-$fs:           16px;
+// One ladder, four jobs: lead -> body -> meta -> label.
+$fs:           16px;    // lead paragraph / long-form prose
+$fs-body:      15px;    // page body copy (lists, publication titles)
+$fs-meta:      14px;    // authors, venues, roles, notes
 $fs-sm:        13.5px;
-$fs-xs:        12px;
+$fs-xs:        12px;    // uppercase labels, chips
 $fs-h1:        26px;
 $fs-h2:        20px;
 $fs-h3:        17.5px;
