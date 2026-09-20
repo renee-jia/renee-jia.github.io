@@ -1,6 +1,7 @@
 ---
 title: "What If AI Was Never Meant to Learn From Us"
 date: 2026-03-23
+research_stage: still-open
 categories:
   - Research Blog
   - AI Research
