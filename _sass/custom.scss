@@ -305,8 +305,18 @@ body:not(.layout--distill) {
   margin-bottom: 0.55em !important;
 }
 
+/* The Publications heading rule spans the list it introduces, not the narrower
+   prose measure, so the two rules end at the same point. */
+.layout--single .page__content h2:has(+ .pub-list) {
+  margin-right: calc(-1 * clamp(0px, (100vw - 780px) / 2, 200px));
+}
+
 .layout--single .page__content .pub-list {
   margin: 0.1rem 0 0.8rem;
+  /* A reference list, not prose — it does not need a 65-character measure, so
+     it borrows right-hand gutter as the window grows and lines up with the
+     portrait above it. Only ever borrows gutter that exists. */
+  margin-right: calc(-1 * clamp(0px, (100vw - 780px) / 2, 200px));
   font-family: $font-serif;
   font-size: $fs-body !important;
 
@@ -351,8 +361,9 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-title {
-  font-size: $fs-body !important;
-  font-weight: 600 !important;
+  font-size: $fs-meta !important;
+  font-style: italic;
+  font-weight: 400 !important;
   color: $ink-strong;
   margin-bottom: 0.1rem;
   line-height: 1.45 !important;
@@ -371,7 +382,7 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-authors {
-  font-size: $fs-meta !important;
+  font-size: $fs-sm !important;
   font-weight: 400 !important;
   color: $ink;
   margin-bottom: 0.05rem;
@@ -379,16 +390,17 @@ body:not(.layout--distill) {
 }
 
 .layout--single .page__content .pub-venue {
-  font-size: $fs-meta !important;
+  font-size: $fs-sm !important;
   font-weight: 400 !important;
-  font-style: italic;
+  /* roman, so it stays distinct from the now-italic title */
+  font-style: normal;
   color: $ink-muted;
   line-height: 1.45 !important;
 }
 
 .layout--single .page__content p.pub-note {
   font-family: $font-serif !important;
-  font-size: $fs-meta !important;
+  font-size: $fs-sm !important;
   font-weight: 400 !important;
   color: $ink-muted;
   margin-top: 1.4rem !important;
