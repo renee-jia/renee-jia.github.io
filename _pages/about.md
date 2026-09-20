@@ -30,11 +30,7 @@ Most of my work sits somewhere between memory, personalization, and the slightly
 
 Underneath all of that, I want systems that can accumulate experience, know someone a little, reason somewhat reliably, and adapt through interaction. I also care about the jump from a clean research question to something that has to live in a large production system — same ideas, just with more users and less patience.
 
-## Background
-
-I'm currently a Research Engineer at Meta, working on long-horizon user memory, personalization, and large-scale sequence modeling.
-
-Before that I worked at Google, on user sequence representation, teacher modeling, and distillation. I've also spent time on research at Georgia Tech, Waterloo, and Harvard.
+In practice that's been long-horizon user memory and large-scale sequence modeling at Meta, and user sequence representation, teacher modeling, and distillation at Google before that. Earlier research at Georgia Tech, Waterloo, and Harvard.
 
 ## Publications
 
