@@ -39,7 +39,7 @@ Before that I worked at Google, on personalization and getting models into produ
   <p class="pub-year">2026</p>
   <ul>
     <li>
-      <span class="pub-title">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</span>
+      <span class="pub-title"><a href="https://openreview.net/pdf?id=TiZQnKDIHq">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</a></span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
       <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 08/2026 &nbsp;·&nbsp; accepted</span>
     </li>
@@ -53,7 +53,7 @@ Before that I worked at Google, on personalization and getting models into produ
   <p class="pub-year">2023</p>
   <ul>
     <li>
-      <span class="pub-title">Story Shaping: Teaching Agents Human-like Behavior with Stories</span>
+      <span class="pub-title"><a href="https://ojs.aaai.org/index.php/AIIDE/article/view/27528">Story Shaping: Teaching Agents Human-like Behavior with Stories</a></span>
       <span class="pub-authors">X. Peng, C. Cui, W. Zhou, <strong>Renee Jia</strong>, M. Riedl</span>
       <span class="pub-venue">AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE)</span>
     </li>
@@ -62,14 +62,14 @@ Before that I worked at Google, on personalization and getting models into produ
   <p class="pub-year">2022</p>
   <ul>
     <li>
-      <span class="pub-title">Situated Dialogue Learning through Procedural Environment Generation</span>
+      <span class="pub-title"><a href="https://aclanthology.org/2022.acl-long.557/">Situated Dialogue Learning through Procedural Environment Generation</a></span>
       <span class="pub-authors">P. Ammanabrolu, <strong>Renee Jia</strong>, M. Riedl</span>
       <span class="pub-venue">Association for Computational Linguistics (ACL)</span>
     </li>
   </ul>
 </div>
 
-<p class="pub-note">Reviewer: ACL, EMNLP, EACL, NAACL, CoNLL.</p>
+<p class="pub-note">Reviewer: NeurIPS, ACL, EMNLP, EACL, NAACL, CoNLL.</p>
 
 ## Let's Connect!
 
