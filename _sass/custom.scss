@@ -328,6 +328,8 @@ body:not(.layout--distill) {
 
   li {
     margin: 0 0 0.85rem !important;
+    /* entries indent under the year label */
+    margin-left: 1.15rem !important;
     padding: 0;
     line-height: 1.45 !important;
     font-family: $font-serif !important;
@@ -342,9 +344,9 @@ body:not(.layout--distill) {
 
 .layout--single .page__content p.pub-year {
   font-family: $font-serif !important;
-  font-size: $fs-xs !important;
+  font-size: $fs-body !important;
   font-weight: 500 !important;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $ink-faint !important;
   margin: 1.1rem 0 0.55rem !important;
@@ -396,6 +398,31 @@ body:not(.layout--distill) {
   font-style: normal;
   color: $ink-muted;
   line-height: 1.45 !important;
+}
+
+.layout--single .page__content .pub-links {
+  display: block;
+  font-family: $font-serif !important;
+  font-size: $fs-xs !important;
+  margin-top: 0.2rem;
+  line-height: 1.45 !important;
+
+  a {
+    color: $ink-muted;
+    text-decoration: none;
+    border-bottom: 1px solid $rule;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: $accent;
+      border-bottom-color: $accent;
+    }
+  }
+
+  .sep {
+    color: $ink-faint;
+    margin: 0 0.45rem;
+  }
 }
 
 .layout--single .page__content p.pub-note {

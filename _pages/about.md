@@ -41,6 +41,7 @@ My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to use
       <span class="pub-title"><a href="https://openreview.net/pdf?id=TiZQnKDIHq">From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought</a></span>
       <span class="pub-authors"><strong>Renee Jia</strong>, Di Mu</span>
       <span class="pub-venue">Transactions on Machine Learning Research (TMLR), 09/2026</span>
+      <span class="pub-links"><a href="https://github.com/r2m-ai/load-bearing-cot">code</a><span class="sep">·</span><a href="https://huggingface.co/datasets/ReneeJia/cot-load-bearingness">dataset</a></span>
     </li>
     <li>
       <span class="pub-title">Where Can a Language Model Change a Trade? A Decision-Transmission Audit of a Hybrid Quantitative Trading System</span>
