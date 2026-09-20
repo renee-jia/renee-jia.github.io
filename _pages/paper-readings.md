@@ -9,7 +9,7 @@ classes:
 
 # Paper Readings
 
-Notes from papers I actually sat with — architecture, training tricks, and the occasional thing that changed how I read the next one.
+Reading closely rather than widely.
 
 ## Transformer architecture
 
