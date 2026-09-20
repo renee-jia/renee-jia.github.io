@@ -9,7 +9,7 @@ classes:
 
 # AI Learning Guide
 
-This is less a curriculum than a pile of notes I keep nearby — the pieces I wish I'd had in one place when I was first getting a footing, and a few later ones I still go back to.
+Less a curriculum than a pile of notes.
 
 ## Start here
 
