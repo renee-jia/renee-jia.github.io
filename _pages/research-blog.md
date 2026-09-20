@@ -13,7 +13,7 @@ Writing to figure out what I think.
 
 {% assign research_posts = site.posts | where_exp: "post", "post.categories contains 'Research Blog'" %}
 
-## Open problems
+## Open topics
 
 {% assign problem_posts = research_posts | where: "research_kind", "open-problem" %}
 {% for post in problem_posts %}
