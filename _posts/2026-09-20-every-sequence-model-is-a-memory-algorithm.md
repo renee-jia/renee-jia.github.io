@@ -32,7 +32,7 @@ So where is the learning?
 
 The answer is that memory and learning aren't separate things here. Any model that eats a stream of tokens is running an online algorithm. It decides what to keep, how to fold in what just arrived, and what to drop. The KV cache is the laziest possible version of that algorithm. Write rule: append. Forgetting rule: never. All the intelligence got pushed downstream into retrieval.
 
-That reframing does a lot of work. The last few years gave us linear attention, DeltaNet, Mamba, RWKV, RetNet, test-time training, Titans, and a pile of retrieval hybrids. The papers mostly argue about perplexity and throughput. Read them as memory algorithms instead and the zoo shrinks. What's left is a design space with three axes, and a question continual learning has been chewing on for forty years: **how plastic can a memory be before it stops retaining anything?**
+That reframing does a lot of work. The last few years gave us linear attention, DeltaNet, Mamba, RWKV, RetNet, test-time training, Titans, and a pile of systems built around retrieval. The papers mostly argue about perplexity and throughput. Read them as memory algorithms instead and the zoo shrinks. What's left is a design space with three axes, and a question continual learning has been stuck on for forty years: **how plastic can a memory be before it stops retaining anything?**
 
 ---
 
@@ -44,7 +44,7 @@ Three questions pin down any memory in a sequence model. The answers turn out to
 
 **How is it written?** By appending. By stacking outer products on top of each other. With a gate that decides how much of the new input gets in. With an error-correcting update that checks what the memory already predicts for this key. By a gradient step. Or selectively, where something like surprise decides whether to write at all.
 
-**How is it forgotten?** Never. By decay, where old content shrinks a little every step. By overwrite, where a new value displaces the old one at the same key. By interference, where a fixed-size store blurs things together whether you want it to or not. By compression. Or by never being retrieved again.
+**How is it forgotten?** Never. By decay, where old content shrinks a little every step. By overwrite, where a new value pushes out the old one at the same key. By interference, where a fixed-size store blurs things together whether you want it to or not. By compression. Or by never being retrieved again.
 
 <figure class="post-figure">
 <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three independent axes: where memory lives, how it is written, how it is forgotten, with DeltaNet and Mamba traced as two paths">
@@ -86,10 +86,10 @@ Three questions pin down any memory in a sequence model. The answers turn out to
 <line x1="20" y1="272" x2="44" y2="272" stroke="#6b7a52" stroke-width="1.3"/><text x="52" y="276" class="lb">Mamba &#8212; state vector, gated write, decay</text>
 <text x="646" y="276" class="lb" text-anchor="end">most &#8220;new architectures&#8221; are a new path, not a new column</text>
 </svg>
-<figcaption>Three choices, close to independent. A gradient-descent write rule works on a hidden state (TTT) or on an external store; a decay forgetting rule works on an associative matrix (RetNet) or a state-space one (Mamba's discretized transition).</figcaption>
+<figcaption>Three choices, close to independent. A gradient-descent write rule works on a hidden state (TTT) or on an external store. A decay forgetting rule works on an associative matrix (RetNet) or on a state vector (Mamba).</figcaption>
 </figure>
 
-Those columns being independent is what makes the grid worth drawing. Most of the novelty of the last three years is a new path through it, not a new column. That's not a knock. Some of those paths work much better than what came before. But it means the comparisons worth making run along the axes, not between brand names.
+Those columns being independent is what makes the grid worth drawing. Most of the novelty of the last three years is a new path through it, not a new column. That's not a criticism. Some of those paths work much better than what came before. But it means the comparisons worth making run along the axes, not between brand names.
 
 The families below are sorted by how much the memory is allowed to learn. Start with the one where it learns nothing.
 
@@ -105,7 +105,7 @@ and reading it is soft nearest-neighbor lookup. Raw storage, append, no forgetti
 
 You pay for that in the obvious way. Memory grows with the context, and every read scans all of it. Sliding-window attention, sparse attention, landmark tokens, Transformer-XL, the Compressive Transformer: each one changes the storage or the forgetting rule and leaves the read alone. Sliding windows add a hard cutoff. Drop anything older than $W$. Landmark attention keeps the whole history but changes the index. Each block gets a tag token, so the model finds the block first and attends inside it after. The Compressive Transformer swaps forgetting for compression, squeezing old chunks into summary vectors that become memory slots in their own right. In every case the read stays attention. What changes is what there is to attend over.
 
-Reach for this family when you care more about keeping information than about the bill. It's also the only family where memory and learning stay cleanly apart. Nothing in the memory adapts. Only the read does.
+Reach for this family when you care more about keeping information than about the bill. It's also the family where memory and learning stay most cleanly apart. Nothing in the memory adapts. Only the read does.
 
 Which leads to the question the rest of the field has been answering. What happens when the memory is too small to keep everything?
 
@@ -123,7 +123,7 @@ The delta rule fixes it. Make the write depend on what's already in there:
 
 $$M_t = M_{t-1} + \beta_t \big(v_t - M_{t-1} k_t\big) k_t^\top.$$
 
-The term in parentheses is a prediction error. What the memory returns for $k_t$ today, minus what it should return. Schlag, Irie and Schmidhuber introduced this update when they showed linear Transformers are fast weight programmers in disguise. Yang and colleagues later made it practical by parallelizing it over sequence length, which is where the name DeltaNet comes from. Forgetting is now overwrite. Write a key again and the old association gets corrected instead of buried. $\beta_t$ sets how hard.
+The term in parentheses is a prediction error. What the memory returns for $k_t$ today, minus what it should return. Schlag, Irie and Schmidhuber introduced this update when they showed linear Transformers are secretly fast weight programmers. Yang and colleagues later made it practical by running it in parallel across the sequence, which is where the name DeltaNet comes from. Forgetting is now overwrite. Write a key again and the old association gets corrected instead of buried. $\beta_t$ sets how hard.
 
 <figure class="post-figure">
 <svg viewBox="0 0 660 285" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The same key written twice: linear attention returns a superposition, DeltaNet returns the corrected value">
@@ -163,7 +163,7 @@ The term in parentheses is a prediction error. What the memory returns for $k_t$
 <text x="150" y="252" class="lb" fill="#6b7a52">the write is the prediction error, so the old association is corrected</text>
 <text x="150" y="270" class="lb">(both lines assume &#946; = 1 and unit-norm k; the difference is the update rule, not the tuning)</text>
 </svg>
-<figcaption>Linear attention and DeltaNet differ by one term, and that term is the whole difference between remembering a key's history and knowing its current value.</figcaption>
+<figcaption>Linear attention and DeltaNet differ by one term. That term is the difference between remembering a key's history and knowing its current value.</figcaption>
 </figure>
 
 This is where the framing starts paying for itself. $M$ *is* a linear model. The write rule *is* its training algorithm: one step of online gradient descent on squared error. In-context learning here isn't like online learning. It is online learning, running in the hidden state.
@@ -176,19 +176,19 @@ That's one way to shrink a memory. There's a second, and it starts from a differ
 
 ## A state vector forgets by compressing
 
-The other lineage keeps a fixed-size state too. It just doesn't treat it as a key–value table. It treats it as a compressed trajectory:
+The other family keeps a fixed-size state too. It just doesn't treat it as a key–value table. It treats it as a compressed summary of everything so far:
 
 $$h_t = A_t h_{t-1} + B_t x_t.$$
 
-S4, Mamba, Mamba-2 and the selective SSMs live here. So do RWKV, HGRN, RetNet and gated linear attention. What they share is a multiplicative term on the previous state. RetNet uses a fixed decay,
+S4, Mamba, Mamba-2 and the selective SSMs live here. So do RWKV, HGRN, RetNet and gated linear attention. What they share is that the old state gets multiplied by something before the new input is added. RetNet uses a fixed decay,
 
 $$S_t = \gamma S_{t-1} + k_t v_t^\top,$$
 
-which is linear attention with a forgetting rule bolted on. Mamba makes the transition input-dependent, so the model picks per token how much of the past survives. Gated DeltaNet does the obvious thing once you see write and forgetting as separate knobs: delta write, gated forget. RWKV-7 lands somewhere similar from the other side, with a generalized delta rule driving its state.
+which is linear attention with a forgetting rule added on. Mamba makes the transition input-dependent, so the model picks per token how much of the past survives. Gated DeltaNet does the obvious thing once you see write and forgetting as separate knobs: delta write, gated forget. RWKV-7 lands somewhere similar from the other side, with a generalized delta rule driving its state.
 
 The research question here is a different one. Nobody asks whether Mamba can overwrite an association. They ask how much history a $d$-dimensional state can hold, and what the gate learns to throw away. The failure mode isn't blur between similar keys. It's information that never made it into the state at all. Arora and colleagues pinned this down in the Zoology work. Recall quality tracks recurrent state size, and you don't get recall and throughput for free at the same time. Jelassi and colleagues came at it from the other end. They showed Transformers beat SSMs at plain copying, about as pure a test of "did you keep it" as you can build.
 
-Keep the two pictures separate even when the equations line up. DeltaNet is *memory as an online learner*. Mamba is *memory as a dynamical system*. They point at different diagnostics, different ablations, different stories about why a run went wrong. Conversations go sideways when two people use the same equation to mean different things.
+Keep the two pictures separate even when the equations line up. DeltaNet is *memory as an online learner*. Mamba is *memory as a dynamical system*. They suggest different checks, different ablations, different stories about why a run went wrong. Conversations go wrong when two people use the same equation to mean different things.
 
 ---
 
@@ -200,9 +200,9 @@ Test-time training says it doesn't have to be. The memory becomes a small networ
 
 $$\theta_t = \theta_{t-1} - \eta \nabla_\theta \mathcal{L}(x_t; \theta), \qquad y_t = f_{\theta_t}(q_t).$$
 
-Make $f$ linear and $\mathcal{L}$ squared reconstruction, and DeltaNet drops out. Make it an MLP and the memory can hold nonlinear structure. Wang and colleagues turned this into a recipe: pick an associative-memory objective, pick an optimizer, read off an architecture. That's roughly where the field has landed, even if the papers still arrive one architecture at a time.
+Make $f$ linear and $\mathcal{L}$ squared error, and DeltaNet drops out. Make it an MLP and the memory can hold nonlinear structure. Wang and colleagues turned this into a recipe: pick an associative-memory objective, pick an optimizer, read off an architecture. That's roughly where the field has landed, even if the papers still arrive one architecture at a time.
 
-Titans push somewhere else. Not on how expressive the memory is, but on *what gets written*. The long-term memory module still updates by gradient descent, but the size of each write is set by surprise: the gradient of the memory's loss on the current token. Tokens the memory already predicts barely move it. Novel tokens write hard. Add momentum so surprise carries for a few steps. Add weight decay as a forgetting gate. Now the memory can tell "this is new, keep it" from "this is routine, skip it."
+Titans push somewhere else. Not on how expressive the memory is, but on *what gets written*. The long-term memory still updates by gradient descent. But the size of each write is set by surprise: how far off the memory's prediction for the current token was. Tokens the memory already predicts barely move it. Novel tokens write hard. Add momentum so surprise carries for a few steps. Add weight decay as a forgetting gate. Now the memory can tell "this is new, keep it" from "this is routine, skip it."
 
 <figure class="post-figure">
 <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two directions to improve a memory-learner: a better learner along the horizontal axis, more selective writes along the vertical">
@@ -246,23 +246,23 @@ Titans push somewhere else. Not on how expressive the memory is, but on *what ge
 <figcaption>Learner quality and selectivity are separate knobs. Most of the last three years of work has turned the horizontal one.</figcaption>
 </figure>
 
-That second axis is the interesting one. Uniform updates versus importance-weighted updates. It's the least explored knob in the space, and the place where continual learning has the most to say and gets listened to the least. Every architecture above writes on every token. Biological memory doesn't. Neither does anyone who takes decent notes.
+That second axis is the interesting one. Uniform updates versus importance-weighted updates. It's the least explored knob in the space. It's also where continual learning has the most to say, and gets listened to the least. Every architecture above writes on every token. Biological memory doesn't. Neither does anyone who takes decent notes.
 
-It also needs numbers and doesn't have many. The obvious experiment: a stream whose key distribution shifts halfway through, a linear-attention memory and a TTT memory at matched state size. Don't score final accuracy. Score two curves. How fast does each pick up the new regime, and how much of the old one can it still answer? The shapes should differ more than the endpoints do. That's a guess, not a result.
+It also needs numbers and doesn't have many. The obvious experiment: a stream whose key distribution shifts halfway through, a linear-attention memory and a TTT memory at matched state size. Don't score final accuracy. Score two curves. How fast does each pick up the new pattern, and how much of the old one can it still answer? The shapes should differ more than the endpoints do. That's a guess, not a result.
 
 ---
 
 ## Outside the network, forgetting becomes a retrieval problem
 
-One family refuses the premise. Why compress the past into the network at all?
+One family refuses the question. Why compress the past into the network at all?
 
 kNN-LM, the Memorizing Transformer, RETRO, RAG, most agent memory systems: they write events to a store outside the model,
 
 $$m_i = (k_i, v_i), \qquad i^* = \arg\max_i \; \mathrm{sim}(q, k_i),$$
 
-and look them up at read time. Capacity is basically unbounded. Nothing gets overwritten by accident. RETRO took it to the limit and retrieved from a database of trillions of tokens. The Memorizing Transformer showed you can bolt a kNN lookup onto an attention layer and let the model learn to use it.
+and look them up at read time. There's no real limit on capacity. Nothing gets overwritten by accident. RETRO took it to the limit and retrieved from a database of trillions of tokens. The Memorizing Transformer showed you can bolt a kNN lookup onto an attention layer and let the model learn to use it.
 
-The hard problems don't go away. They move to the edge of the store. What's worth writing? How do you index it so the right thing comes back? Should the model retrieve at all, or trust its weights? What happens when a memory is stale, or when two memories disagree? Over long horizons those questions matter more than capacity. A store with a bad write policy is a growing pile of noise. A store with a bad read policy is a library with no catalog.
+The hard problems don't go away. They move to the edge of the store. What's worth writing? How do you index it so the right thing comes back? Should the model retrieve at all, or trust its weights? What happens when a memory is out of date, or when two memories disagree? Over long horizons those questions matter more than capacity. A store with a bad write policy is a growing pile of noise. A store with a bad read policy is a library with no index.
 
 <figure class="post-figure">
 <svg viewBox="0 0 660 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A funnel from all experience to what is actually used, with losses at each stage">
@@ -298,35 +298,39 @@ The hard problems don't go away. They move to the edge of the store. What's wort
 <figcaption>External memory moves forgetting out of the substrate and into the retrieval policy. The past is never lost; it is just not found.</figcaption>
 </figure>
 
-In the three-axis language: unlimited storage, a write rule nobody has specified, and a forgetting rule quietly handed to a similarity function. That's a strange place to park, and it won't hold.
+In the three-axis language: unlimited storage, a write rule nobody has specified, and a forgetting rule handed to a similarity function. That's a strange place to park, and it won't hold.
 
 ---
 
 ## It's the stability–plasticity dilemma in an architecture costume
 
-Line the families up and the same shape shows up every time. Each one is good on one side of a single tradeoff and pays for it on the other.
+Line the families up and the same shape shows up every time. Each one is good on one side of a single tradeoff and pays for it on the other. One word needs pinning down first, because *plasticity* gets used two ways. Here it means how much one new token is allowed to change what the memory already holds. *Retention* means how much of what was stored can still be read back. Both are properties of the memory, not of the model around it.
 
-| Substrate | Plasticity | Retention | Failure mode |
-|---|---|---|---|
-| KV attention | Perfect within context | Perfect within context | Context is finite; nothing survives past it |
-| Linear attention | Low | High | Interference; reads return superpositions, and a reused key is out-voted, not replaced |
-| DeltaNet | High | Moderate | Overwrite destroys the old value at a reused key |
-| SSM / gated RNN | Gate-controlled | Gate-controlled | Compression loss; a wrong gate is irreversible |
-| Test-time training | Very high | Fragile | Catastrophic forgetting in the fast weights |
-| Titans-style | Selective | Improved | Only as good as the surprise signal's calibration |
-| External memory | Unbounded | Strong, if retrieved | Retrieval is the bottleneck; staleness, contradiction |
+That's what separates the first two rows. Neither ever erases anything. But KV attention keeps every pair separate, and linear attention sums them into one matrix, so its reads blur. Mamba and RWKV often get filed under linear attention too. Here they're the gated row, because the decay is what moves them along the curve.
+
+| Substrate | Plasticity | Retention | Forgetting curve | Failure mode |
+|---|---|---|---|---|
+| KV attention | None in the store. A token adds a pair and changes nothing; the read does the adapting | Perfect within the window, zero past it | Flat, then a cliff | Context is finite; nothing survives past it |
+| Linear attention | Low. Additive, so a reused key is out-voted, not replaced | High but blurred; every read mixes values together | Not a function of time; blur grows with the number of distinct keys | Interference |
+| DeltaNet | High. A reused key is overwritten | Moderate | Not a function of time; drops at each reassignment | Overwrite destroys the old value |
+| SSM / gated RNN (Mamba, RWKV, RetNet) | Gate-controlled | Gate-controlled; below KV attention at every lag within the window | Smooth decay. Exponential for a fixed rate, closer to a power law when rates vary by channel | Compression loss; a wrong gate can't be undone |
+| Test-time training | Very high | Fragile | Steep | Catastrophic forgetting in the fast weights |
+| Titans-style | Selective | Improved | Decay, except for surprising tokens | Only as good as the surprise signal |
+| External memory | None in the store; it only grows | Strong, if retrieved | Flat; loss happens at retrieval, not over time | Retrieval is the bottleneck; out-of-date or conflicting entries |
+
+Two rows don't play the game. KV attention and the external store never change what they hold. They grow instead. That's not a resolution of the tradeoff. It's a way of buying out of it, one slot per token. The bill comes due at the window, or at the retriever. Every fixed-size memory has to pay on one side or the other.
 
 That tradeoff has a name. Grossberg called it the stability–plasticity dilemma back in 1980, and continual learning still hasn't found a way around it. Put the two sides on axes,
 
 $$\begin{aligned}
-\text{Plasticity} &= \text{how fast new information is acquired}, \\
-\text{Retention} &= \text{how much old information survives},
+\text{Plasticity} &= \text{how much one new token can change what is already stored}, \\
+\text{Retention} &= \text{how much of what was stored can still be read back},
 \end{aligned}$$
 
-and every architecture above is a point on that plane. Sweep its hyperparameters and it becomes a curve.
+and every architecture above is a point on that plane. Change its hyperparameters and it traces a curve.
 
 <figure class="post-figure">
-<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architectures plotted on a plasticity versus retention plane, with a dashed frontier">
+<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architectures plotted on a plasticity versus retention plane. KV attention sits alone in the top-left corner, with the external store beside it; both are drawn as hollow circles because their stores grow rather than change. Linear attention, the gated SSM, DeltaNet and test-time training sit on a dashed frontier running down and to the right. Titans-style sits directly above test-time training.">
 <defs><marker id="m5a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#b5a594"/></marker></defs>
 <style>.lb{font-family:'Source Sans 3',system-ui,sans-serif;font-size:10.5px;fill:#3d342b}.lbm{font-family:'Source Sans 3',system-ui,sans-serif;font-size:10px;fill:#8a7b6b}.hd{font-family:'Source Sans 3',system-ui,sans-serif;font-size:11.5px;fill:#3d342b;font-weight:600}</style>
 <text x="90" y="28" class="hd">Every architecture is a point on the same plane.</text>
@@ -334,40 +338,87 @@ and every architecture above is a point on that plane. Sweep its hyperparameters
 <line x1="90" y1="290" x2="90" y2="48" stroke="#b5a594" stroke-width="1" marker-end="url(#m5a)"/>
 <line x1="90" y1="290" x2="622" y2="290" stroke="#b5a594" stroke-width="1" marker-end="url(#m5a)"/>
 <text x="56" y="175" class="lbm" text-anchor="middle" transform="rotate(-90 56 175)">retention &#8594;</text>
-<text x="356" y="322" class="lbm" text-anchor="middle">plasticity &#8594;</text>
+<text x="356" y="322" class="lbm" text-anchor="middle">plasticity: how much one token can change the store &#8594;</text>
 
-<path d="M 232 84 C 360 108, 440 166, 545 274" stroke="#b5a594" stroke-width="1.1" fill="none" stroke-dasharray="4 3"/>
-<text x="118" y="62" class="lbm">the frontier as it stands</text>
+<path d="M 232 140 C 345 160, 450 200, 555 270" stroke="#b5a594" stroke-width="1.1" fill="none" stroke-dasharray="4 3"/>
 
-<circle cx="600" cy="71" r="4" fill="#9a7048"/><text x="590" y="75" class="lb" text-anchor="end">attention, within the window</text>
-<line x1="600" y1="79" x2="600" y2="284" stroke="#a8543f" stroke-width="1" stroke-dasharray="3 3"/>
-<text x="600" y="306" class="lbm" text-anchor="middle" fill="#a8543f">window ends</text>
+<text x="128" y="52" class="lbm">keeps more, changes less</text>
+<circle cx="118" cy="68" r="4.5" fill="#fff" stroke="#9a7048" stroke-width="1.6"/><text x="128" y="72" class="lb">KV attention, within the window</text>
+<text x="128" y="86" class="lbm">nothing in the store ever changes</text>
+<line x1="118" y1="77" x2="118" y2="284" stroke="#a8543f" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="118" y="306" class="lbm" text-anchor="middle" fill="#a8543f">window ends</text>
 
-<circle cx="560" cy="104" r="4" fill="#9a7048"/><text x="550" y="108" class="lb" text-anchor="end">external memory, if retrieval finds it</text>
+<circle cx="150" cy="106" r="4.5" fill="#fff" stroke="#9a7048" stroke-width="1.6"/><text x="160" y="110" class="lb">external memory, if retrieval finds it</text>
 
-<circle cx="262" cy="108" r="4" fill="#9a7048"/><text x="252" y="112" class="lb" text-anchor="end">linear attention</text>
-<text x="252" y="126" class="lbm" text-anchor="end">learns slowly,</text>
-<text x="252" y="139" class="lbm" text-anchor="end">forgets slowly</text>
+<circle cx="255" cy="146" r="4" fill="#9a7048"/><text x="265" y="150" class="lb">linear attention</text>
 
-<circle cx="475" cy="140" r="4" fill="#9a7048"/><text x="485" y="144" class="lb">Titans-style</text>
-<circle cx="370" cy="168" r="4" fill="#9a7048"/><text x="360" y="172" class="lb" text-anchor="end">gated SSM</text>
-<circle cx="465" cy="192" r="4" fill="#9a7048"/><text x="475" y="196" class="lb">DeltaNet</text>
-<circle cx="415" cy="205" r="4" fill="#9a7048"/><text x="405" y="209" class="lb" text-anchor="end">TTT + weight decay</text>
+<line x1="493" y1="193" x2="493" y2="227" stroke="#b5a594" stroke-width="1" stroke-dasharray="2 2"/>
+<circle cx="493" cy="188" r="4" fill="#9a7048"/><text x="503" y="192" class="lb">Titans-style</text>
+<circle cx="372" cy="181" r="4" fill="#9a7048"/><text x="382" y="185" class="lb">SSM / gated RNN</text>
+<circle cx="445" cy="207" r="4" fill="#9a7048"/><text x="455" y="211" class="lb">DeltaNet</text>
+<circle cx="493" cy="232" r="4" fill="#9a7048"/><text x="503" y="236" class="lb">TTT + weight decay</text>
+<circle cx="555" cy="270" r="4" fill="#9a7048"/><text x="545" y="274" class="lb" text-anchor="end">TTT, large &#951;</text>
+<text x="618" y="306" class="lbm" text-anchor="end">changes more, keeps less</text>
 
-<text x="500" y="244" class="lbm" text-anchor="end">learns fast,</text>
-<text x="500" y="257" class="lbm" text-anchor="end">forgets fast</text>
-<circle cx="540" cy="268" r="4" fill="#9a7048"/><text x="530" y="272" class="lb" text-anchor="end">TTT, large &#951;</text>
+<circle cx="152" cy="236" r="4.5" fill="#fff" stroke="#9a7048" stroke-width="1.6"/><text x="166" y="240" class="lbm">the store grows; nothing already in it ever changes</text>
+<circle cx="152" cy="256" r="4" fill="#9a7048"/><text x="166" y="260" class="lbm">fixed size; a write has to displace something</text>
+<line x1="140" y1="276" x2="164" y2="276" stroke="#b5a594" stroke-width="1.1" stroke-dasharray="4 3"/><text x="166" y="280" class="lbm">the frontier for any fixed-size memory</text>
 </svg>
-<figcaption>Positions are illustrative, not measured. The point is the shape. Plain linear attention sits top-left: nothing is ever erased, so it forgets slowly, but a reassigned key has to out-vote the old value instead of replacing it, so it learns slowly too. Add decay, as RetNet does, and the point slides down the curve. DeltaNet makes the opposite trade. Attention and external memory store everything, so both sit off the frontier with a condition attached: attention's retention falls off a cliff when the window ends, and external memory keeps only what retrieval can find again. Selective writing is an attempt to push the dashed line outward rather than slide along it.</figcaption>
+<figcaption>Positions are illustrative, not measured. KV attention owns the corner: its store never changes, so retention is perfect until the window ends. Linear attention never erases either, but its reads blur, so it starts the frontier instead. Decay and overwriting slide a point down the curve. Titans sits above TTT: same write rule, but only surprising tokens get to use it.</figcaption>
 </figure>
 
-That's a better comparison than another Mamba-versus-Transformer-versus-TTT benchmark, because you can control it. Build an online task whose statistics shift partway through. Keys get reassigned. Popularity follows a heavy tail. A new key family shows up in a burst. Junk arrives that should be ignored. Then ask each substrate two things: how fast does it pick up the new regime, and how much of the old one does it still get right? The answers aren't scalars. They're curves, and the curve is the architecture's signature.
+The retention axis hides a shape. Plot how much of a token the memory can still return against how long ago it was written. The families separate again, this time by the form of the curve rather than its height.
+
+<figure class="post-figure">
+<svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Forgetting curves: retention against lag since a token was written. KV attention is flat then drops to zero at the window. A gated SSM starts lower and fades smoothly, continuing past the window. Test-time training with a large step fades fastest. A dotted curve shows the Ebbinghaus shape for comparison.">
+<defs><marker id="m6a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#b5a594"/></marker></defs>
+<style>.lb{font-family:'Source Sans 3',system-ui,sans-serif;font-size:10.5px;fill:#3d342b}.lbm{font-family:'Source Sans 3',system-ui,sans-serif;font-size:10px;fill:#8a7b6b}.hd{font-family:'Source Sans 3',system-ui,sans-serif;font-size:11.5px;fill:#3d342b;font-weight:600}</style>
+<text x="70" y="26" class="hd">Same axis, different shapes.</text>
+
+<line x1="70" y1="250" x2="70" y2="40" stroke="#b5a594" stroke-width="1" marker-end="url(#m6a)"/>
+<line x1="70" y1="250" x2="634" y2="250" stroke="#b5a594" stroke-width="1" marker-end="url(#m6a)"/>
+<text x="50" y="145" class="lbm" text-anchor="middle" transform="rotate(-90 50 145)">how much can be read back &#8594;</text>
+<text x="352" y="288" class="lbm" text-anchor="middle">lag since the token was written &#8594;</text>
+
+<line x1="400" y1="44" x2="400" y2="250" stroke="#a8543f" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="400" y="268" class="lbm" text-anchor="middle" fill="#a8543f">window ends</text>
+
+<path d="M 70 62 H 400 V 248" stroke="#9a7048" stroke-width="1.8" fill="none"/>
+<text x="78" y="55" class="lb" fill="#9a7048">KV attention: verbatim inside the window, nothing after it</text>
+
+<path d="M 70 62 C 100 110, 150 140, 240 155 S 460 175, 630 184" stroke="#b5a594" stroke-width="1.2" fill="none" stroke-dasharray="1.5 3"/>
+<line x1="412" y1="157" x2="426" y2="157" stroke="#b5a594" stroke-width="1.2" stroke-dasharray="1.5 3"/><text x="432" y="160" class="lbm">human recall, the Ebbinghaus shape</text>
+
+<path d="M 70 90 C 110 140, 170 165, 250 178 S 440 200, 630 210" stroke="#6b7a52" stroke-width="1.8" fill="none"/>
+<text x="628" y="228" class="lb" fill="#6b7a52" text-anchor="end">SSM / gated RNN: Mamba, RWKV, RetNet</text>
+
+<path d="M 70 72 C 90 175, 120 222, 190 234 L 630 240" stroke="#a8543f" stroke-width="1.3" fill="none"/>
+<text x="175" y="226" class="lbm" fill="#a8543f">TTT with a large step: fastest to fade</text>
+
+<line x1="300" y1="66" x2="300" y2="184" stroke="#3d342b" stroke-width="0.8"/>
+<line x1="296" y1="66" x2="304" y2="66" stroke="#3d342b" stroke-width="0.8"/>
+<line x1="296" y1="184" x2="304" y2="184" stroke="#3d342b" stroke-width="0.8"/>
+<text x="306" y="110" class="lbm">the absolute</text>
+<text x="306" y="123" class="lbm">retention gap</text>
+
+<text x="412" y="100" class="lbm">past the window, only the slopes are left</text>
+</svg>
+<figcaption>Heights are illustrative. The shapes are the argument. Inside the window, KV attention's curve is above the gated state's at every lag. Past it, the order flips. Linear attention and DeltaNet aren't drawn because their forgetting isn't a function of lag. The human curve is shown for its form only, not its level.</figcaption>
+</figure>
+
+KV attention's curve is a step. Inside the window, everything is there, verbatim, at lag one and at lag ten thousand. Past the window, nothing is. The gated row forgets on a slope instead. Every step multiplies the state by a number a little below one. So whatever a token wrote fades a bit with each token that follows. In RetNet that number is fixed, and the fade is a clean exponential. In Mamba each channel of the state has its own rate, and the input sets that rate token by token. Recent versions of RWKV do the same. Add up many exponentials with different rates and the sum no longer looks like an exponential. It looks like a power law: steep early loss, then a long tail. That's the shape Ebbinghaus drew in 1885 and the one Wixted and Ebbesen fit to human recall a century later. So the slope is the human-looking one, and the step isn't. Nobody keeps a conversation verbatim for eight thousand words and then loses all of it at once.
+
+But look at where the curves sit, not only how they bend. Inside the window the gated state's curve is under KV attention's everywhere. A gated state is lossy from the moment a token is written, and it keeps losing. The copying results from Jelassi and colleagues and the recall results from the Zoology paper both measure this gap. Past the window the order flips, because KV attention has nothing left and the state still has its tail. Mamba and RWKV forget more like a person does, and they remember less than a Transformer does. Both things are true, and which one matters depends on whether your task fits inside the window.
+
+DeltaNet isn't on that plot, and that's informative. Its forgetting isn't a function of lag at all. An association survives until the same key is written again, then it's gone, however old or new it was. Linear attention is missing for a related reason. What blurs it is how many different keys have been written since, not how much time has passed. Lag is only the right axis for the memories that decay.
+
+Curves like these are a better comparison than another Mamba-versus-Transformer-versus-TTT benchmark, because you can control what produces them. Build an online task whose statistics shift partway through. Keys get reassigned. Popularity follows a heavy tail. A new key family shows up in a burst. Junk arrives that should be ignored. Then ask each substrate two things. How fast does it pick up the new pattern? How much of the old one does it still get right? The answers aren't scalars. They're curves, and the curve is the architecture's signature.
 
 A few predictions fall out, and all of them are cheap to test:
 
 - Linear attention will be slow to pick up a reassigned key. The new value has to out-vote the old one, and that takes repeated writes. It will also get blurrier on every key, old and new, as the number of *distinct* keys grows. What hurts it is interference, not forgetting.
 - DeltaNet cares less about how many keys there are. What hurts it is how often a key changes meaning. Each reassignment wipes out the old value, so retention should drop as the *reassignment rate* goes up.
-- A TTT memory with an MLP should adapt fastest when the stream shifts, and forget the most. Regularize it and the gap closes. The fixes that work should be the ones continual learning already knows: decay toward an anchor, an EWC-style penalty, replay.
+- A TTT memory with an MLP should adapt fastest when the stream shifts, and forget the most. Regularize it and the gap closes. The fixes that work should be the ones continual learning already knows: decay toward the starting weights, an EWC-style penalty, replay.
 - Surprise-gated writes should help when most tokens are routine, and hurt when the surprise signal is off. The obvious trap is junk that's novel but useless. Real data is full of that.
 
 ---
@@ -376,13 +427,13 @@ A few predictions fall out, and all of them are cheap to test:
 
 Going in, the differences between these architectures looked like efficiency differences. That's how the papers frame them. Coming out, efficiency looks more like the constraint and memory policy like the actual content. A few questions kept showing up no matter which family I read, and none of them have clean answers yet.
 
-**How much can a fixed state hold?** For SSMs this is the whole ballgame. We have real capacity results for the linear case and mostly intuition for the selective one.
+**How much can a fixed state hold?** For SSMs this is the whole question. We have real capacity results for the linear case and mostly intuition for the selective one.
 
 **What deserves to be written?** Surprise is one signal. Reward, downstream utility and predicted future relevance are others. None of them is obviously right. It's the same question as what an agent should put in its scratchpad, and it's just as open there. [An earlier post on agent memory](/research%20blog/ai%20research/from-memory-to-learning-continual-learning-for-llm-agents/) ran into the same wall from the other side.
 
-**Is forgetting a bug or a feature?** In classical continual learning it's the bug with a name. In a memory that has to survive a shifting stream, decay is doing real work. It encodes a prior: recent information matters more. Architectures that *can't* forget, plain linear attention and unbounded stores among them, aren't obviously better than the ones that can. Over long horizons they're probably worse.
+**Is forgetting a bug or a feature?** In classical continual learning it's the bug with a name. In a memory that has to survive a shifting stream, decay is doing real work. It encodes a prior: recent information matters more. Architectures that *can't* forget, plain linear attention and ever-growing stores among them, aren't obviously better than the ones that can. Over long horizons they're probably worse.
 
-**Can you compose substrates?** The most interesting recent systems are hybrids. Attention for sharp short-term recall. A recurrent or fast-weight state for compressed medium-term context. An external index for the long tail. That's roughly the human split between working, semantic and episodic memory, which is either encouraging or a sign of pattern-matching. Either way the question stops being which substrate wins. It becomes how to coordinate the write and forgetting rules across several at once, and nobody has a good answer to that yet.
+**Can you compose substrates?** The most interesting recent systems mix several kinds. Attention for sharp short-term recall. A recurrent or fast-weight state for compressed medium-term context. An external index for the long tail. That's roughly the human split between working, semantic and episodic memory, which is either encouraging or a sign of seeing patterns that aren't there. Either way the question stops being which substrate wins. It becomes how to coordinate the write and forgetting rules across several at once. Nobody has a good answer to that yet.
 
 A sequence architecture is an online learning algorithm for its own memory. The axis that matters most isn't FLOPs or context length. It's where the design sits on the plasticity–retention frontier. Most papers report the first two. Almost none report the third.
 
@@ -403,6 +454,7 @@ References:
 - Dao & Gu, *Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality* (Mamba-2), ICML 2024 — [arXiv:2405.21060](https://arxiv.org/abs/2405.21060)
 - Sun et al., *Retentive Network: A Successor to Transformer for Large Language Models*, 2023 — [arXiv:2307.08621](https://arxiv.org/abs/2307.08621)
 - Peng et al., *RWKV: Reinventing RNNs for the Transformer Era*, Findings of EMNLP 2023 — [arXiv:2305.13048](https://arxiv.org/abs/2305.13048)
+- Peng et al., *Eagle and Finch: RWKV with Matrix-Valued States and Dynamic Recurrence* (RWKV-5 and RWKV-6), 2024 — [arXiv:2404.05892](https://arxiv.org/abs/2404.05892)
 - Peng et al., *RWKV-7 "Goose" with Expressive Dynamic State Evolution*, 2025 — [arXiv:2503.14456](https://arxiv.org/abs/2503.14456)
 - Qin, Yang & Zhong, *Hierarchically Gated Recurrent Neural Network for Sequence Modeling* (HGRN), NeurIPS 2023 — [arXiv:2311.04823](https://arxiv.org/abs/2311.04823)
 - Sun et al., *Learning to (Learn at Test Time): RNNs with Expressive Hidden States* (TTT), 2024 — [arXiv:2407.04620](https://arxiv.org/abs/2407.04620)
@@ -423,7 +475,7 @@ References:
 - Jelassi et al., *Repeat After Me: Transformers are Better than State Space Models at Copying*, ICML 2024 — [arXiv:2402.01032](https://arxiv.org/abs/2402.01032)
 - Kirkpatrick et al., *Overcoming Catastrophic Forgetting in Neural Networks* (EWC), PNAS 2017 — [arXiv:1612.00796](https://arxiv.org/abs/1612.00796)
 
-The stability–plasticity dilemma predates all of this; the standard reference is Grossberg's adaptive resonance work from the 1970s and 1980s, later summarized in Carpenter and Grossberg's ART papers. Positions in the plasticity–retention figure are illustrative rather than measured, and the reused-key figure assumes $\beta = 1$ and unit-norm keys so that the update is a clean replacement.
+The stability–plasticity dilemma predates all of this; the standard reference is Grossberg's adaptive resonance work from the 1970s and 1980s, later summarized in Carpenter and Grossberg's ART papers. The human forgetting curve goes back to Ebbinghaus, *Über das Gedächtnis*, 1885; Wixted and Ebbesen, *On the Form of Forgetting*, Psychological Science 1991, is the standard case for the power-law fit. The claim that a gated state forgets along something like that shape is an argument from the spread of decay rates, not a measurement. Positions in the plasticity–retention figure and heights in the forgetting-curve figure are illustrative rather than measured, and the reused-key figure assumes $\beta = 1$ and unit-norm keys so that the update is a clean replacement.
 
 ---
 
