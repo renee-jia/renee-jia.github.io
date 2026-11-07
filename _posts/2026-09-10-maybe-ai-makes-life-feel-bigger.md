@@ -5,6 +5,7 @@ categories:
   - Research Blog
   - Random Walk
 research_kind: life
+permalink: "/random walk/maybe-ai-makes-life-feel-bigger/"
 tags:
   - personal
   - journal
