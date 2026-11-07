@@ -27,6 +27,13 @@ Writing to figure out what I think.
 {% include post-preview.html post=post %}
 {% endfor %}
 
+## About life
+
+{% assign life_posts = research_posts | where: "research_kind", "life" %}
+{% for post in life_posts %}
+{% include post-preview.html post=post %}
+{% endfor %}
+
 {% capture unfiled %}{% for post in research_posts %}{% unless post.research_kind %}{% include post-preview.html post=post %}{% endunless %}{% endfor %}{% endcapture %}
 {% assign unfiled_trimmed = unfiled | strip %}
 {% if unfiled_trimmed.size > 0 %}

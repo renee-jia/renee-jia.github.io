@@ -2,27 +2,29 @@
 title: "Maybe AI Makes an Individual Life Feel Bigger"
 date: 2026-09-10
 categories:
+  - Research Blog
   - Random Walk
+research_kind: life
 tags:
   - personal
   - journal
   - random thoughts
-excerpt: "Some of the anxiety about AI is practical. Some of it, I suspect, is about ego. And underneath both, a quieter question I keep coming back to: what if I stopped measuring my life by how fast I can run, or how hard I am to catch?"
+excerpt: "Some of the worry about AI is about work. Some of it, I think, is about ego. And under both, a question I keep coming back to: what if I stopped measuring my life by how fast I can run, or how hard I am to catch?"
 read_time: "5 min read"
 layout: distill
 toc: false
-last_modified_at: 2026-09-10T20:00:00-07:00
+last_modified_at: 2026-11-07T20:00:00-08:00
 ---
 
 *Written down mostly so I stop turning it over in my head at night.*
 
 Lately I've been thinking about why AI makes so many people anxious.
 
-The obvious answer is work. I'm a programmer, and I can already see that AI can do a surprisingly large part of what I do in a day. Not everything, and not without context or judgment. But inside a well-defined problem, it sometimes feels like 80% of the actual work can be done with its help.
+The easy answer is work. I write code for a living, and I can already see AI doing a big part of what I do in a day. Not all of it, and not without someone to give it context and check its judgment. But when the problem is clear, maybe 80% of the actual work can be done with its help.
 
-For a while there was a comforting line we could draw: machines would take over the repetitive stuff, but not the things that need real intelligence or creativity.
+For a while there was a line we could draw, and it was a comforting one. Machines would take the repetitive work. The parts that needed real thinking or creativity would stay with us.
 
-That line has become hard to see. Math, coding, research, writing, drawing, design. These are exactly the things we used to associate with intelligence and years of training. They were hard to learn, and being good at them was rare. Now AI is getting good at many of them too.
+That line is getting hard to see. Math, coding, research, writing, drawing, design. These were the things we pointed to when we talked about intelligence. They took years to learn, and not many people got good at them. Now AI is getting good at a lot of them too.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A handwritten list titled things only people can do, with most items crossed out">
@@ -54,19 +56,19 @@ That line has become hard to see. Math, coding, research, writing, drawing, desi
 <figcaption>A list I could have written five years ago. I keep having to cross things off.</figcaption>
 </figure>
 
-And I wonder if that is why this moment feels so unsettling. It isn't only that a tool can do part of my job. It's that **the part it can do was supposed to be the special part.**
+I think that is why this moment feels so strange. It isn't just that a tool can do part of my job. It's that the part it can do was supposed to be the special part.
 
 ## Maybe some of it is ego
 
-We have always had a hierarchy of skills. Some jobs count as more intellectual than others. Some abilities carry more prestige because they are hard to acquire. If you can solve hard math problems, write sophisticated software, or make beautiful art, people read that as evidence of something deeper.
+We have always ranked skills. Some jobs count as smarter than others. Some abilities carry more prestige because they are hard to pick up. If you can solve hard math problems, write serious software, or make beautiful art, people take it as a sign of something deeper in you.
 
-To be fair, the scarcity was real. These things really do take years.
+To be fair, the rarity was real. These things really do take years.
 
-But somewhere along the way, I think we started **confusing difficulty, scarcity, and value.** Because something was difficult for us, we assumed it must be intrinsically difficult. Because only a few people could do it well, we assumed it was some elevated form of intelligence. I'm not sure arrogance is the right word for that. But it was something close.
+But somewhere along the way, I think we mixed up three things. How hard something is. How rare it is. How much it is worth. Because something was hard for us, we assumed it was hard in itself. Because only a few people could do it well, we assumed it was a higher kind of intelligence. I'm not sure arrogance is the right word. But it was something close to it.
 
-So when AI walks into exactly the territory we were proudest of, the discomfort isn't only about losing jobs. There is also a small injury to the ego. If I spent ten years becoming good at something, and the barrier to doing it suddenly drops, of course it feels like something was taken from me.
+So when AI walks right into the areas we were proudest of, the discomfort isn't only about jobs. There is a small bruise to the ego too. Say I spent ten years getting good at something, and then the bar for doing it suddenly drops. Of course it feels like something was taken from me.
 
-**But what became less valuable was not the activity itself. It was its scarcity.** And those are different things.
+But what lost value wasn't the thing itself. It was how rare it was. And those are not the same.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A doodle of a mountain with a long winding path labeled ten years and a short path labeled an afternoon, both ending at the same peak">
@@ -93,11 +95,11 @@ So when AI walks into exactly the territory we were proudest of, the discomfort 
 <figcaption>The mountain didn't get any shorter. Only the climb got cheaper.</figcaption>
 </figure>
 
-I still enjoy programming even if code becomes easy to write. Math doesn't become less beautiful because a machine can solve the problem. We were just used to attaching the meaning to the fact that these things were hard.
+I still enjoy programming, even if code gets easy to write. Math is not less beautiful because a machine can solve the problem. We just got used to tying the meaning to the difficulty.
 
-There is something humbling in that. I also find it strangely freeing. If intelligence isn't a ladder, with some activities sitting permanently above others, then I don't have to spend my life defending whichever rung I happened to climb.
+That is humbling. It is also, oddly, a relief. If intelligence isn't a ladder, with some things sitting above others for good, then I can stop guarding my rung.
 
-**I can just be interested in things.**
+I can just be interested in things.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A doodle of a ladder with rungs labeled by fields and a stick figure clinging to one rung, next to an open field with words scattered around and a stick figure wandering between them">
@@ -134,19 +136,19 @@ There is something humbling in that. I also find it strangely freeing. If intell
 
 ## What if life is about how much I get to experience?
 
-That is the thought that loosened the anxiety a little for me. What if I don't need to measure my life by how fast I can run, or how hard I am to catch? What if life is, at least partly, **about how much I get to experience?**
+This is the thought that loosened the anxiety a little for me. What if I don't have to measure my life by how fast I can run, or how hard I am to catch? What if life is, at least partly, about how much I get to experience?
 
-Before, entering a completely new field was expensive. Not in money so much as in time and energy. You had to find the right books, learn the vocabulary, figure out which questions were stupid and which ones were actually interesting, and spend hours stuck on things an expert could have explained in five minutes. Often the friction alone was enough to stop you.
+It used to be expensive to walk into a new field. Not in money so much as in time and energy. You had to find the right books and learn the words. You had to work out which questions were silly and which were worth asking. You sat stuck for hours on things an expert could have cleared up in five minutes. Often the friction alone was enough to stop you.
 
-That friction is disappearing surprisingly quickly. I can get curious about something in the morning and know enough by the afternoon to ask interesting questions. I can read a paper outside my field without getting stuck on every term. I can wander into economics, biology, philosophy, or design simply because something made me curious.
+That friction is disappearing fast. I can get curious about something in the morning and know enough by the afternoon to ask a decent question. I can read a paper outside my field without tripping on every term. I can wander into economics, biology, philosophy, or design just because something caught my eye.
 
-None of that makes me an expert. **It just makes exploring cheap.** And I'm starting to think that matters more to me than producing more work.
+None of that makes me an expert. It just makes looking around cheap. And I'm starting to think that matters more to me than getting more done.
 
-I've been calling this **the density of a life.** We usually measure life in years. But two lives of the same length can hold very different amounts of exploration, surprise, and change. Maybe technology can change that second dimension. Maybe I get to fit more lives into one life.
+I've started calling this the density of a life. We usually measure a life in years. But two lives of the same length can hold very different amounts of exploring, surprise, and change. Maybe technology can change that second dimension. Maybe I get to fit more lives into one.
 
-If something that used to take me a month now takes a week, the obvious reading is that I can produce four times as much. I'm not sure I want that. I don't want a future where I answer four times as many emails and optimize every hour of my day.
+If something that used to take me a month now takes a week, the obvious reading is that I can do four times as much. I'm not sure I want that. I don't want a future where I answer four times as many emails and squeeze every hour of the day.
 
-What I want is the other three weeks. Learn another subject. Try a new sport. Build something small. Walk into rooms I would never have entered. Spend a while following a question that may lead nowhere.
+What I want is the other three weeks. Learn another subject. Try a new sport. Build something small. Walk into rooms I would never have walked into. Spend a while on a question that may go nowhere.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four hand-drawn planner boxes for four weeks: the project, a new sport, a paper from another field, and a question that went nowhere">
@@ -181,20 +183,20 @@ What I want is the other three weeks. Learn another subject. Try a new sport. Bu
 <figcaption>Same four weeks. A different kind of full.</figcaption>
 </figure>
 
-Sometimes those things collide. Something I learn casually changes how I think about my work. A side project turns into a research question. Most of these detours won't lead anywhere important, but they don't need to. There is value in having had them at all.
+Sometimes these things run into each other. Something I picked up on the side changes how I think about my work. A small project turns into a research question. Most of these detours won't lead anywhere big, and they don't need to. Having had them is enough.
 
-That is what I mean by a denser life. Not more productivity in every hour, but **more kinds of experience in the same lifetime.**
+That is what I mean by a denser life. Not more output per hour. More kinds of experience in the same number of years.
 
 ## Curious, anyway
 
-None of this means the anxiety is wrong. I don't know what AI will do to work. Some jobs will disappear. Others will change dramatically. And it may be genuinely hard to build an identity around a craft while the economics of that craft change underneath you. I feel some of that too.
+None of this means the anxiety is wrong. I don't know what AI will do to work. Some jobs will go away. Others will change dramatically. And it may be genuinely hard to build an identity around a craft while the economics of that craft change underneath you. I feel some of that too.
 
-But lately, alongside the anxiety, I've started feeling something else. Curiosity. If the barriers between fields keep getting lower, I wonder how many things I'll get to try that I otherwise never would have touched.
+But lately, next to the anxiety, there is something else. Curiosity. If the walls between fields keep getting lower, I wonder how many things I'll get to try that I would never have touched otherwise.
 
-Maybe the people who struggle most with this will be those of us who built too much of our identity around being able to do something other people couldn't. And maybe there is a different way to orient: not around protecting the scarcity of what we already know, but around **staying curious enough to keep moving into what we don't.**
+Maybe the people who find this hardest will be those of us who built too much of ourselves around a skill few others had. And maybe there is another way to stand. Not guarding what we already know because it is rare, but staying curious enough to keep walking into what we don't.
 
-I don't know if that's the right way to think about the future. It's just a thought I've been having. But for someone who enjoys learning things simply because they're interesting, there has probably never been a time when it was this easy to ask a question and keep going.
+I don't know if this is the right way to think about the future. It's just a thought I keep having. But if you like learning things just because they are interesting, there has probably never been a better time. It has never been this easy to ask a question and keep going.
 
-Maybe intelligence becoming cheaper doesn't have to make life feel smaller.
+Maybe intelligence getting cheaper doesn't have to make a life feel smaller.
 
-Maybe it gives us **more room to live.**
+Maybe it leaves more room to live.
