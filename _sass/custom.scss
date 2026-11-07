@@ -1027,3 +1027,77 @@ body.poker .page__content {
     height: 132px;
   }
 }
+
+/* ---------- About page: research focus + threads ---------- */
+.about-focus {
+  margin: 0.2rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid $accent;
+}
+
+.page__content .about-focus p.about-focus__kicker {
+  font-family: $font-sans !important;
+  font-size: $fs-xs !important;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $accent !important;
+  margin: 0 0 0.25rem !important;
+  line-height: 1.4;
+}
+
+.page__content .about-focus p.about-focus__title {
+  font-family: $font-serif !important;
+  font-size: $fs-h3 !important;
+  font-weight: 500;
+  color: $ink-strong !important;
+  margin: 0 0 0.5rem !important;
+  line-height: 1.3;
+}
+
+.about-threads {
+  margin: 1rem 0 1.3rem;
+  /* close the index with the same rule that separates its entries, so the
+     prose below reads as a separate block */
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid $rule;
+}
+
+.about-thread + .about-thread {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid $rule;
+}
+
+/* Threads are a compact index, one step down from body copy. */
+.page__content .about-thread h3 {
+  font-size: $fs-body !important;
+  font-weight: 600;
+  margin: 0 0 0.2rem !important;
+  line-height: 1.35;
+}
+
+.page__content .about-thread p {
+  font-size: $fs-meta !important;
+  line-height: 1.55;
+  margin: 0 !important;
+}
+
+.page__content .about-thread p.about-thread__links {
+  font-family: $font-sans !important;
+  font-size: $fs-xs !important;
+  color: $ink-muted !important;
+  margin-top: 0.3rem !important;
+  line-height: 1.5;
+
+  .sep {
+    margin: 0 0.45em;
+    color: $ink-faint;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-focus {
+    text-align: left;
+  }
+}

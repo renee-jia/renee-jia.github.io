@@ -14,23 +14,39 @@ sidebar:
   <div class="about-head__text">
     <h1>Renee Jia</h1>
     <p class="about-role">AI researcher at Meta &nbsp;|&nbsp; ex-Google</p>
-    <p class="about-intro">I think a lot about how intelligent systems remember, reason, and change over time — especially when the history is long and the user is a real person.</p>
+    <div class="about-focus">
+      <p class="about-focus__title">Learning, Memory &amp; Reasoning</p>
+      <p class="about-intro">Researching how intelligent models learn from sequential experience, maintain and update knowledge over time, and use internal information for reliable reasoning.</p>
+    </div>
   </div>
   <img class="about-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/images/avatar.jpg" alt="Renee Jia">
 </div>
 
-## What I Do
+## Research Interest
 
-Most of my work sits somewhere between memory, personalization, and the slightly uncomfortable question of whether a model is doing what we think it's doing.
+I study how models learn and remember, mostly through the lens of mid & post-training.
 
-- **Long-horizon memory**: how a system keeps anything useful from a long stretch of interaction — architectures, long-context modeling, compression and retrieval, representations that don't evaporate
-- **Reasoning & model behavior**: chain-of-thought, faithfulness, reward hacking, shortcut learning, and trying to evaluate what models are actually up to
-- **Post-training & agents**: reinforcement learning, reward modeling, adaptation, and how agents behave when the task doesn't end in one turn
-- **Personalization & recommendation**: sequence learning, self-supervised user modeling, graphs, and the practical problem of doing this at scale
+<div class="about-threads">
+  <div class="about-thread">
+    <h3>Learning from sequential experience</h3>
+    <p>Supervised fine-tuning and what its data actually teaches, RL and reward design for multi-turn agents, continual learning without forgetting.</p>
+    <p class="about-thread__links">Writing: <a href="{{ site.baseurl }}{% post_url 2026-09-09-from-memory-to-learning-continual-learning-for-llm-agents %}">From Memory to Learning</a><span class="sep">·</span><a href="{{ site.baseurl }}{% post_url 2026-09-20-every-sequence-model-is-a-memory-algorithm %}">Every Sequence Model Is a Memory Algorithm</a></p>
+  </div>
+  <div class="about-thread">
+    <h3>Maintaining and updating knowledge over time</h3>
+    <p>Memory architectures for long-horizon agents, what post-training overwrites, plasticity versus retention, moving knowledge from context into weights.</p>
+    <p class="about-thread__links">Writing: <a href="{{ site.baseurl }}{% post_url 2026-07-12-distillation-in-llms-from-context-to-weights %}">Distillation in LLMs</a></p>
+  </div>
+  <div class="about-thread">
+    <h3>Reasoning with internal information</h3>
+    <p>Chain-of-thought faithfulness, shortcuts and reward hacking, metadata that silently steers behavior, evaluations that catch regressions.</p>
+    <p class="about-thread__links">Writing: <a href="https://arxiv.org/abs/2609.25366">From Decorative to Load-Bearing</a><span class="sep">·</span><a href="{{ site.baseurl }}{% post_url 2026-04-10-what-if-the-model-has-already-made-up-its-mind %}">What If the Model Has Already Made Up Its Mind?</a></p>
+  </div>
+</div>
 
-Underneath all of that, I want systems that can accumulate experience, know someone a little, reason somewhat reliably, and adapt through interaction. I also care about the jump from a clean research question to something that has to live in a large production system — same ideas, just with more users and less patience.
+The same questions show up in production as user sequence modeling and personalization at scale. There the history is long, the user is a real person, and the system has far less patience than a research question does. I like working on both ends of that gap.
 
-My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to user sequence representation, teacher modeling, and distillation at Google, and now long-horizon user memory and sequence representation learning at Meta.
+My path has run from research at Georgia Tech, Waterloo, and Harvard on reinforcement learning in text adventure games, to user sequence representation, teacher modeling, and distillation at Google, and now long-horizon user memory and sequence representation learning at Meta.
 
 ## Publications
 
@@ -57,7 +73,6 @@ My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to use
         <span class="pub-title">Correct Labels Are Not Enough: Reliable Metadata Can Silently Control Model Behavior</span>
         <span class="pub-authors"><strong>Renee Jia</strong>, Jinzhou Wu</span>
         <span class="pub-venue">NeurIPS 2026 Workshop: Trustworthy AI for Good (AI4Good)</span>
-        <span class="pub-venue">NeurIPS 2026 Workshop: Trust-AI-Eval: Can We Trust AI Evaluation? (TAE)</span>
       </div>
     </li>
     <li>
@@ -106,9 +121,7 @@ My journey has gone from research at Georgia Tech, Waterloo, and Harvard, to use
 
 ## Elsewhere
 
-When I'm not thinking about AI models, you might find me:
-- **Teaching snowboarding** as a PSIA-AASI Level 1 instructor
-- **Playing tournament poker** (check out my results at [Hendon Mob](https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327))
+Off the clock: teaching snowboarding as a PSIA-AASI Level 1 instructor, and playing tournament poker ([results](https://pokerdb.thehendonmob.com/player.php?a=r&n=1103327)).
 
 ## Contact
 
