@@ -10,7 +10,7 @@ tags:
   - reward
   - multi-task learning
   - continual learning
-excerpt: "One reward was enough when the tasks were small. Life turned out to have many targets, each on its own clock, and they keep changing. Seeing it this way makes a lot of things clear. It doesn't make life solvable, and maybe that's the interesting part."
+excerpt: "One reward was enough when the tasks were small. Life turned out to have many targets, each on its own clock, and they keep changing. Seeing it this way makes a lot of things clearer. It doesn't make life solvable, and maybe that's the interesting part."
 read_time: "8 min read"
 layout: distill
 toc: false
@@ -19,19 +19,19 @@ last_modified_at: 2026-11-07T20:00:00-08:00
 
 *Different targets, different paces, and rewards I can't fully trust.*
 
-When I was a kid, rewards were easy to read. Get a hundred on a test, and the people around you stop telling you what to do. You get your freedom back. Finish your homework, and the rest of the day is yours.
+When I was a kid, rewards were easy to read. If you got a hundred on a test, the adults left you alone for a while. If you finished your homework, the rest of the day was yours.
 
-The tasks were simple, so the reward worked. A math quiz has right answers. One number told me most of what I needed to know.
+It worked because the tasks were simple. A math quiz has right answers, so one number told me most of what I needed to know.
 
-Then the tasks got bigger. Picking a major. Choosing a job. Deciding who to spend time with. Building something over years. The rewards still came in the same shape: one number, one yes or no, one "great work." But they told me less and less.
+Then the tasks got bigger: picking a major, choosing a job, deciding who to spend time with. The rewards still looked the same. A number, a yes or no, a "great work." But they told me less and less.
 
-It took me a long time to notice. The more complex the task, the more a single reward can mislead.
+It took me a long time to notice this. The more complex the task, the more a single reward can mislead.
 
 ## One reward, long task
 
-I spend a lot of time around machine learning, and this problem shows up there constantly. On a short task, one reward at the end is fine. On a long task with many steps, it gets shaky. It says whether the whole thing worked. It doesn't say which steps helped and which ones hurt. That's the credit assignment problem.
+I spend a lot of time around machine learning, and the same problem shows up there all the time. On a short task, one reward at the end is fine. On a long task with many steps, it gets shaky. It tells you whether the whole thing worked, but not which steps helped and which ones hurt. This is called the credit assignment problem.
 
-And if the reward is even a little off, a model will happily learn to chase the reward instead of the goal. That's reward hacking. I wrote about this for AI agents in [an earlier post]({% post_url 2026-09-04-why-final-outcome-rewards-are-not-enough %}). At some point I realized my own life had the same shape.
+There's also reward hacking. If the reward is even a little off, a model will happily chase the reward instead of the goal. I wrote about both for AI agents in [an earlier post]({% post_url 2026-09-04-why-final-outcome-rewards-are-not-enough %}). At some point I realized my own life had the same shape.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left, a short task: a paper with 2 plus 3 equals 5 and a check mark. Right, a long task: a winding path of many steps ending in a box that says promoted? no, with question marks asking which step mattered.">
@@ -60,11 +60,11 @@ And if the reward is even a little off, a model will happily learn to chase the 
 <figcaption>On a short task, one reward says a lot. On a long one, it can&#39;t tell you which steps mattered.</figcaption>
 </figure>
 
-A promotion, or not getting one, is one signal for years of work. It folds in skill, a manager's taste, what the team needed that quarter, who happened to notice, and plain luck. I used to read praise as proof I was on the right path, and silence as proof I wasn't good enough. Now I think the signal carries some information. It just isn't the answer key.
+Take a promotion. Whether I get one or not, it's a single signal for years of work. It mixes together skill, a manager's taste, what the team needed that quarter, who happened to notice, and plain luck. I used to read praise as proof I was on the right path, and silence as proof I wasn't good enough. Now I think the signal tells me something, but it isn't an answer key.
 
-Some rewards also arrive late. A choice I make today might only show what it meant years from now. By then, the short-term reward has long since told me something else.
+Some rewards also arrive late. A choice I make today might not show what it meant until years from now. By then the short-term reward has already told me a different story.
 
-And I only ever get to see one path. I picked A, so I know what happened on A. I'll never see the same me, at the same moment, take B.
+And I only ever get to see one path. If I pick A, I know how A turned out. I'll never get to watch the same me, at the same moment, pick B.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A stick figure walks to a fork. One path goes up and right to a label saying what happened, with a note asking good, lucky, or both. The other path is dashed and disappears into fog, labeled what would have happened.">
@@ -93,15 +93,15 @@ And I only ever get to see one path. I picked A, so I know what happened on A. I
 <figcaption>You only ever walk one path. The other one stays in the fog.</figcaption>
 </figure>
 
-So one outcome can't really tell me whether a decision was good. Good decisions end badly sometimes. Bad ones get lucky. These days, when I look back at a choice, I try to remember what I knew at the time, not just how it turned out.
+So one outcome can't really tell me whether a decision was good. Good decisions sometimes end badly, and bad ones get lucky. When I look back at a choice now, I try to remember what I knew at the time, not just how it turned out.
 
-There's a quieter problem too. Goodhart's law is usually put this way: when a measure becomes a target, it ceases to be a good measure. Grades, titles, and pay started out as rough signs of something real. I never thought I cared about them that much. But it's easy to get pulled into the rat race anyway. Once everyone around you is chasing the same numbers, you end up chasing them too, and they stop pointing at anything real.
+There's a quieter problem too. Goodhart's law says that when a measure becomes a target, it stops being a good measure. Grades, titles, and pay started out as rough signs of something real. I never thought I cared about them that much, but it's easy to get pulled into the rat race anyway. When everyone around you is chasing the same numbers, you end up chasing them too. After a while the numbers stop pointing at anything real.
 
 ## Maybe life has more than one target
 
 If one reward can't describe a long task, maybe part of the problem is that I've been treating life as if it had one target.
 
-Maybe it's closer to multi-task learning. Work is one target. So is health. So are the people I love, the things I'm curious about, the things I make, some quiet, and some freedom.
+I think it's closer to multi-task learning. Work is one target. Health is another. Then there are the people I love, the things I'm curious about, the things I want to make, and some quiet and freedom for myself.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left, a single gauge labeled one score. Right, a lopsided shape on a chart with seven axes: work, health, people, curiosity, making things, quiet, freedom.">
@@ -132,17 +132,17 @@ Maybe it's closer to multi-task learning. Work is one target. So is health. So a
 <figcaption>A report card has one number. A life has a lot more targets than that.</figcaption>
 </figure>
 
-Some of these help each other. A good friendship makes a hard week easier. A long walk helps me think. Others compete for the same hours and the same attention. And a few don't feel like targets at all. Health, basic dignity, a couple of principles. Those feel more like floors than things to trade.
+Some of these help each other. A good friendship makes a hard week easier, and a long walk helps me think. Others compete for the same hours and the same attention. And a few don't feel like targets at all, like health, basic dignity, and a couple of principles. Those are more like floors. I don't want to trade them for anything.
 
-Seeing it this way changed how I read rewards. A good review at work is a signal about one target. It says almost nothing about the rest.
+Seeing it this way changed how I read rewards. A good review at work tells me about one target. It says almost nothing about the rest.
 
 ## Different targets, different settings
 
-This is the part that surprised me most. If these are different targets, there's no reason they should all be learned the same way.
+This is the part that surprised me most. If these are different targets, there's no reason to learn them all the same way.
 
-In ML, every problem comes with its own settings. The learning rate. How often you update. How far ahead you look. How much you explore. Get those wrong, and even a good model learns badly.
+In ML, every problem comes with its own settings: the learning rate, how often you update, how far ahead you look, how much you explore. If you get those wrong, even a good model learns badly.
 
-Life's targets seem to run on different clocks too. Work skills can move fast, with feedback in weeks. Health is slow, and big swings rarely stick. Relationships are slower still, built more by showing up than by any single moment. And curiosity barely has feedback at all, which may be part of why it's fun.
+Life's targets seem to run on different clocks too. Work skills can move fast, with feedback in weeks. Health is slow, and big swings rarely stick. Relationships are slower still, and they're built more by showing up than by any single moment. Curiosity barely has feedback at all, which may be part of why it's fun.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn table. Work skills: fast pace, feedback in weeks, try, adjust, repeat. Health: slow and steady, feedback in months, small daily habits. Relationships: slower still, feedback in years, keep showing up. Curiosity: wander, feedback maybe never, explore and don't score. A band at the bottom says shared by all: sleep, attention, how you treat people.">
@@ -181,21 +181,21 @@ Life's targets seem to run on different clocks too. Work skills can move fast, w
 <figcaption>Same person, different targets, different settings.</figcaption>
 </figure>
 
-Some settings are shared, though. In multi-task learning, many tasks share one backbone, and each gets its own small head on top. Life seems to have a backbone too. Sleep, attention, how I treat people, how I handle a setback... When those are in good shape, everything feels a little easier. When they slip, everything gets harder all at once.
+Some settings are shared, though. In multi-task learning, many tasks share one backbone, and each task gets its own small head on top. Life seems to have a backbone too: sleep, attention, how I treat people, how I handle a setback. When those are in good shape, everything feels a little easier. When they slip, everything gets harder at once.
 
-And sometimes targets pull in opposite directions. ML calls this gradient conflict: a step that helps one task hurts another. Late nights before a deadline help work and hurt health. I used to see that as failing at balance. Now it just looks like what having more than one target feels like.
+Sometimes targets pull in opposite directions. ML calls this gradient conflict: a step that helps one task hurts another. Late nights before a deadline are good for work and bad for health. I used to think this meant I was failing at balance. Now I think it's just what having more than one target feels like.
 
 ## And the targets keep moving
 
-Even with good settings, the problem doesn't sit still. What I wanted at twenty isn't what I want now. New targets showed up: new interests, new people, new responsibilities. Some old ones split, merged, or quietly faded. In ML terms, the problem is non-stationary.
+Even with good settings, the problem doesn't sit still. What I wanted at twenty isn't what I want now. New interests, new people, and new responsibilities showed up along the way. Some old targets split or merged, and some quietly faded. In ML terms, the problem is non-stationary.
 
-That makes life look a lot like continual learning. Learning from a stream that keeps changing, while trying not to lose what's already there. Sometimes only the how changes. Sometimes how much something matters changes. And once in a while the targets themselves change.
+So life looks a lot like continual learning. You learn from a stream that keeps changing, and you try not to lose what you already have. Sometimes only the how changes. Sometimes it's how much something matters. Once in a while it's the targets themselves.
 
-Continual learning has two classic ways to fail. The first is catastrophic forgetting. You learn the new thing, and it overwrites the old one. I've seen this happen with a new job. It takes over everything, and a year later old friends, old hobbies, and old skills have just slipped away. No one decided to drop them. There was just never time to go back. In ML, one common fix is replay, revisiting a bit of the old data while learning the new. I like that idea more than I expected to.
+Continual learning has two classic ways to fail. The first is catastrophic forgetting: you learn the new thing, and it overwrites the old one. I've seen this happen with a new job. It takes over everything, and a year later the old friends, hobbies, and skills have slipped away. Nobody decided to drop them. There was just never time to go back. One common fix in ML is replay, where you revisit a bit of the old data while learning the new. I like that idea more than I expected to.
 
-The second way to fail is the opposite. Holding on so tightly that nothing new gets in. That's the stability–plasticity dilemma. Too stable, and old beliefs lock in. Too plastic, and nothing builds up.
+The second way to fail is the opposite: holding on so tightly that nothing new gets in. ML calls this tension the stability–plasticity dilemma. If you're too stable, old beliefs lock in. If you're too plastic, nothing builds up.
 
-So I've started to think forgetting isn't only a bug. Some things seem worth letting go of. Targets that don't fit anymore. Old scorecards, like the habit of waiting for a grade. A story about who I was supposed to be. Spending years on something doesn't mean I have to keep it forever.
+So I've started to think forgetting isn't only a bug. Some things are worth letting go of: targets that don't fit anymore, old scorecards like the habit of waiting for a grade, a story about who I was supposed to be. Spending years on something doesn't mean I have to keep it forever.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three cards. Keep: skills, people, ways of thinking. Let fade, drawn faded: targets that don't fit, old scorecards, who I was supposed to be. New: interests, people, questions.">
@@ -224,9 +224,9 @@ So I've started to think forgetting isn't only a bug. Some things seem worth let
 <figcaption>Continual learning isn&#39;t only adding things. It&#39;s also choosing what to keep and what to let go.</figcaption>
 </figure>
 
-What stays is what carries over: skills, people, ways of thinking. That's why changing direction rarely feels like starting from zero. ML calls this positive transfer. I wrote more about how it might work for agents in [another post]({% post_url 2026-09-09-from-memory-to-learning-continual-learning-for-llm-agents %}).
+What stays is what carries over: skills, people, ways of thinking. That's why changing direction rarely feels like starting from zero. ML calls it positive transfer, and I wrote more about how it might work for agents in [another post]({% post_url 2026-09-09-from-memory-to-learning-continual-learning-for-llm-agents %}).
 
-And learning doesn't only happen while I'm pushing. Bread is a good reminder. You knead the dough, and then you leave it alone. More kneading won't make it rise.
+Learning also doesn't only happen while I'm pushing. Bread is a good reminder. You knead the dough, and then you leave it alone. More kneading won't make it rise.
 
 <figure class="post-figure post-figure--doodle">
 <svg viewBox="0 0 660 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three bowls of dough. The first is being kneaded, the second sits next to a clock, the third has risen over the rim of the bowl.">
@@ -257,18 +257,14 @@ And learning doesn't only happen while I'm pushing. Bread is a good reminder. Yo
 <figcaption>More kneading doesn't make it rise. The waiting is part of the recipe.</figcaption>
 </figure>
 
-Something like this seems true for people too. Sleep plays a real part in how new memories settle and get reorganized. Some of the learning happens after I stop. And even on days when rest doesn't make me better at anything, I'm trying to let it be enough.
+Something like this seems true for people too. Sleep plays a real part in how new memories settle and get reorganized, so some of the learning happens after I stop. And on days when rest doesn't make me better at anything, I'm trying to let that be enough.
 
 ## Maybe it's not meant to be solved
 
-Looking at life as multi-task learning made a lot of things clearer for me. Why one reward can mislead. Why each part of life needs its own pace. Why forgetting can be part of learning.
+Thinking of life as multi-task learning made a lot of things clearer for me. I understand better why one reward can mislead, why each part of life needs its own pace, and why forgetting can be part of learning.
 
-But clear isn't the same as solved. I can tune every setting and optimize every part I can reach, for years. The targets still move. The feedback stays noisy. There's no final score at the end.
+But clear isn't the same as solved. I could keep tuning every setting for years, and the targets would still move. The feedback would still be noisy. There's no final score at the end.
 
-Maybe that's the part I like most. If there were one answer, everyone would end up living the same life. Same targets, same settings, same score.
+Maybe that's the part I like most. If there were one answer, everyone would end up living the same life. But there isn't one, and what works for one person barely works for the next. So people end up in all kinds of places, chasing all kinds of things, for reasons that don't always make sense from the outside.
 
-But there isn't one. Some mysteries stay mysteries. Some problems never get solved, only lived with. And what works for one person barely works for the next. So people end up in all kinds of places, chasing all kinds of things, for reasons that don't always make sense from the outside.
-
-That's a lot of randomness. It's also most of what makes life interesting.
-
-Maybe a problem with no clean solution isn't something to fix. Maybe it's the reason no two lives look alike.
+That's a lot of randomness. It's also most of what makes life interesting. Some problems never get solved, only lived with, and I think that's why no two lives look alike.
