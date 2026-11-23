@@ -1,6 +1,6 @@
 ---
 title: "Is Reinforcement Learning Fundamentally a Game of Distributions?"
-date: 2026-11-22
+date: 2026-11-15
 research_kind: open-problem
 categories:
   - Research Blog
@@ -15,7 +15,7 @@ excerpt: "Better reasoning, better answers, the right format, following instruct
 read_time: "8-10 min read"
 layout: distill
 toc: false
-last_modified_at: 2026-11-22T08:00:00-08:00
+last_modified_at: 2026-11-15T08:00:00-08:00
 ---
 
 A language model is usually trained in stages. Pretraining teaches it to predict text. Mid-training, when there is one, takes it deeper into a particular domain and specific tasks. Post-training then shapes how it behaves, typically with supervised fine-tuning on demonstrations first and reinforcement learning after that.
